@@ -63,9 +63,53 @@ def generaCuadruploFOR(x):
 def obtainIndex(x):
     return ID_table.index(x)+1
 
+def dimensionadas_VECTOR():
+    x = operandosList.pop(len(operandosList)-2)
+
+    operadorList.append('+')
+    opA_list.append(operandosList.pop())
+    opB_list.append(tempList[len(tempList)-1])
+    tempList.append(temp.pop(0))
+    operandosList.append(tempList[len(tempList)-1])
+    temp.append(tempList[len(tempList)-1])
+
+    #Sumar con la base
+    operadorList.append('+')
+    opA_list.append(operandosList.pop())
+    opB_list.append(values_table[obtainIndex(x)-1][4]*(-1))
+    tempList.append(temp.pop(0))
+    operandosList.append(tempList[len(tempList)-1]+200)
+    temp.append(tempList[len(tempList)-1])
+    print(operandosList)
+
+def dimensionadas_MATRIX():
+    x = operandosList.pop(len(operandosList)-3)
+    print('llega:',operandosList)
+    operadorList.append('*')
+    opA_list.append(operandosList.pop())
+    opB_list.append(values_table[obtainIndex(x)-1][3]*(-1))
+    tempList.append(temp.pop(0))
+    temp.append(tempList[len(tempList)-1])
+    print('1:',operandosList)
+
+    operadorList.append('+')
+    opA_list.append(operandosList.pop())
+    opB_list.append(tempList[len(tempList)-1])
+    tempList.append(temp.pop(0))
+    operandosList.append(tempList[len(tempList)-1])
+    temp.append(tempList[len(tempList)-1])
+
+    #Sumar con la base
+    operadorList.append('+')
+    opA_list.append(operandosList.pop())
+    opB_list.append(values_table[obtainIndex(x)-1][4]*(-1))
+    tempList.append(temp.pop(0))
+    operandosList.append(tempList[len(tempList)-1]+200)
+    temp.append(tempList[len(tempList)-1])
+    print(operandosList)
+
 def dimensionadas_CUBE():
     x = operandosList.pop(len(operandosList)-4)
-    print('llega:',operandosList)
     operadorList.append('*')
     opA_list.append(operandosList.pop())
     opB_list.append(values_table[obtainIndex(x)-1][4]*(-1))
@@ -99,7 +143,7 @@ def dimensionadas_CUBE():
     #Sumar con la base
     operadorList.append('+')
     opA_list.append(operandosList.pop())
-    opB_list.append(values_table[obtainIndex(x)-1][6])
+    opB_list.append(values_table[obtainIndex(x)-1][6]*(-1))
     tempList.append(temp.pop(0))
     operandosList.append(tempList[len(tempList)-1]+200)
     temp.append(tempList[len(tempList)-1])

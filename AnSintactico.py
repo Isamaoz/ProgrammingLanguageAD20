@@ -293,15 +293,11 @@ def p_OPVector(p):
      vec1 : vec
      '''
      operadorList.append('verify')
-     print('ver')
-     print(operandosList)
-     opA_list.append(operandosList.pop())
-     idxid = obtainIndex(operandosList.pop()) - 1
-     print(values_table[idxid])
+     opA_list.append(operandosList[len(operandosList)-1])
+     idxid = obtainIndex(operandosList[len(operandosList)-2]) - 1
      opB_list.append(0)
      tempList.append(values_table[idxid][0]-1)
-     print_cuadruplo()
-     #Si todo esta correcto,
+     dimensionadas_VECTOR()
 def p_OPVector1(p):
      '''
      vec : ID LBRACKET NUMBER RBRACKET
@@ -321,16 +317,18 @@ def p_OPMatrix2(p):
      '''
      mat1 : mat
      '''
+     print('Llegan1', operandosList)
      operadorList.append('verify')
      operadorList.append('verify')
-     opA_list.append(operandosList.pop()) # Se agregan los dos numeros a revisar a la lista de operadores
-     opA_list.append(operandosList.pop())
-     idxid = obtainIndex(operandosList.pop()) - 1
+     opA_list.append(operandosList[len(operandosList)-1]) # Se agregan los dos numeros a revisar a la lista de operadores
+     opA_list.append(operandosList[len(operandosList)-2])
+     idxid = obtainIndex(operandosList[len(operandosList)-3]) - 1
      opB_list.append(0)
      opB_list.append(0)
-     tempList.append(values_table[idxid][1]-1)
      tempList.append(values_table[idxid][0]-1)
-     print_cuadruplo()
+     tempList.append(values_table[idxid][1]-1)
+     print('Salen', operandosList)
+     dimensionadas_MATRIX()
 def p_OPMatrix1(p):
      '''
      mat : ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
@@ -342,9 +340,8 @@ def p_OPMatrix1(p):
         operandosList.append(p[1])
      else:
          raise Exception('This variable is not a matrix')
-     operandosList.append(p[3]*(-1)) if isinstance(p[3], int) else operandosList.append(obtainIndex(p[3]))
      operandosList.append(p[6]*(-1)) if isinstance(p[6], int) else operandosList.append(obtainIndex(p[6]))
-     #operandosList.append(float(p[1])*(-1))
+     operandosList.append(p[3]*(-1)) if isinstance(p[3], int) else operandosList.append(obtainIndex(p[3]))
 def p_OPCube(p):
      '''
      OP : cub1
