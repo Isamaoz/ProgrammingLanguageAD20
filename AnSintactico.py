@@ -192,12 +192,12 @@ def p_id(p):
     pid : ID
     '''
     operandosList.append(obtainIndex(p[1]))
-# def p_id1(p):
-#     '''
-#     pid : vec
-#         | mat
-#         | cub
-#     '''
+def p_id1(p):
+    '''
+    pid : vec1
+        | mat1
+        | cub1
+    '''
 def p_E1(p):
      '''
      E : E PLUS T
@@ -285,9 +285,13 @@ def p_OP3(p):
 #Funciones que generan los cuadruplos
 def p_OPVector(p):
      '''
-     OP : vec
+     OP : vec1
      '''
      #genera cuadruplo vector
+def p_OPVector(p):
+     '''
+     vec1 : vec
+     '''
      operadorList.append('verify')
      print('ver')
      print(operandosList)
@@ -297,7 +301,7 @@ def p_OPVector(p):
      opB_list.append(0)
      tempList.append(values_table[idxid][0]-1)
      print_cuadruplo()
-     #Si todo esta correcto, we move on
+     #Si todo esta correcto,
 def p_OPVector1(p):
      '''
      vec : ID LBRACKET NUMBER RBRACKET
@@ -311,7 +315,11 @@ def p_OPVector1(p):
      operandosList.append(p[3]*(-1)) if isinstance(p[3], int) else operandosList.append(obtainIndex(p[3]))
 def p_OPMatrix(p):
      '''
-     OP : mat
+     OP : mat1
+     '''
+def p_OPMatrix2(p):
+     '''
+     mat1 : mat
      '''
      operadorList.append('verify')
      operadorList.append('verify')
@@ -323,7 +331,6 @@ def p_OPMatrix(p):
      tempList.append(values_table[idxid][1]-1)
      tempList.append(values_table[idxid][0]-1)
      print_cuadruplo()
-
 def p_OPMatrix1(p):
      '''
      mat : ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
@@ -340,26 +347,28 @@ def p_OPMatrix1(p):
      #operandosList.append(float(p[1])*(-1))
 def p_OPCube(p):
      '''
-     OP : cub
+     OP : cub1
      '''
-     print('entroaquilesdsa')
-     print_table()
+def p_OPCube2(p):
+     '''
+     cub1 : cub
+     '''
      operadorList.append('verify')
      operadorList.append('verify')
      operadorList.append('verify')
-     opA_list.append(operandosList.pop()) # Se agregan los dos numeros a revisar a la lista de operadores
-     opA_list.append(operandosList.pop())
-     opA_list.append(operandosList.pop())
-     idxid = obtainIndex(operandosList.pop()) - 1
+     opA_list.append(operandosList[len(operandosList)-1]) # Se agregan los dos numeros a revisar a la lista de operadores
+     opA_list.append(operandosList[len(operandosList)-2])
+     opA_list.append(operandosList[len(operandosList)-3])
+     idxid = obtainIndex(operandosList[len(operandosList)-4]) - 1
      opB_list.append(0)
      opB_list.append(0)
      opB_list.append(0)
-     tempList.append(values_table[idxid][2]-1)
-     tempList.append(values_table[idxid][1]-1)
      tempList.append(values_table[idxid][0]-1)
-
-     dimensionadas_CUBE(operandosList.pop(1))
+     tempList.append(values_table[idxid][1]-1)
+     tempList.append(values_table[idxid][2]-1)
      print_cuadruplo()
+     print('Salen', operandosList)
+     dimensionadas_CUBE()
 def p_OPCube1(p):
      '''
      cub : ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
@@ -378,10 +387,7 @@ def p_OPCube1(p):
      operandosList.append(p[9]*(-1)) if isinstance(p[9], int) else operandosList.append(obtainIndex(p[9]))
      operandosList.append(p[6]*(-1)) if isinstance(p[6], int) else operandosList.append(obtainIndex(p[6]))
      operandosList.append(p[3]*(-1)) if isinstance(p[3], int) else operandosList.append(obtainIndex(p[3]))
-     operandosList.append(p[1])
-     operandosList.append(p[3]*(-1)) if isinstance(p[3], int) else operandosList.append(obtainIndex(p[3]))
-     operandosList.append(p[6]*(-1)) if isinstance(p[6], int) else operandosList.append(obtainIndex(p[6]))
-     operandosList.append(p[9]*(-1)) if isinstance(p[9], int) else operandosList.append(obtainIndex(p[9]))
+     print('antes de sacar el id222', operandosList)
 def p_OP1(p):
      '''
      OP : ID
@@ -488,7 +494,7 @@ print_table()
 print_cuadruplo()
 #print(operandosList)
 #print(temp)
-#execution()
+execution()
 print_table()
 #print(temp_exe)
 #No estoy segura si tengo que actualizar estas variables en la tabla

@@ -63,23 +63,23 @@ def generaCuadruploFOR(x):
 def obtainIndex(x):
     return ID_table.index(x)+1
 
-def dimensionadas_CUBE(x):
-    #a * m1
+def dimensionadas_CUBE():
+    x = operandosList.pop(len(operandosList)-4)
+    print('llega:',operandosList)
     operadorList.append('*')
     opA_list.append(operandosList.pop())
-    opB_list.append(values_table[obtainIndex(x)-1][4])
+    opB_list.append(values_table[obtainIndex(x)-1][4]*(-1))
     tempList.append(temp.pop(0))
-    operandosList.append(tempList[len(tempList)-1])
     temp.append(tempList[len(tempList)-1])
-    print(operandosList)
+    print('1:',operandosList)
     #b * m2
     operadorList.append('*')
     opA_list.append(operandosList.pop())
-    opB_list.append(values_table[obtainIndex(x)-1][5])
+    opB_list.append(values_table[obtainIndex(x)-1][5]*(-1))
     tempList.append(temp.pop(0))
+    operandosList.append(tempList[len(tempList)-2])
     operandosList.append(tempList[len(tempList)-1])
     temp.append(tempList[len(tempList)-1])
-    print(operandosList)
     #Sumar esos dos
     operadorList.append('+')
     opA_list.append(operandosList.pop())
@@ -103,6 +103,7 @@ def dimensionadas_CUBE(x):
     tempList.append(temp.pop(0))
     operandosList.append(tempList[len(tempList)-1]+200)
     temp.append(tempList[len(tempList)-1])
+    print(operandosList)
 
 #Codigo intermedio de ifs
 def gotoFalse(x):
@@ -194,7 +195,8 @@ def execution():
     global save_PC
     PC = 0
     while (operadorList[PC] != 'end'):
-        #print('PC: ', PC)
+        print('PC: ', PC)
+        print(dim_values)
         if (opA_list[PC] == '-'):
             pass
         elif (int(opA_list[PC]) < 1): #es una constante
@@ -236,9 +238,9 @@ def execution():
                 a = opA_list[PC]*(-1)
             elif (int(opA_list[PC]) >= 100 and int(opA_list[PC]) < 300): #es un temporal
                 a = temp_exe[int(opA_list[PC])-100]
-            elif (int(opA_list[PC]) >= 1 and opA_list[PC] <= 100 ):
+            elif (int(opA_list[PC]) >= 1 and opA_list[PC] <= 100 ): #es una variable
                 a = values_table[int(opA_list[PC])-1]
-            elif (int(opA_list[PC]) >= 300):
+            elif (int(opA_list[PC]) >= 300): #es dim
                 a = dim_values[temp_exe[int(opA_list[PC])-300]]
             if (int(opB_list[PC]) < 1): #es una constante
                 b = opB_list[PC]*(-1)
@@ -355,16 +357,25 @@ def execution():
             temp_exe[int(tempList[PC])-100] = a!=b
             PC += 1
         elif (operadorList[PC] == '='):
-            #if es asignacion directa
-            #print('assig',temp_exe)
-            #print("este es",int(opB_list[PC]))
-            if (int(opB_list[PC]) >= 100 and int(opB_list[PC]) < 300 ):
-                values_table[int(opA_list[PC])-1] = temp_exe[b]
-                #print("aquiiii",temp_exe[b])
-            elif (int(opB_list[PC]) <= 0): # es una constante
-                values_table[int(opA_list[PC])-1] = float(opB_list[PC]*(-1)) if (type_table[int(opA_list[PC])-1]=='FLOAT') else opB_list[PC]*(-1)
-            else:
-                values_table[int(opA_list[PC])-1] = values_table[int(opB_list[PC])-1]#checar el valor del operador b en la lista de valores
+            if (int(opA_list[PC]) >= 300): # si es dim
+                #checar el valor del temp en temp_pexe y eso poner en el resultado
+                if (int(opB_list[PC]) >= 100 and int(opB_list[PC]) < 300 ):
+                    dim_values[temp_exe[opA_list[PC]-300]] = temp_exe[int(opB_list[PC])-100]
+                    #print("aquiiii",temp_exe[b])
+                elif (int(opB_list[PC]) <= 0): # es una constante
+                    dim_values[temp_exe[opA_list[PC]-300]] = opB_list[PC]*(-1)
+                else:
+                    dim_values[temp_exe[opA_list[PC]-300]] = values_table[int(opB_list[PC])-1]#checar el valor del operador b en la lista de valores
+            else: # si es una variable
+                if (int(opB_list[PC]) >= 100 and int(opB_list[PC]) < 300 ):
+                    values_table[int(opA_list[PC])-1] = temp_exe[b]
+                    #print("aquiiii",temp_exe[b])
+                elif (int(opB_list[PC]) <= 0): # es una constante
+                    values_table[int(opA_list[PC])-1] = opB_list[PC]*(-1)
+                elif (int(opB_list[PC]) >= 300): #esdim
+                    values_table[int(opA_list[PC])-1] = dim_values[temp_exe[int(opB_list[PC])-300]]
+                else:
+                    values_table[int(opA_list[PC])-1] = values_table[int(opB_list[PC])-1]#checar el valor del operador b en la lista de valores
             PC += 1
         elif (operadorList[PC] == 'goto'):
             PC = opB_list[PC]
@@ -389,6 +400,7 @@ def execution():
         elif (operadorList[PC] == 'verify'):
             if (opA_list[PC]*(-1) < opB_list[PC] and opA_list[PC]*(-1) > tempList[PC]):
                 raise Exception('Index out of range.')
+            PC += 1
         elif (operadorList[PC] == 'endProcedure'):
             #Regresar a donde se quedamo
             PC = save_PC

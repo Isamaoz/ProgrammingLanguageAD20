@@ -8,6 +8,7 @@ START
   ENDECLARATION
   MAIN BEGIN
     f = 1;
+    damn[1][3][3] = 9;
     temp = damn[1][3][3];
     OUTPUT temp;
   END
