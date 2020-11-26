@@ -98,15 +98,17 @@ def p_ddec1(p):
     DCLMATRIX : ID NUMBER NUMBER
     '''
     ID_table.append(p[1])
-    values_table.append([p[2],p[3],len(dim_values)])
+    values_table.append([p[2],p[3],p[2]*p[3],p[3],len(dim_values)])
     for i in range(p[2]*p[3]):
         dim_values.append(0)
 def p_ddec2(p):
     '''
     DCLCUBE : ID NUMBER NUMBER NUMBER
     '''
-    # set_type(p[1])
-    # dim_values.append([int(0)]*(p[3]*p[2]*p[4]))
+    ID_table.append(p[1])
+    values_table.append([p[2],p[3],p[4],p[2]*p[3]*p[4],p[3]*p[4],p[4],len(dim_values)])
+    for i in range(p[2]*p[3]*p[4]):
+        dim_values.append(0)
 def p_procedure(p):
     '''
     procedure : MODULE iddd beggg stat enddd procedure
@@ -285,44 +287,101 @@ def p_OPVector(p):
      '''
      OP : vec
      '''
-     print('sos',p[1])
-     # if p[3].isdigit():
-     #     #es un numero, hacer gramatica multiplicando por 1
-     #     operadorList.append(obtainIndexDim()+300)
-     #     #meter id index
-     # else:
-     #     print('nada por aqui')
-         #es un id, hay que encontrar el index
-        #numero que reconoci dentro del corchete
-    #generaCruadruploVec()
-    #verify
-    #suma entre el numero que recupere del .txt +
-     #operandosList.append(float(p[1])*(-1))
+     #genera cuadruplo vector
+     operadorList.append('verify')
+     print('ver')
+     print(operandosList)
+     opA_list.append(operandosList.pop())
+     idxid = obtainIndex(operandosList.pop()) - 1
+     print(values_table[idxid])
+     opB_list.append(0)
+     tempList.append(values_table[idxid][0]-1)
+     print_cuadruplo()
+     #Si todo esta correcto, we move on
 def p_OPVector1(p):
      '''
      vec : ID LBRACKET NUMBER RBRACKET
         | ID LBRACKET ID RBRACKET
      '''
-     print('sos',p[1])
+     print_table()
+     if (type_table[obtainIndex(p[1])-1] == 'VECTOR'):
+         operandosList.append(p[1])
+     else:
+         raise Exception('This variable is not a vector')
+     operandosList.append(p[3]*(-1)) if isinstance(p[3], int) else operandosList.append(obtainIndex(p[3]))
 def p_OPMatrix(p):
      '''
      OP : mat
      '''
-     #operandosList.append(float(p[1])*(-1))
-def p_OPMatrix(p):
+     operadorList.append('verify')
+     operadorList.append('verify')
+     opA_list.append(operandosList.pop()) # Se agregan los dos numeros a revisar a la lista de operadores
+     opA_list.append(operandosList.pop())
+     idxid = obtainIndex(operandosList.pop()) - 1
+     opB_list.append(0)
+     opB_list.append(0)
+     tempList.append(values_table[idxid][1]-1)
+     tempList.append(values_table[idxid][0]-1)
+     print_cuadruplo()
+
+def p_OPMatrix1(p):
      '''
-     mat : ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+     mat : ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+         | ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+         | ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+         | ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
      '''
+     if (type_table[obtainIndex(p[1])-1] == 'MATRIX'):
+        operandosList.append(p[1])
+     else:
+         raise Exception('This variable is not a matrix')
+     operandosList.append(p[3]*(-1)) if isinstance(p[3], int) else operandosList.append(obtainIndex(p[3]))
+     operandosList.append(p[6]*(-1)) if isinstance(p[6], int) else operandosList.append(obtainIndex(p[6]))
      #operandosList.append(float(p[1])*(-1))
 def p_OPCube(p):
      '''
      OP : cub
      '''
-     #operandosList.append(float(p[1])*(-1))
+     print('entroaquilesdsa')
+     print_table()
+     operadorList.append('verify')
+     operadorList.append('verify')
+     operadorList.append('verify')
+     opA_list.append(operandosList.pop()) # Se agregan los dos numeros a revisar a la lista de operadores
+     opA_list.append(operandosList.pop())
+     opA_list.append(operandosList.pop())
+     idxid = obtainIndex(operandosList.pop()) - 1
+     opB_list.append(0)
+     opB_list.append(0)
+     opB_list.append(0)
+     tempList.append(values_table[idxid][2]-1)
+     tempList.append(values_table[idxid][1]-1)
+     tempList.append(values_table[idxid][0]-1)
+
+     dimensionadas_CUBE(operandosList.pop(1))
+     print_cuadruplo()
 def p_OPCube1(p):
      '''
-     cub : ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+     cub : ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+         | ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+         | ID LBRACKET NUMBER RBRACKET LBRACKET  ID RBRACKET LBRACKET NUMBER RBRACKET
+         | ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+         | ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+         | ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+         | ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+         | ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
      '''
+     if (type_table[obtainIndex(p[1])-1] == 'CUBE'):
+        operandosList.append(p[1])
+     else:
+         raise Exception('This variable is not a CUBE')
+     operandosList.append(p[9]*(-1)) if isinstance(p[9], int) else operandosList.append(obtainIndex(p[9]))
+     operandosList.append(p[6]*(-1)) if isinstance(p[6], int) else operandosList.append(obtainIndex(p[6]))
+     operandosList.append(p[3]*(-1)) if isinstance(p[3], int) else operandosList.append(obtainIndex(p[3]))
+     operandosList.append(p[1])
+     operandosList.append(p[3]*(-1)) if isinstance(p[3], int) else operandosList.append(obtainIndex(p[3]))
+     operandosList.append(p[6]*(-1)) if isinstance(p[6], int) else operandosList.append(obtainIndex(p[6]))
+     operandosList.append(p[9]*(-1)) if isinstance(p[9], int) else operandosList.append(obtainIndex(p[9]))
 def p_OP1(p):
      '''
      OP : ID
@@ -378,9 +437,6 @@ def p_Swhile1(p):
     BB : BEGIN
     '''
     gotoFalse(3)
-#IMPORTANTE
-#En la siguiente parte del codigo, la primera iteracion del dowhile
-# siempre debe ser verdadera, se empieza a checar desde la segunda
 def p_Sdowhile(p):
     '''
     estatuto : doo stat wh expresion
@@ -421,7 +477,7 @@ def p_error(p):
 
 #incluir test
 
-test = os.getcwd()+"\\P2.txt"
+test = os.getcwd()+"\\pruebita.txt"
 fp = codecs.open(test,"r","utf-8")
 cadena = fp.read() #codigo fuente
 fp.close()
@@ -432,7 +488,7 @@ print_table()
 print_cuadruplo()
 #print(operandosList)
 #print(temp)
-execution()
+#execution()
 print_table()
 #print(temp_exe)
 #No estoy segura si tengo que actualizar estas variables en la tabla

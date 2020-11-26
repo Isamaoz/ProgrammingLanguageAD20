@@ -24,6 +24,7 @@ temp = list(range(100, 141))
 def print_cuadruplo():
     for i in range(len(operadorList)):
         print( str(i), '|', operadorList[i], ' | ', opA_list[i], ' | ', opB_list[i], ' | ', tempList[i])
+
 def generaCuadruplo(x):
     operadorList.append(x)
     opB_list.append(operandosList.pop())
@@ -38,6 +39,7 @@ def generaCuadruplo(x):
         temp.append(opA_list[len(opA_list)-1])
     if (opB_list[len(opB_list)-1] >= 100 and opB_list[len(opB_list)-1] < 300):
         temp.append(opB_list[len(opB_list)-1])
+
 def generaCuadruploInput(x):
     #Recibe input y genera cuadruplo de asignacion
     operadorList.append('input')
@@ -56,23 +58,51 @@ def generaCuadruploFOR(x):
     #Guarda var en un temporal
     tempList.append(temp.pop(0))
     operandosList.append(tempList[len(tempList)-1])
+
 #Funcion que obtiene el index de una variable
 def obtainIndex(x):
     return ID_table.index(x)+1
 
-def obtainIndexDim(x):
-    idx_id = obtainIndex(x)
-    infoList = values_table[idx_id]
-    if (len(infoList)==2):
-        print('vector')
-        #es un VECTOR
-    if (len(infoList)==3):
-        print('mat')
-        #es una matriz
-    if (len(infoList)==4):
-        print('cube')
-        #es un cubo
-    return
+def dimensionadas_CUBE(x):
+    #a * m1
+    operadorList.append('*')
+    opA_list.append(operandosList.pop())
+    opB_list.append(values_table[obtainIndex(x)-1][4])
+    tempList.append(temp.pop(0))
+    operandosList.append(tempList[len(tempList)-1])
+    temp.append(tempList[len(tempList)-1])
+    print(operandosList)
+    #b * m2
+    operadorList.append('*')
+    opA_list.append(operandosList.pop())
+    opB_list.append(values_table[obtainIndex(x)-1][5])
+    tempList.append(temp.pop(0))
+    operandosList.append(tempList[len(tempList)-1])
+    temp.append(tempList[len(tempList)-1])
+    print(operandosList)
+    #Sumar esos dos
+    operadorList.append('+')
+    opA_list.append(operandosList.pop())
+    opB_list.append(operandosList.pop())
+    tempList.append(temp.pop(0))
+    operandosList.append(tempList[len(tempList)-1])
+    temp.append(tempList[len(tempList)-1])
+
+    #Sumar con el ultimo (3 dimensiones completas)
+    operadorList.append('+')
+    opA_list.append(operandosList.pop())
+    opB_list.append(operandosList.pop())
+    tempList.append(temp.pop(0))
+    operandosList.append(tempList[len(tempList)-1])
+    temp.append(tempList[len(tempList)-1])
+
+    #Sumar con la base
+    operadorList.append('+')
+    opA_list.append(operandosList.pop())
+    opB_list.append(values_table[obtainIndex(x)-1][6])
+    tempList.append(temp.pop(0))
+    operandosList.append(tempList[len(tempList)-1]+200)
+    temp.append(tempList[len(tempList)-1])
 
 #Codigo intermedio de ifs
 def gotoFalse(x):
@@ -356,6 +386,9 @@ def execution():
         elif (operadorList[PC] == 'end'):
             #print('end of program')
             break;
+        elif (operadorList[PC] == 'verify'):
+            if (opA_list[PC]*(-1) < opB_list[PC] and opA_list[PC]*(-1) > tempList[PC]):
+                raise Exception('Index out of range.')
         elif (operadorList[PC] == 'endProcedure'):
             #Regresar a donde se quedamo
             PC = save_PC

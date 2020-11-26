@@ -1,12 +1,14 @@
 START
   DECLARATION
-    FLOAT num,temp,x;
-
+    FLOAT num,temp;
+    INT f,yas;
+    CUBE damn 3 4 5;
+    MATRIX y 8 7;
+    VECTOR x 5;
   ENDECLARATION
   MAIN BEGIN
-    temp = 6;
-    x = 4.5;
-    num = temp-x;
-    OUTPUT num;
+    f = 1;
+    temp = damn[1][3][3];
+    OUTPUT temp;
   END
 FINISH

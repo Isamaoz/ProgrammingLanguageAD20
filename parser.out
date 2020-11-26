@@ -71,55 +71,66 @@ Rule 54    OP -> FLOATNUMBER
 Rule 55    OP -> vec
 Rule 56    vec -> ID LBRACKET NUMBER RBRACKET
 Rule 57    vec -> ID LBRACKET ID RBRACKET
-Rule 58    mat -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET
-Rule 59    OP -> cub
-Rule 60    cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
-Rule 61    OP -> ID
-Rule 62    estatuto -> FOR expresion_for beg1 stat END
-Rule 63    beg1 -> BEGIN
-Rule 64    expresion_for -> LPAR id1 IN numb RPAR
-Rule 65    expresion_for -> LPAR id1 IN idx RPAR
-Rule 66    numb -> NUMBER
-Rule 67    numb -> FLOATNUMBER
-Rule 68    idx -> ID
-Rule 69    id1 -> ID
-Rule 70    estatuto -> WHILE expresion BB stat END
-Rule 71    BB -> BEGIN
-Rule 72    estatuto -> doo stat wh expresion
-Rule 73    doo -> DO
-Rule 74    wh -> DWHILE
-Rule 75    estatuto -> OUTPUT OP PUNTOYCOMA
-Rule 76    estatuto -> INPUT ID PUNTOYCOMA
+Rule 58    OP -> mat
+Rule 59    mat -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+Rule 60    mat -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+Rule 61    mat -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+Rule 62    mat -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+Rule 63    OP -> cub
+Rule 64    cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+Rule 65    cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+Rule 66    cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+Rule 67    cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+Rule 68    cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+Rule 69    cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+Rule 70    cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+Rule 71    cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+Rule 72    OP -> ID
+Rule 73    estatuto -> FOR expresion_for beg1 stat END
+Rule 74    beg1 -> BEGIN
+Rule 75    expresion_for -> LPAR id1 IN numb RPAR
+Rule 76    expresion_for -> LPAR id1 IN idx RPAR
+Rule 77    numb -> NUMBER
+Rule 78    numb -> FLOATNUMBER
+Rule 79    idx -> ID
+Rule 80    id1 -> ID
+Rule 81    estatuto -> WHILE expresion BB stat END
+Rule 82    BB -> BEGIN
+Rule 83    estatuto -> doo stat wh expresion
+Rule 84    doo -> DO
+Rule 85    wh -> DWHILE
+Rule 86    estatuto -> OUTPUT OP PUNTOYCOMA
+Rule 87    estatuto -> INPUT ID PUNTOYCOMA
 
 Terminals, with rules where they appear
 
 AND                  : 48
 ASSIGN               : 34
-BEGIN                : 21 28 32 63 71
+BEGIN                : 21 28 32 74 82
 CALL                 : 29
 COMA                 : 9
 CUBE                 : 14
 DECLARATION          : 3
 DIFF                 : 
 DIVIDE               : 40
-DO                   : 73
-DWHILE               : 74
+DO                   : 84
+DWHILE               : 85
 ELSE                 : 33
-END                  : 23 27 30 31 62 70
+END                  : 23 27 30 31 73 81
 ENDECLARATION        : 3
 ESIGUAL              : 
 FINISH               : 1
 FLOAT                : 11
-FLOATNUMBER          : 54 67
-FOR                  : 62
-ID                   : 8 9 15 16 17 20 29 35 56 57 57 58 60 61 68 69 76
+FLOATNUMBER          : 54 78
+FOR                  : 73
+ID                   : 8 9 15 16 17 20 29 35 56 57 57 59 60 60 61 61 61 62 62 64 65 65 66 66 67 67 67 68 68 69 69 69 70 70 70 71 71 71 71 72 79 80 87
 IF                   : 30 31
 IFELSE               : 
-IN                   : 64 65
-INPUT                : 76
+IN                   : 75 76
+INPUT                : 87
 INT                  : 10
-LBRACKET             : 56 57 58 58 60 60 60
-LPAR                 : 43 44 51 51 64 65
+LBRACKET             : 56 57 59 59 60 60 61 61 62 62 64 64 64 65 65 65 66 66 66 67 67 67 68 68 68 69 69 69 70 70 70 71 71 71
+LPAR                 : 43 44 51 51 75 76
 MAIN                 : 27
 MATRIX               : 13
 MAYORIGUAL           : 
@@ -129,24 +140,24 @@ MENORQUE             :
 MINUS                : 37
 MODULE               : 18
 NOT                  : 46
-NUMBER               : 15 16 16 17 17 17 53 56 66
+NUMBER               : 15 16 16 17 17 17 53 56 59 59 60 62 64 64 64 65 65 66 66 67 68 68 69 70 77
 OR                   : 45
-OUTPUT               : 75
+OUTPUT               : 86
 PLUS                 : 36
-PUNTOYCOMA           : 5 6 7 29 34 75 76
-RBRACKET             : 56 57 58 58 60 60 60
+PUNTOYCOMA           : 5 6 7 29 34 86 87
+RBRACKET             : 56 57 59 59 60 60 61 61 62 62 64 64 64 65 65 65 66 66 66 67 67 67 68 68 68 69 69 69 70 70 70 71 71 71
 RELATIONAL           : 52
-RPAR                 : 43 44 64 65
+RPAR                 : 43 44 75 76
 START                : 2
 STRING               : 
 TIMES                : 39
 VECTOR               : 12
-WHILE                : 70
+WHILE                : 81
 error                : 
 
 Nonterminals, with rules where they appear
 
-BB                   : 70
+BB                   : 81
 DCLCUBE              : 14
 DCLMATRIX            : 13
 DCLVECTOR            : 12
@@ -154,39 +165,39 @@ E                    : 34 36 37 43
 EL                   : 44 45 51
 F                    : 39 40 41
 FL                   : 48 49
-OP                   : 42 50 50 58 58 60 60 60 75
+OP                   : 42 50 50 86
 T                    : 36 37 38 39 40
 TL                   : 45 46 47 48
 be                   : 27
 beg                  : 30 31
-beg1                 : 62
+beg1                 : 73
 beggg                : 18
-cub                  : 59
+cub                  : 63
 decl                 : 3 6 7
 dimtype              : 7
-doo                  : 72
+doo                  : 83
 els                  : 30
 enddd                : 18
 estatuto             : 25
-expresion            : 30 31 70 72
-expresion_for        : 62
-id1                  : 64 65
+expresion            : 30 31 81 83
+expresion_for        : 73
+id1                  : 75 76
 iddd                 : 18
-idx                  : 65
+idx                  : 76
 main_block           : 1
-mat                  : 
-numb                 : 64
+mat                  : 58
+numb                 : 75
 opLogico             : 50
 pid                  : 34
 procedure            : 1 18
 program              : 0
 st                   : 1
-stat                 : 18 25 27 30 30 31 62 70 72
+stat                 : 18 25 27 30 30 31 73 81 83
 type                 : 5 6
 var_dec              : 1
 variable             : 5 6 9
 vec                  : 55
-wh                   : 72
+wh                   : 83
 
 Parsing method: SLR
 
@@ -457,13 +468,13 @@ state 25
     (30) estatuto -> . IF expresion beg stat els stat END
     (31) estatuto -> . IF expresion beg stat END
     (34) estatuto -> . pid ASSIGN E PUNTOYCOMA
-    (62) estatuto -> . FOR expresion_for beg1 stat END
-    (70) estatuto -> . WHILE expresion BB stat END
-    (72) estatuto -> . doo stat wh expresion
-    (75) estatuto -> . OUTPUT OP PUNTOYCOMA
-    (76) estatuto -> . INPUT ID PUNTOYCOMA
+    (73) estatuto -> . FOR expresion_for beg1 stat END
+    (81) estatuto -> . WHILE expresion BB stat END
+    (83) estatuto -> . doo stat wh expresion
+    (86) estatuto -> . OUTPUT OP PUNTOYCOMA
+    (87) estatuto -> . INPUT ID PUNTOYCOMA
     (35) pid -> . ID
-    (73) doo -> . DO
+    (84) doo -> . DO
 
     END             reduce using rule 26 (stat -> .)
     MODULE          reduce using rule 26 (stat -> .)
@@ -508,13 +519,13 @@ state 27
     (30) estatuto -> . IF expresion beg stat els stat END
     (31) estatuto -> . IF expresion beg stat END
     (34) estatuto -> . pid ASSIGN E PUNTOYCOMA
-    (62) estatuto -> . FOR expresion_for beg1 stat END
-    (70) estatuto -> . WHILE expresion BB stat END
-    (72) estatuto -> . doo stat wh expresion
-    (75) estatuto -> . OUTPUT OP PUNTOYCOMA
-    (76) estatuto -> . INPUT ID PUNTOYCOMA
+    (73) estatuto -> . FOR expresion_for beg1 stat END
+    (81) estatuto -> . WHILE expresion BB stat END
+    (83) estatuto -> . doo stat wh expresion
+    (86) estatuto -> . OUTPUT OP PUNTOYCOMA
+    (87) estatuto -> . INPUT ID PUNTOYCOMA
     (35) pid -> . ID
-    (73) doo -> . DO
+    (84) doo -> . DO
 
     END             reduce using rule 26 (stat -> .)
     MODULE          reduce using rule 26 (stat -> .)
@@ -650,13 +661,13 @@ state 40
     (30) estatuto -> . IF expresion beg stat els stat END
     (31) estatuto -> . IF expresion beg stat END
     (34) estatuto -> . pid ASSIGN E PUNTOYCOMA
-    (62) estatuto -> . FOR expresion_for beg1 stat END
-    (70) estatuto -> . WHILE expresion BB stat END
-    (72) estatuto -> . doo stat wh expresion
-    (75) estatuto -> . OUTPUT OP PUNTOYCOMA
-    (76) estatuto -> . INPUT ID PUNTOYCOMA
+    (73) estatuto -> . FOR expresion_for beg1 stat END
+    (81) estatuto -> . WHILE expresion BB stat END
+    (83) estatuto -> . doo stat wh expresion
+    (86) estatuto -> . OUTPUT OP PUNTOYCOMA
+    (87) estatuto -> . INPUT ID PUNTOYCOMA
     (35) pid -> . ID
-    (73) doo -> . DO
+    (84) doo -> . DO
 
     END             reduce using rule 26 (stat -> .)
     MODULE          reduce using rule 26 (stat -> .)
@@ -710,9 +721,9 @@ state 44
 
 state 45
 
-    (62) estatuto -> FOR . expresion_for beg1 stat END
-    (64) expresion_for -> . LPAR id1 IN numb RPAR
-    (65) expresion_for -> . LPAR id1 IN idx RPAR
+    (73) estatuto -> FOR . expresion_for beg1 stat END
+    (75) expresion_for -> . LPAR id1 IN numb RPAR
+    (76) expresion_for -> . LPAR id1 IN idx RPAR
 
     LPAR            shift and go to state 64
 
@@ -720,7 +731,7 @@ state 45
 
 state 46
 
-    (70) estatuto -> WHILE . expresion BB stat END
+    (81) estatuto -> WHILE . expresion BB stat END
     (44) expresion -> . LPAR EL RPAR
 
     LPAR            shift and go to state 61
@@ -729,20 +740,20 @@ state 46
 
 state 47
 
-    (72) estatuto -> doo . stat wh expresion
+    (83) estatuto -> doo . stat wh expresion
     (25) stat -> . estatuto stat
     (26) stat -> .
     (29) estatuto -> . CALL ID PUNTOYCOMA
     (30) estatuto -> . IF expresion beg stat els stat END
     (31) estatuto -> . IF expresion beg stat END
     (34) estatuto -> . pid ASSIGN E PUNTOYCOMA
-    (62) estatuto -> . FOR expresion_for beg1 stat END
-    (70) estatuto -> . WHILE expresion BB stat END
-    (72) estatuto -> . doo stat wh expresion
-    (75) estatuto -> . OUTPUT OP PUNTOYCOMA
-    (76) estatuto -> . INPUT ID PUNTOYCOMA
+    (73) estatuto -> . FOR expresion_for beg1 stat END
+    (81) estatuto -> . WHILE expresion BB stat END
+    (83) estatuto -> . doo stat wh expresion
+    (86) estatuto -> . OUTPUT OP PUNTOYCOMA
+    (87) estatuto -> . INPUT ID PUNTOYCOMA
     (35) pid -> . ID
-    (73) doo -> . DO
+    (84) doo -> . DO
 
     END             reduce using rule 26 (stat -> .)
     MODULE          reduce using rule 26 (stat -> .)
@@ -765,44 +776,57 @@ state 47
 
 state 48
 
-    (75) estatuto -> OUTPUT . OP PUNTOYCOMA
+    (86) estatuto -> OUTPUT . OP PUNTOYCOMA
     (53) OP -> . NUMBER
     (54) OP -> . FLOATNUMBER
     (55) OP -> . vec
-    (59) OP -> . cub
-    (61) OP -> . ID
+    (58) OP -> . mat
+    (63) OP -> . cub
+    (72) OP -> . ID
     (56) vec -> . ID LBRACKET NUMBER RBRACKET
     (57) vec -> . ID LBRACKET ID RBRACKET
-    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+    (59) mat -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (60) mat -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (61) mat -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (62) mat -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (64) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (65) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (66) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (67) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (68) cub -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (69) cub -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (70) cub -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (71) cub -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
 
     NUMBER          shift and go to state 68
     FLOATNUMBER     shift and go to state 69
-    ID              shift and go to state 72
+    ID              shift and go to state 73
 
     OP                             shift and go to state 67
     vec                            shift and go to state 70
-    cub                            shift and go to state 71
+    mat                            shift and go to state 71
+    cub                            shift and go to state 72
 
 state 49
 
-    (76) estatuto -> INPUT . ID PUNTOYCOMA
+    (87) estatuto -> INPUT . ID PUNTOYCOMA
 
-    ID              shift and go to state 73
+    ID              shift and go to state 74
 
 
 state 50
 
-    (73) doo -> DO .
+    (84) doo -> DO .
 
-    CALL            reduce using rule 73 (doo -> DO .)
-    IF              reduce using rule 73 (doo -> DO .)
-    FOR             reduce using rule 73 (doo -> DO .)
-    WHILE           reduce using rule 73 (doo -> DO .)
-    OUTPUT          reduce using rule 73 (doo -> DO .)
-    INPUT           reduce using rule 73 (doo -> DO .)
-    ID              reduce using rule 73 (doo -> DO .)
-    DO              reduce using rule 73 (doo -> DO .)
-    DWHILE          reduce using rule 73 (doo -> DO .)
+    CALL            reduce using rule 84 (doo -> DO .)
+    IF              reduce using rule 84 (doo -> DO .)
+    FOR             reduce using rule 84 (doo -> DO .)
+    WHILE           reduce using rule 84 (doo -> DO .)
+    OUTPUT          reduce using rule 84 (doo -> DO .)
+    INPUT           reduce using rule 84 (doo -> DO .)
+    ID              reduce using rule 84 (doo -> DO .)
+    DO              reduce using rule 84 (doo -> DO .)
+    DWHILE          reduce using rule 84 (doo -> DO .)
 
 
 state 51
@@ -811,11 +835,11 @@ state 51
     (23) enddd -> . END
     (24) enddd -> .
 
-    END             shift and go to state 75
+    END             shift and go to state 76
     MODULE          reduce using rule 24 (enddd -> .)
     MAIN            reduce using rule 24 (enddd -> .)
 
-    enddd                          shift and go to state 74
+    enddd                          shift and go to state 75
 
 state 52
 
@@ -840,14 +864,14 @@ state 54
 
     (16) DCLMATRIX -> ID NUMBER . NUMBER
 
-    NUMBER          shift and go to state 76
+    NUMBER          shift and go to state 77
 
 
 state 55
 
     (17) DCLCUBE -> ID NUMBER . NUMBER NUMBER
 
-    NUMBER          shift and go to state 77
+    NUMBER          shift and go to state 78
 
 
 state 56
@@ -880,7 +904,7 @@ state 59
 
     (29) estatuto -> CALL ID . PUNTOYCOMA
 
-    PUNTOYCOMA      shift and go to state 78
+    PUNTOYCOMA      shift and go to state 79
 
 
 state 60
@@ -889,9 +913,9 @@ state 60
     (31) estatuto -> IF expresion . beg stat END
     (32) beg -> . BEGIN
 
-    BEGIN           shift and go to state 80
+    BEGIN           shift and go to state 81
 
-    beg                            shift and go to state 79
+    beg                            shift and go to state 80
 
 state 61
 
@@ -906,23 +930,36 @@ state 61
     (53) OP -> . NUMBER
     (54) OP -> . FLOATNUMBER
     (55) OP -> . vec
-    (59) OP -> . cub
-    (61) OP -> . ID
+    (58) OP -> . mat
+    (63) OP -> . cub
+    (72) OP -> . ID
     (56) vec -> . ID LBRACKET NUMBER RBRACKET
     (57) vec -> . ID LBRACKET ID RBRACKET
-    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+    (59) mat -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (60) mat -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (61) mat -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (62) mat -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (64) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (65) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (66) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (67) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (68) cub -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (69) cub -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (70) cub -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (71) cub -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
 
-    LPAR            shift and go to state 81
+    LPAR            shift and go to state 82
     NUMBER          shift and go to state 68
     FLOATNUMBER     shift and go to state 69
-    ID              shift and go to state 72
+    ID              shift and go to state 73
 
-    EL                             shift and go to state 82
-    TL                             shift and go to state 83
-    FL                             shift and go to state 84
-    OP                             shift and go to state 85
+    EL                             shift and go to state 83
+    TL                             shift and go to state 84
+    FL                             shift and go to state 85
+    OP                             shift and go to state 86
     vec                            shift and go to state 70
-    cub                            shift and go to state 71
+    mat                            shift and go to state 71
+    cub                            shift and go to state 72
 
 state 62
 
@@ -938,66 +975,79 @@ state 62
     (53) OP -> . NUMBER
     (54) OP -> . FLOATNUMBER
     (55) OP -> . vec
-    (59) OP -> . cub
-    (61) OP -> . ID
+    (58) OP -> . mat
+    (63) OP -> . cub
+    (72) OP -> . ID
     (56) vec -> . ID LBRACKET NUMBER RBRACKET
     (57) vec -> . ID LBRACKET ID RBRACKET
-    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+    (59) mat -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (60) mat -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (61) mat -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (62) mat -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (64) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (65) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (66) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (67) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (68) cub -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (69) cub -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (70) cub -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (71) cub -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
 
-    LPAR            shift and go to state 90
+    LPAR            shift and go to state 91
     NUMBER          shift and go to state 68
     FLOATNUMBER     shift and go to state 69
-    ID              shift and go to state 72
+    ID              shift and go to state 73
 
-    E                              shift and go to state 86
-    T                              shift and go to state 87
-    F                              shift and go to state 88
-    OP                             shift and go to state 89
+    E                              shift and go to state 87
+    T                              shift and go to state 88
+    F                              shift and go to state 89
+    OP                             shift and go to state 90
     vec                            shift and go to state 70
-    cub                            shift and go to state 71
+    mat                            shift and go to state 71
+    cub                            shift and go to state 72
 
 state 63
 
-    (62) estatuto -> FOR expresion_for . beg1 stat END
-    (63) beg1 -> . BEGIN
+    (73) estatuto -> FOR expresion_for . beg1 stat END
+    (74) beg1 -> . BEGIN
 
-    BEGIN           shift and go to state 92
+    BEGIN           shift and go to state 93
 
-    beg1                           shift and go to state 91
+    beg1                           shift and go to state 92
 
 state 64
 
-    (64) expresion_for -> LPAR . id1 IN numb RPAR
-    (65) expresion_for -> LPAR . id1 IN idx RPAR
-    (69) id1 -> . ID
+    (75) expresion_for -> LPAR . id1 IN numb RPAR
+    (76) expresion_for -> LPAR . id1 IN idx RPAR
+    (80) id1 -> . ID
 
-    ID              shift and go to state 94
+    ID              shift and go to state 95
 
-    id1                            shift and go to state 93
+    id1                            shift and go to state 94
 
 state 65
 
-    (70) estatuto -> WHILE expresion . BB stat END
-    (71) BB -> . BEGIN
+    (81) estatuto -> WHILE expresion . BB stat END
+    (82) BB -> . BEGIN
 
-    BEGIN           shift and go to state 96
+    BEGIN           shift and go to state 97
 
-    BB                             shift and go to state 95
+    BB                             shift and go to state 96
 
 state 66
 
-    (72) estatuto -> doo stat . wh expresion
-    (74) wh -> . DWHILE
+    (83) estatuto -> doo stat . wh expresion
+    (85) wh -> . DWHILE
 
-    DWHILE          shift and go to state 98
+    DWHILE          shift and go to state 99
 
-    wh                             shift and go to state 97
+    wh                             shift and go to state 98
 
 state 67
 
-    (75) estatuto -> OUTPUT OP . PUNTOYCOMA
+    (86) estatuto -> OUTPUT OP . PUNTOYCOMA
 
-    PUNTOYCOMA      shift and go to state 99
+    PUNTOYCOMA      shift and go to state 100
 
 
 state 68
@@ -1014,7 +1064,6 @@ state 68
     OR              reduce using rule 53 (OP -> NUMBER .)
     NOT             reduce using rule 53 (OP -> NUMBER .)
     AND             reduce using rule 53 (OP -> NUMBER .)
-    RBRACKET        reduce using rule 53 (OP -> NUMBER .)
     LPAR            reduce using rule 53 (OP -> NUMBER .)
 
 
@@ -1032,7 +1081,6 @@ state 69
     OR              reduce using rule 54 (OP -> FLOATNUMBER .)
     NOT             reduce using rule 54 (OP -> FLOATNUMBER .)
     AND             reduce using rule 54 (OP -> FLOATNUMBER .)
-    RBRACKET        reduce using rule 54 (OP -> FLOATNUMBER .)
     LPAR            reduce using rule 54 (OP -> FLOATNUMBER .)
 
 
@@ -1050,58 +1098,83 @@ state 70
     OR              reduce using rule 55 (OP -> vec .)
     NOT             reduce using rule 55 (OP -> vec .)
     AND             reduce using rule 55 (OP -> vec .)
-    RBRACKET        reduce using rule 55 (OP -> vec .)
     LPAR            reduce using rule 55 (OP -> vec .)
 
 
 state 71
 
-    (59) OP -> cub .
+    (58) OP -> mat .
 
-    PUNTOYCOMA      reduce using rule 59 (OP -> cub .)
-    PLUS            reduce using rule 59 (OP -> cub .)
-    MINUS           reduce using rule 59 (OP -> cub .)
-    TIMES           reduce using rule 59 (OP -> cub .)
-    DIVIDE          reduce using rule 59 (OP -> cub .)
-    RELATIONAL      reduce using rule 59 (OP -> cub .)
-    RPAR            reduce using rule 59 (OP -> cub .)
-    OR              reduce using rule 59 (OP -> cub .)
-    NOT             reduce using rule 59 (OP -> cub .)
-    AND             reduce using rule 59 (OP -> cub .)
-    RBRACKET        reduce using rule 59 (OP -> cub .)
-    LPAR            reduce using rule 59 (OP -> cub .)
+    PUNTOYCOMA      reduce using rule 58 (OP -> mat .)
+    PLUS            reduce using rule 58 (OP -> mat .)
+    MINUS           reduce using rule 58 (OP -> mat .)
+    TIMES           reduce using rule 58 (OP -> mat .)
+    DIVIDE          reduce using rule 58 (OP -> mat .)
+    RELATIONAL      reduce using rule 58 (OP -> mat .)
+    RPAR            reduce using rule 58 (OP -> mat .)
+    OR              reduce using rule 58 (OP -> mat .)
+    NOT             reduce using rule 58 (OP -> mat .)
+    AND             reduce using rule 58 (OP -> mat .)
+    LPAR            reduce using rule 58 (OP -> mat .)
 
 
 state 72
 
-    (61) OP -> ID .
-    (56) vec -> ID . LBRACKET NUMBER RBRACKET
-    (57) vec -> ID . LBRACKET ID RBRACKET
-    (60) cub -> ID . LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+    (63) OP -> cub .
 
-    PUNTOYCOMA      reduce using rule 61 (OP -> ID .)
-    PLUS            reduce using rule 61 (OP -> ID .)
-    MINUS           reduce using rule 61 (OP -> ID .)
-    TIMES           reduce using rule 61 (OP -> ID .)
-    DIVIDE          reduce using rule 61 (OP -> ID .)
-    RELATIONAL      reduce using rule 61 (OP -> ID .)
-    RPAR            reduce using rule 61 (OP -> ID .)
-    OR              reduce using rule 61 (OP -> ID .)
-    NOT             reduce using rule 61 (OP -> ID .)
-    AND             reduce using rule 61 (OP -> ID .)
-    RBRACKET        reduce using rule 61 (OP -> ID .)
-    LPAR            reduce using rule 61 (OP -> ID .)
-    LBRACKET        shift and go to state 100
+    PUNTOYCOMA      reduce using rule 63 (OP -> cub .)
+    PLUS            reduce using rule 63 (OP -> cub .)
+    MINUS           reduce using rule 63 (OP -> cub .)
+    TIMES           reduce using rule 63 (OP -> cub .)
+    DIVIDE          reduce using rule 63 (OP -> cub .)
+    RELATIONAL      reduce using rule 63 (OP -> cub .)
+    RPAR            reduce using rule 63 (OP -> cub .)
+    OR              reduce using rule 63 (OP -> cub .)
+    NOT             reduce using rule 63 (OP -> cub .)
+    AND             reduce using rule 63 (OP -> cub .)
+    LPAR            reduce using rule 63 (OP -> cub .)
 
 
 state 73
 
-    (76) estatuto -> INPUT ID . PUNTOYCOMA
+    (72) OP -> ID .
+    (56) vec -> ID . LBRACKET NUMBER RBRACKET
+    (57) vec -> ID . LBRACKET ID RBRACKET
+    (59) mat -> ID . LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (60) mat -> ID . LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (61) mat -> ID . LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (62) mat -> ID . LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (64) cub -> ID . LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (65) cub -> ID . LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (66) cub -> ID . LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (67) cub -> ID . LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (68) cub -> ID . LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (69) cub -> ID . LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (70) cub -> ID . LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (71) cub -> ID . LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
 
-    PUNTOYCOMA      shift and go to state 101
+    PUNTOYCOMA      reduce using rule 72 (OP -> ID .)
+    PLUS            reduce using rule 72 (OP -> ID .)
+    MINUS           reduce using rule 72 (OP -> ID .)
+    TIMES           reduce using rule 72 (OP -> ID .)
+    DIVIDE          reduce using rule 72 (OP -> ID .)
+    RELATIONAL      reduce using rule 72 (OP -> ID .)
+    RPAR            reduce using rule 72 (OP -> ID .)
+    OR              reduce using rule 72 (OP -> ID .)
+    NOT             reduce using rule 72 (OP -> ID .)
+    AND             reduce using rule 72 (OP -> ID .)
+    LPAR            reduce using rule 72 (OP -> ID .)
+    LBRACKET        shift and go to state 101
 
 
 state 74
+
+    (87) estatuto -> INPUT ID . PUNTOYCOMA
+
+    PUNTOYCOMA      shift and go to state 102
+
+
+state 75
 
     (18) procedure -> MODULE iddd beggg stat enddd . procedure
     (18) procedure -> . MODULE iddd beggg stat enddd procedure
@@ -1110,9 +1183,9 @@ state 74
     MODULE          shift and go to state 7
     MAIN            reduce using rule 19 (procedure -> .)
 
-    procedure                      shift and go to state 102
+    procedure                      shift and go to state 103
 
-state 75
+state 76
 
     (23) enddd -> END .
 
@@ -1120,21 +1193,21 @@ state 75
     MAIN            reduce using rule 23 (enddd -> END .)
 
 
-state 76
+state 77
 
     (16) DCLMATRIX -> ID NUMBER NUMBER .
 
     PUNTOYCOMA      reduce using rule 16 (DCLMATRIX -> ID NUMBER NUMBER .)
 
 
-state 77
+state 78
 
     (17) DCLCUBE -> ID NUMBER NUMBER . NUMBER
 
-    NUMBER          shift and go to state 103
+    NUMBER          shift and go to state 104
 
 
-state 78
+state 79
 
     (29) estatuto -> CALL ID PUNTOYCOMA .
 
@@ -1153,7 +1226,7 @@ state 78
     DWHILE          reduce using rule 29 (estatuto -> CALL ID PUNTOYCOMA .)
 
 
-state 79
+state 80
 
     (30) estatuto -> IF expresion beg . stat els stat END
     (31) estatuto -> IF expresion beg . stat END
@@ -1163,13 +1236,13 @@ state 79
     (30) estatuto -> . IF expresion beg stat els stat END
     (31) estatuto -> . IF expresion beg stat END
     (34) estatuto -> . pid ASSIGN E PUNTOYCOMA
-    (62) estatuto -> . FOR expresion_for beg1 stat END
-    (70) estatuto -> . WHILE expresion BB stat END
-    (72) estatuto -> . doo stat wh expresion
-    (75) estatuto -> . OUTPUT OP PUNTOYCOMA
-    (76) estatuto -> . INPUT ID PUNTOYCOMA
+    (73) estatuto -> . FOR expresion_for beg1 stat END
+    (81) estatuto -> . WHILE expresion BB stat END
+    (83) estatuto -> . doo stat wh expresion
+    (86) estatuto -> . OUTPUT OP PUNTOYCOMA
+    (87) estatuto -> . INPUT ID PUNTOYCOMA
     (35) pid -> . ID
-    (73) doo -> . DO
+    (84) doo -> . DO
 
     END             reduce using rule 26 (stat -> .)
     MODULE          reduce using rule 26 (stat -> .)
@@ -1185,12 +1258,12 @@ state 79
     ID              shift and go to state 42
     DO              shift and go to state 50
 
-    stat                           shift and go to state 104
+    stat                           shift and go to state 105
     estatuto                       shift and go to state 40
     pid                            shift and go to state 44
     doo                            shift and go to state 47
 
-state 80
+state 81
 
     (32) beg -> BEGIN .
 
@@ -1206,7 +1279,7 @@ state 80
     END             reduce using rule 32 (beg -> BEGIN .)
 
 
-state 81
+state 82
 
     (51) FL -> LPAR . EL LPAR
     (45) EL -> . EL OR TL
@@ -1219,47 +1292,60 @@ state 81
     (53) OP -> . NUMBER
     (54) OP -> . FLOATNUMBER
     (55) OP -> . vec
-    (59) OP -> . cub
-    (61) OP -> . ID
+    (58) OP -> . mat
+    (63) OP -> . cub
+    (72) OP -> . ID
     (56) vec -> . ID LBRACKET NUMBER RBRACKET
     (57) vec -> . ID LBRACKET ID RBRACKET
-    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+    (59) mat -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (60) mat -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (61) mat -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (62) mat -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (64) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (65) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (66) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (67) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (68) cub -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (69) cub -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (70) cub -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (71) cub -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
 
-    LPAR            shift and go to state 81
+    LPAR            shift and go to state 82
     NUMBER          shift and go to state 68
     FLOATNUMBER     shift and go to state 69
-    ID              shift and go to state 72
+    ID              shift and go to state 73
 
-    EL                             shift and go to state 105
-    TL                             shift and go to state 83
-    FL                             shift and go to state 84
-    OP                             shift and go to state 85
+    EL                             shift and go to state 106
+    TL                             shift and go to state 84
+    FL                             shift and go to state 85
+    OP                             shift and go to state 86
     vec                            shift and go to state 70
-    cub                            shift and go to state 71
+    mat                            shift and go to state 71
+    cub                            shift and go to state 72
 
-state 82
+state 83
 
     (44) expresion -> LPAR EL . RPAR
     (45) EL -> EL . OR TL
 
-    RPAR            shift and go to state 106
-    OR              shift and go to state 107
+    RPAR            shift and go to state 107
+    OR              shift and go to state 108
 
 
-state 83
+state 84
 
     (46) EL -> TL . NOT
     (47) EL -> TL .
     (48) TL -> TL . AND FL
 
-    NOT             shift and go to state 108
+    NOT             shift and go to state 109
     RPAR            reduce using rule 47 (EL -> TL .)
     OR              reduce using rule 47 (EL -> TL .)
     LPAR            reduce using rule 47 (EL -> TL .)
-    AND             shift and go to state 109
+    AND             shift and go to state 110
 
 
-state 84
+state 85
 
     (49) TL -> FL .
 
@@ -1270,27 +1356,27 @@ state 84
     LPAR            reduce using rule 49 (TL -> FL .)
 
 
-state 85
+state 86
 
     (50) FL -> OP . opLogico OP
     (52) opLogico -> . RELATIONAL
 
-    RELATIONAL      shift and go to state 111
+    RELATIONAL      shift and go to state 112
 
-    opLogico                       shift and go to state 110
+    opLogico                       shift and go to state 111
 
-state 86
+state 87
 
     (34) estatuto -> pid ASSIGN E . PUNTOYCOMA
     (36) E -> E . PLUS T
     (37) E -> E . MINUS T
 
-    PUNTOYCOMA      shift and go to state 112
-    PLUS            shift and go to state 113
-    MINUS           shift and go to state 114
+    PUNTOYCOMA      shift and go to state 113
+    PLUS            shift and go to state 114
+    MINUS           shift and go to state 115
 
 
-state 87
+state 88
 
     (38) E -> T .
     (39) T -> T . TIMES F
@@ -1300,11 +1386,11 @@ state 87
     PLUS            reduce using rule 38 (E -> T .)
     MINUS           reduce using rule 38 (E -> T .)
     RPAR            reduce using rule 38 (E -> T .)
-    TIMES           shift and go to state 115
-    DIVIDE          shift and go to state 116
+    TIMES           shift and go to state 116
+    DIVIDE          shift and go to state 117
 
 
-state 88
+state 89
 
     (41) T -> F .
 
@@ -1316,7 +1402,7 @@ state 88
     RPAR            reduce using rule 41 (T -> F .)
 
 
-state 89
+state 90
 
     (42) F -> OP .
 
@@ -1328,7 +1414,7 @@ state 89
     RPAR            reduce using rule 42 (F -> OP .)
 
 
-state 90
+state 91
 
     (43) F -> LPAR . E RPAR
     (36) E -> . E PLUS T
@@ -1342,40 +1428,53 @@ state 90
     (53) OP -> . NUMBER
     (54) OP -> . FLOATNUMBER
     (55) OP -> . vec
-    (59) OP -> . cub
-    (61) OP -> . ID
+    (58) OP -> . mat
+    (63) OP -> . cub
+    (72) OP -> . ID
     (56) vec -> . ID LBRACKET NUMBER RBRACKET
     (57) vec -> . ID LBRACKET ID RBRACKET
-    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+    (59) mat -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (60) mat -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (61) mat -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (62) mat -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (64) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (65) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (66) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (67) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (68) cub -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (69) cub -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (70) cub -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (71) cub -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
 
-    LPAR            shift and go to state 90
+    LPAR            shift and go to state 91
     NUMBER          shift and go to state 68
     FLOATNUMBER     shift and go to state 69
-    ID              shift and go to state 72
+    ID              shift and go to state 73
 
-    E                              shift and go to state 117
-    T                              shift and go to state 87
-    F                              shift and go to state 88
-    OP                             shift and go to state 89
+    E                              shift and go to state 118
+    T                              shift and go to state 88
+    F                              shift and go to state 89
+    OP                             shift and go to state 90
     vec                            shift and go to state 70
-    cub                            shift and go to state 71
+    mat                            shift and go to state 71
+    cub                            shift and go to state 72
 
-state 91
+state 92
 
-    (62) estatuto -> FOR expresion_for beg1 . stat END
+    (73) estatuto -> FOR expresion_for beg1 . stat END
     (25) stat -> . estatuto stat
     (26) stat -> .
     (29) estatuto -> . CALL ID PUNTOYCOMA
     (30) estatuto -> . IF expresion beg stat els stat END
     (31) estatuto -> . IF expresion beg stat END
     (34) estatuto -> . pid ASSIGN E PUNTOYCOMA
-    (62) estatuto -> . FOR expresion_for beg1 stat END
-    (70) estatuto -> . WHILE expresion BB stat END
-    (72) estatuto -> . doo stat wh expresion
-    (75) estatuto -> . OUTPUT OP PUNTOYCOMA
-    (76) estatuto -> . INPUT ID PUNTOYCOMA
+    (73) estatuto -> . FOR expresion_for beg1 stat END
+    (81) estatuto -> . WHILE expresion BB stat END
+    (83) estatuto -> . doo stat wh expresion
+    (86) estatuto -> . OUTPUT OP PUNTOYCOMA
+    (87) estatuto -> . INPUT ID PUNTOYCOMA
     (35) pid -> . ID
-    (73) doo -> . DO
+    (84) doo -> . DO
 
     END             reduce using rule 26 (stat -> .)
     MODULE          reduce using rule 26 (stat -> .)
@@ -1391,57 +1490,57 @@ state 91
     ID              shift and go to state 42
     DO              shift and go to state 50
 
-    stat                           shift and go to state 118
+    stat                           shift and go to state 119
     estatuto                       shift and go to state 40
     pid                            shift and go to state 44
     doo                            shift and go to state 47
 
-state 92
-
-    (63) beg1 -> BEGIN .
-
-    CALL            reduce using rule 63 (beg1 -> BEGIN .)
-    IF              reduce using rule 63 (beg1 -> BEGIN .)
-    FOR             reduce using rule 63 (beg1 -> BEGIN .)
-    WHILE           reduce using rule 63 (beg1 -> BEGIN .)
-    OUTPUT          reduce using rule 63 (beg1 -> BEGIN .)
-    INPUT           reduce using rule 63 (beg1 -> BEGIN .)
-    ID              reduce using rule 63 (beg1 -> BEGIN .)
-    DO              reduce using rule 63 (beg1 -> BEGIN .)
-    END             reduce using rule 63 (beg1 -> BEGIN .)
-
-
 state 93
 
-    (64) expresion_for -> LPAR id1 . IN numb RPAR
-    (65) expresion_for -> LPAR id1 . IN idx RPAR
+    (74) beg1 -> BEGIN .
 
-    IN              shift and go to state 119
+    CALL            reduce using rule 74 (beg1 -> BEGIN .)
+    IF              reduce using rule 74 (beg1 -> BEGIN .)
+    FOR             reduce using rule 74 (beg1 -> BEGIN .)
+    WHILE           reduce using rule 74 (beg1 -> BEGIN .)
+    OUTPUT          reduce using rule 74 (beg1 -> BEGIN .)
+    INPUT           reduce using rule 74 (beg1 -> BEGIN .)
+    ID              reduce using rule 74 (beg1 -> BEGIN .)
+    DO              reduce using rule 74 (beg1 -> BEGIN .)
+    END             reduce using rule 74 (beg1 -> BEGIN .)
 
 
 state 94
 
-    (69) id1 -> ID .
+    (75) expresion_for -> LPAR id1 . IN numb RPAR
+    (76) expresion_for -> LPAR id1 . IN idx RPAR
 
-    IN              reduce using rule 69 (id1 -> ID .)
+    IN              shift and go to state 120
 
 
 state 95
 
-    (70) estatuto -> WHILE expresion BB . stat END
+    (80) id1 -> ID .
+
+    IN              reduce using rule 80 (id1 -> ID .)
+
+
+state 96
+
+    (81) estatuto -> WHILE expresion BB . stat END
     (25) stat -> . estatuto stat
     (26) stat -> .
     (29) estatuto -> . CALL ID PUNTOYCOMA
     (30) estatuto -> . IF expresion beg stat els stat END
     (31) estatuto -> . IF expresion beg stat END
     (34) estatuto -> . pid ASSIGN E PUNTOYCOMA
-    (62) estatuto -> . FOR expresion_for beg1 stat END
-    (70) estatuto -> . WHILE expresion BB stat END
-    (72) estatuto -> . doo stat wh expresion
-    (75) estatuto -> . OUTPUT OP PUNTOYCOMA
-    (76) estatuto -> . INPUT ID PUNTOYCOMA
+    (73) estatuto -> . FOR expresion_for beg1 stat END
+    (81) estatuto -> . WHILE expresion BB stat END
+    (83) estatuto -> . doo stat wh expresion
+    (86) estatuto -> . OUTPUT OP PUNTOYCOMA
+    (87) estatuto -> . INPUT ID PUNTOYCOMA
     (35) pid -> . ID
-    (73) doo -> . DO
+    (84) doo -> . DO
 
     END             reduce using rule 26 (stat -> .)
     MODULE          reduce using rule 26 (stat -> .)
@@ -1457,117 +1556,116 @@ state 95
     ID              shift and go to state 42
     DO              shift and go to state 50
 
-    stat                           shift and go to state 120
+    stat                           shift and go to state 121
     estatuto                       shift and go to state 40
     pid                            shift and go to state 44
     doo                            shift and go to state 47
 
-state 96
-
-    (71) BB -> BEGIN .
-
-    CALL            reduce using rule 71 (BB -> BEGIN .)
-    IF              reduce using rule 71 (BB -> BEGIN .)
-    FOR             reduce using rule 71 (BB -> BEGIN .)
-    WHILE           reduce using rule 71 (BB -> BEGIN .)
-    OUTPUT          reduce using rule 71 (BB -> BEGIN .)
-    INPUT           reduce using rule 71 (BB -> BEGIN .)
-    ID              reduce using rule 71 (BB -> BEGIN .)
-    DO              reduce using rule 71 (BB -> BEGIN .)
-    END             reduce using rule 71 (BB -> BEGIN .)
-
-
 state 97
 
-    (72) estatuto -> doo stat wh . expresion
+    (82) BB -> BEGIN .
+
+    CALL            reduce using rule 82 (BB -> BEGIN .)
+    IF              reduce using rule 82 (BB -> BEGIN .)
+    FOR             reduce using rule 82 (BB -> BEGIN .)
+    WHILE           reduce using rule 82 (BB -> BEGIN .)
+    OUTPUT          reduce using rule 82 (BB -> BEGIN .)
+    INPUT           reduce using rule 82 (BB -> BEGIN .)
+    ID              reduce using rule 82 (BB -> BEGIN .)
+    DO              reduce using rule 82 (BB -> BEGIN .)
+    END             reduce using rule 82 (BB -> BEGIN .)
+
+
+state 98
+
+    (83) estatuto -> doo stat wh . expresion
     (44) expresion -> . LPAR EL RPAR
 
     LPAR            shift and go to state 61
 
-    expresion                      shift and go to state 121
-
-state 98
-
-    (74) wh -> DWHILE .
-
-    LPAR            reduce using rule 74 (wh -> DWHILE .)
-
+    expresion                      shift and go to state 122
 
 state 99
 
-    (75) estatuto -> OUTPUT OP PUNTOYCOMA .
+    (85) wh -> DWHILE .
 
-    CALL            reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
-    IF              reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
-    FOR             reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
-    WHILE           reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
-    OUTPUT          reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
-    INPUT           reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
-    ID              reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
-    DO              reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
-    END             reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
-    MODULE          reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
-    MAIN            reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
-    ELSE            reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
-    DWHILE          reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+    LPAR            reduce using rule 85 (wh -> DWHILE .)
 
 
 state 100
 
-    (56) vec -> ID LBRACKET . NUMBER RBRACKET
-    (57) vec -> ID LBRACKET . ID RBRACKET
-    (60) cub -> ID LBRACKET . OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
-    (53) OP -> . NUMBER
-    (54) OP -> . FLOATNUMBER
-    (55) OP -> . vec
-    (59) OP -> . cub
-    (61) OP -> . ID
-    (56) vec -> . ID LBRACKET NUMBER RBRACKET
-    (57) vec -> . ID LBRACKET ID RBRACKET
-    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+    (86) estatuto -> OUTPUT OP PUNTOYCOMA .
 
-    NUMBER          shift and go to state 123
-    ID              shift and go to state 122
-    FLOATNUMBER     shift and go to state 69
+    CALL            reduce using rule 86 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+    IF              reduce using rule 86 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+    FOR             reduce using rule 86 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+    WHILE           reduce using rule 86 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+    OUTPUT          reduce using rule 86 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+    INPUT           reduce using rule 86 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+    ID              reduce using rule 86 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+    DO              reduce using rule 86 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+    END             reduce using rule 86 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+    MODULE          reduce using rule 86 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+    MAIN            reduce using rule 86 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+    ELSE            reduce using rule 86 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+    DWHILE          reduce using rule 86 (estatuto -> OUTPUT OP PUNTOYCOMA .)
 
-    OP                             shift and go to state 124
-    vec                            shift and go to state 70
-    cub                            shift and go to state 71
 
 state 101
 
-    (76) estatuto -> INPUT ID PUNTOYCOMA .
+    (56) vec -> ID LBRACKET . NUMBER RBRACKET
+    (57) vec -> ID LBRACKET . ID RBRACKET
+    (59) mat -> ID LBRACKET . NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (60) mat -> ID LBRACKET . NUMBER RBRACKET LBRACKET ID RBRACKET
+    (61) mat -> ID LBRACKET . ID RBRACKET LBRACKET ID RBRACKET
+    (62) mat -> ID LBRACKET . ID RBRACKET LBRACKET NUMBER RBRACKET
+    (64) cub -> ID LBRACKET . NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (65) cub -> ID LBRACKET . NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (66) cub -> ID LBRACKET . NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (67) cub -> ID LBRACKET . NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (68) cub -> ID LBRACKET . ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (69) cub -> ID LBRACKET . ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (70) cub -> ID LBRACKET . ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (71) cub -> ID LBRACKET . ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
 
-    CALL            reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
-    IF              reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
-    FOR             reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
-    WHILE           reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
-    OUTPUT          reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
-    INPUT           reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
-    ID              reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
-    DO              reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
-    END             reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
-    MODULE          reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
-    MAIN            reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
-    ELSE            reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
-    DWHILE          reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
+    NUMBER          shift and go to state 124
+    ID              shift and go to state 123
 
 
 state 102
+
+    (87) estatuto -> INPUT ID PUNTOYCOMA .
+
+    CALL            reduce using rule 87 (estatuto -> INPUT ID PUNTOYCOMA .)
+    IF              reduce using rule 87 (estatuto -> INPUT ID PUNTOYCOMA .)
+    FOR             reduce using rule 87 (estatuto -> INPUT ID PUNTOYCOMA .)
+    WHILE           reduce using rule 87 (estatuto -> INPUT ID PUNTOYCOMA .)
+    OUTPUT          reduce using rule 87 (estatuto -> INPUT ID PUNTOYCOMA .)
+    INPUT           reduce using rule 87 (estatuto -> INPUT ID PUNTOYCOMA .)
+    ID              reduce using rule 87 (estatuto -> INPUT ID PUNTOYCOMA .)
+    DO              reduce using rule 87 (estatuto -> INPUT ID PUNTOYCOMA .)
+    END             reduce using rule 87 (estatuto -> INPUT ID PUNTOYCOMA .)
+    MODULE          reduce using rule 87 (estatuto -> INPUT ID PUNTOYCOMA .)
+    MAIN            reduce using rule 87 (estatuto -> INPUT ID PUNTOYCOMA .)
+    ELSE            reduce using rule 87 (estatuto -> INPUT ID PUNTOYCOMA .)
+    DWHILE          reduce using rule 87 (estatuto -> INPUT ID PUNTOYCOMA .)
+
+
+state 103
 
     (18) procedure -> MODULE iddd beggg stat enddd procedure .
 
     MAIN            reduce using rule 18 (procedure -> MODULE iddd beggg stat enddd procedure .)
 
 
-state 103
+state 104
 
     (17) DCLCUBE -> ID NUMBER NUMBER NUMBER .
 
     PUNTOYCOMA      reduce using rule 17 (DCLCUBE -> ID NUMBER NUMBER NUMBER .)
 
 
-state 104
+state 105
 
     (30) estatuto -> IF expresion beg stat . els stat END
     (31) estatuto -> IF expresion beg stat . END
@@ -1578,16 +1676,16 @@ state 104
 
     els                            shift and go to state 125
 
-state 105
+state 106
 
     (51) FL -> LPAR EL . LPAR
     (45) EL -> EL . OR TL
 
     LPAR            shift and go to state 128
-    OR              shift and go to state 107
+    OR              shift and go to state 108
 
 
-state 106
+state 107
 
     (44) expresion -> LPAR EL RPAR .
 
@@ -1607,7 +1705,7 @@ state 106
     DWHILE          reduce using rule 44 (expresion -> LPAR EL RPAR .)
 
 
-state 107
+state 108
 
     (45) EL -> EL OR . TL
     (48) TL -> . TL AND FL
@@ -1617,24 +1715,37 @@ state 107
     (53) OP -> . NUMBER
     (54) OP -> . FLOATNUMBER
     (55) OP -> . vec
-    (59) OP -> . cub
-    (61) OP -> . ID
+    (58) OP -> . mat
+    (63) OP -> . cub
+    (72) OP -> . ID
     (56) vec -> . ID LBRACKET NUMBER RBRACKET
     (57) vec -> . ID LBRACKET ID RBRACKET
-    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+    (59) mat -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (60) mat -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (61) mat -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (62) mat -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (64) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (65) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (66) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (67) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (68) cub -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (69) cub -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (70) cub -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (71) cub -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
 
-    LPAR            shift and go to state 81
+    LPAR            shift and go to state 82
     NUMBER          shift and go to state 68
     FLOATNUMBER     shift and go to state 69
-    ID              shift and go to state 72
+    ID              shift and go to state 73
 
     TL                             shift and go to state 129
-    FL                             shift and go to state 84
-    OP                             shift and go to state 85
+    FL                             shift and go to state 85
+    OP                             shift and go to state 86
     vec                            shift and go to state 70
-    cub                            shift and go to state 71
+    mat                            shift and go to state 71
+    cub                            shift and go to state 72
 
-state 108
+state 109
 
     (46) EL -> TL NOT .
 
@@ -1643,7 +1754,7 @@ state 108
     LPAR            reduce using rule 46 (EL -> TL NOT .)
 
 
-state 109
+state 110
 
     (48) TL -> TL AND . FL
     (50) FL -> . OP opLogico OP
@@ -1651,43 +1762,69 @@ state 109
     (53) OP -> . NUMBER
     (54) OP -> . FLOATNUMBER
     (55) OP -> . vec
-    (59) OP -> . cub
-    (61) OP -> . ID
+    (58) OP -> . mat
+    (63) OP -> . cub
+    (72) OP -> . ID
     (56) vec -> . ID LBRACKET NUMBER RBRACKET
     (57) vec -> . ID LBRACKET ID RBRACKET
-    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+    (59) mat -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (60) mat -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (61) mat -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (62) mat -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (64) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (65) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (66) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (67) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (68) cub -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (69) cub -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (70) cub -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (71) cub -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
 
-    LPAR            shift and go to state 81
+    LPAR            shift and go to state 82
     NUMBER          shift and go to state 68
     FLOATNUMBER     shift and go to state 69
-    ID              shift and go to state 72
+    ID              shift and go to state 73
 
     FL                             shift and go to state 130
-    OP                             shift and go to state 85
+    OP                             shift and go to state 86
     vec                            shift and go to state 70
-    cub                            shift and go to state 71
+    mat                            shift and go to state 71
+    cub                            shift and go to state 72
 
-state 110
+state 111
 
     (50) FL -> OP opLogico . OP
     (53) OP -> . NUMBER
     (54) OP -> . FLOATNUMBER
     (55) OP -> . vec
-    (59) OP -> . cub
-    (61) OP -> . ID
+    (58) OP -> . mat
+    (63) OP -> . cub
+    (72) OP -> . ID
     (56) vec -> . ID LBRACKET NUMBER RBRACKET
     (57) vec -> . ID LBRACKET ID RBRACKET
-    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+    (59) mat -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (60) mat -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (61) mat -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (62) mat -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (64) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (65) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (66) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (67) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (68) cub -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (69) cub -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (70) cub -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (71) cub -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
 
     NUMBER          shift and go to state 68
     FLOATNUMBER     shift and go to state 69
-    ID              shift and go to state 72
+    ID              shift and go to state 73
 
     OP                             shift and go to state 131
     vec                            shift and go to state 70
-    cub                            shift and go to state 71
+    mat                            shift and go to state 71
+    cub                            shift and go to state 72
 
-state 111
+state 112
 
     (52) opLogico -> RELATIONAL .
 
@@ -1696,7 +1833,7 @@ state 111
     ID              reduce using rule 52 (opLogico -> RELATIONAL .)
 
 
-state 112
+state 113
 
     (34) estatuto -> pid ASSIGN E PUNTOYCOMA .
 
@@ -1715,7 +1852,7 @@ state 112
     DWHILE          reduce using rule 34 (estatuto -> pid ASSIGN E PUNTOYCOMA .)
 
 
-state 113
+state 114
 
     (36) E -> E PLUS . T
     (39) T -> . T TIMES F
@@ -1726,24 +1863,37 @@ state 113
     (53) OP -> . NUMBER
     (54) OP -> . FLOATNUMBER
     (55) OP -> . vec
-    (59) OP -> . cub
-    (61) OP -> . ID
+    (58) OP -> . mat
+    (63) OP -> . cub
+    (72) OP -> . ID
     (56) vec -> . ID LBRACKET NUMBER RBRACKET
     (57) vec -> . ID LBRACKET ID RBRACKET
-    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+    (59) mat -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (60) mat -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (61) mat -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (62) mat -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (64) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (65) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (66) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (67) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (68) cub -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (69) cub -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (70) cub -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (71) cub -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
 
-    LPAR            shift and go to state 90
+    LPAR            shift and go to state 91
     NUMBER          shift and go to state 68
     FLOATNUMBER     shift and go to state 69
-    ID              shift and go to state 72
+    ID              shift and go to state 73
 
     T                              shift and go to state 132
-    F                              shift and go to state 88
-    OP                             shift and go to state 89
+    F                              shift and go to state 89
+    OP                             shift and go to state 90
     vec                            shift and go to state 70
-    cub                            shift and go to state 71
+    mat                            shift and go to state 71
+    cub                            shift and go to state 72
 
-state 114
+state 115
 
     (37) E -> E MINUS . T
     (39) T -> . T TIMES F
@@ -1754,24 +1904,37 @@ state 114
     (53) OP -> . NUMBER
     (54) OP -> . FLOATNUMBER
     (55) OP -> . vec
-    (59) OP -> . cub
-    (61) OP -> . ID
+    (58) OP -> . mat
+    (63) OP -> . cub
+    (72) OP -> . ID
     (56) vec -> . ID LBRACKET NUMBER RBRACKET
     (57) vec -> . ID LBRACKET ID RBRACKET
-    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+    (59) mat -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (60) mat -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (61) mat -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (62) mat -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (64) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (65) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (66) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (67) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (68) cub -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (69) cub -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (70) cub -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (71) cub -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
 
-    LPAR            shift and go to state 90
+    LPAR            shift and go to state 91
     NUMBER          shift and go to state 68
     FLOATNUMBER     shift and go to state 69
-    ID              shift and go to state 72
+    ID              shift and go to state 73
 
     T                              shift and go to state 133
-    F                              shift and go to state 88
-    OP                             shift and go to state 89
+    F                              shift and go to state 89
+    OP                             shift and go to state 90
     vec                            shift and go to state 70
-    cub                            shift and go to state 71
+    mat                            shift and go to state 71
+    cub                            shift and go to state 72
 
-state 115
+state 116
 
     (39) T -> T TIMES . F
     (42) F -> . OP
@@ -1779,23 +1942,36 @@ state 115
     (53) OP -> . NUMBER
     (54) OP -> . FLOATNUMBER
     (55) OP -> . vec
-    (59) OP -> . cub
-    (61) OP -> . ID
+    (58) OP -> . mat
+    (63) OP -> . cub
+    (72) OP -> . ID
     (56) vec -> . ID LBRACKET NUMBER RBRACKET
     (57) vec -> . ID LBRACKET ID RBRACKET
-    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+    (59) mat -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (60) mat -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (61) mat -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (62) mat -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (64) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (65) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (66) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (67) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (68) cub -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (69) cub -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (70) cub -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (71) cub -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
 
-    LPAR            shift and go to state 90
+    LPAR            shift and go to state 91
     NUMBER          shift and go to state 68
     FLOATNUMBER     shift and go to state 69
-    ID              shift and go to state 72
+    ID              shift and go to state 73
 
     F                              shift and go to state 134
-    OP                             shift and go to state 89
+    OP                             shift and go to state 90
     vec                            shift and go to state 70
-    cub                            shift and go to state 71
+    mat                            shift and go to state 71
+    cub                            shift and go to state 72
 
-state 116
+state 117
 
     (40) T -> T DIVIDE . F
     (42) F -> . OP
@@ -1803,47 +1979,60 @@ state 116
     (53) OP -> . NUMBER
     (54) OP -> . FLOATNUMBER
     (55) OP -> . vec
-    (59) OP -> . cub
-    (61) OP -> . ID
+    (58) OP -> . mat
+    (63) OP -> . cub
+    (72) OP -> . ID
     (56) vec -> . ID LBRACKET NUMBER RBRACKET
     (57) vec -> . ID LBRACKET ID RBRACKET
-    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+    (59) mat -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (60) mat -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (61) mat -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (62) mat -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (64) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (65) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (66) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (67) cub -> . ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
+    (68) cub -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (69) cub -> . ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (70) cub -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (71) cub -> . ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
 
-    LPAR            shift and go to state 90
+    LPAR            shift and go to state 91
     NUMBER          shift and go to state 68
     FLOATNUMBER     shift and go to state 69
-    ID              shift and go to state 72
+    ID              shift and go to state 73
 
     F                              shift and go to state 135
-    OP                             shift and go to state 89
+    OP                             shift and go to state 90
     vec                            shift and go to state 70
-    cub                            shift and go to state 71
+    mat                            shift and go to state 71
+    cub                            shift and go to state 72
 
-state 117
+state 118
 
     (43) F -> LPAR E . RPAR
     (36) E -> E . PLUS T
     (37) E -> E . MINUS T
 
     RPAR            shift and go to state 136
-    PLUS            shift and go to state 113
-    MINUS           shift and go to state 114
-
-
-state 118
-
-    (62) estatuto -> FOR expresion_for beg1 stat . END
-
-    END             shift and go to state 137
+    PLUS            shift and go to state 114
+    MINUS           shift and go to state 115
 
 
 state 119
 
-    (64) expresion_for -> LPAR id1 IN . numb RPAR
-    (65) expresion_for -> LPAR id1 IN . idx RPAR
-    (66) numb -> . NUMBER
-    (67) numb -> . FLOATNUMBER
-    (68) idx -> . ID
+    (73) estatuto -> FOR expresion_for beg1 stat . END
+
+    END             shift and go to state 137
+
+
+state 120
+
+    (75) expresion_for -> LPAR id1 IN . numb RPAR
+    (76) expresion_for -> LPAR id1 IN . idx RPAR
+    (77) numb -> . NUMBER
+    (78) numb -> . FLOATNUMBER
+    (79) idx -> . ID
 
     NUMBER          shift and go to state 140
     FLOATNUMBER     shift and go to state 141
@@ -1852,85 +2041,56 @@ state 119
     numb                           shift and go to state 138
     idx                            shift and go to state 139
 
-state 120
+state 121
 
-    (70) estatuto -> WHILE expresion BB stat . END
+    (81) estatuto -> WHILE expresion BB stat . END
 
     END             shift and go to state 143
 
 
-state 121
-
-    (72) estatuto -> doo stat wh expresion .
-
-    CALL            reduce using rule 72 (estatuto -> doo stat wh expresion .)
-    IF              reduce using rule 72 (estatuto -> doo stat wh expresion .)
-    FOR             reduce using rule 72 (estatuto -> doo stat wh expresion .)
-    WHILE           reduce using rule 72 (estatuto -> doo stat wh expresion .)
-    OUTPUT          reduce using rule 72 (estatuto -> doo stat wh expresion .)
-    INPUT           reduce using rule 72 (estatuto -> doo stat wh expresion .)
-    ID              reduce using rule 72 (estatuto -> doo stat wh expresion .)
-    DO              reduce using rule 72 (estatuto -> doo stat wh expresion .)
-    END             reduce using rule 72 (estatuto -> doo stat wh expresion .)
-    MODULE          reduce using rule 72 (estatuto -> doo stat wh expresion .)
-    MAIN            reduce using rule 72 (estatuto -> doo stat wh expresion .)
-    ELSE            reduce using rule 72 (estatuto -> doo stat wh expresion .)
-    DWHILE          reduce using rule 72 (estatuto -> doo stat wh expresion .)
-
-
 state 122
 
-    (57) vec -> ID LBRACKET ID . RBRACKET
-    (61) OP -> ID .
-    (56) vec -> ID . LBRACKET NUMBER RBRACKET
-    (57) vec -> ID . LBRACKET ID RBRACKET
-    (60) cub -> ID . LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+    (83) estatuto -> doo stat wh expresion .
 
-  ! shift/reduce conflict for RBRACKET resolved as shift
-    RBRACKET        shift and go to state 144
-    PUNTOYCOMA      reduce using rule 61 (OP -> ID .)
-    PLUS            reduce using rule 61 (OP -> ID .)
-    MINUS           reduce using rule 61 (OP -> ID .)
-    TIMES           reduce using rule 61 (OP -> ID .)
-    DIVIDE          reduce using rule 61 (OP -> ID .)
-    RELATIONAL      reduce using rule 61 (OP -> ID .)
-    RPAR            reduce using rule 61 (OP -> ID .)
-    OR              reduce using rule 61 (OP -> ID .)
-    NOT             reduce using rule 61 (OP -> ID .)
-    AND             reduce using rule 61 (OP -> ID .)
-    LPAR            reduce using rule 61 (OP -> ID .)
-    LBRACKET        shift and go to state 100
-
-  ! RBRACKET        [ reduce using rule 61 (OP -> ID .) ]
+    CALL            reduce using rule 83 (estatuto -> doo stat wh expresion .)
+    IF              reduce using rule 83 (estatuto -> doo stat wh expresion .)
+    FOR             reduce using rule 83 (estatuto -> doo stat wh expresion .)
+    WHILE           reduce using rule 83 (estatuto -> doo stat wh expresion .)
+    OUTPUT          reduce using rule 83 (estatuto -> doo stat wh expresion .)
+    INPUT           reduce using rule 83 (estatuto -> doo stat wh expresion .)
+    ID              reduce using rule 83 (estatuto -> doo stat wh expresion .)
+    DO              reduce using rule 83 (estatuto -> doo stat wh expresion .)
+    END             reduce using rule 83 (estatuto -> doo stat wh expresion .)
+    MODULE          reduce using rule 83 (estatuto -> doo stat wh expresion .)
+    MAIN            reduce using rule 83 (estatuto -> doo stat wh expresion .)
+    ELSE            reduce using rule 83 (estatuto -> doo stat wh expresion .)
+    DWHILE          reduce using rule 83 (estatuto -> doo stat wh expresion .)
 
 
 state 123
 
-    (56) vec -> ID LBRACKET NUMBER . RBRACKET
-    (53) OP -> NUMBER .
+    (57) vec -> ID LBRACKET ID . RBRACKET
+    (61) mat -> ID LBRACKET ID . RBRACKET LBRACKET ID RBRACKET
+    (62) mat -> ID LBRACKET ID . RBRACKET LBRACKET NUMBER RBRACKET
+    (68) cub -> ID LBRACKET ID . RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (69) cub -> ID LBRACKET ID . RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (70) cub -> ID LBRACKET ID . RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (71) cub -> ID LBRACKET ID . RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
 
-  ! shift/reduce conflict for RBRACKET resolved as shift
-    RBRACKET        shift and go to state 145
-    PUNTOYCOMA      reduce using rule 53 (OP -> NUMBER .)
-    PLUS            reduce using rule 53 (OP -> NUMBER .)
-    MINUS           reduce using rule 53 (OP -> NUMBER .)
-    TIMES           reduce using rule 53 (OP -> NUMBER .)
-    DIVIDE          reduce using rule 53 (OP -> NUMBER .)
-    RELATIONAL      reduce using rule 53 (OP -> NUMBER .)
-    RPAR            reduce using rule 53 (OP -> NUMBER .)
-    OR              reduce using rule 53 (OP -> NUMBER .)
-    NOT             reduce using rule 53 (OP -> NUMBER .)
-    AND             reduce using rule 53 (OP -> NUMBER .)
-    LPAR            reduce using rule 53 (OP -> NUMBER .)
-
-  ! RBRACKET        [ reduce using rule 53 (OP -> NUMBER .) ]
+    RBRACKET        shift and go to state 144
 
 
 state 124
 
-    (60) cub -> ID LBRACKET OP . RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+    (56) vec -> ID LBRACKET NUMBER . RBRACKET
+    (59) mat -> ID LBRACKET NUMBER . RBRACKET LBRACKET NUMBER RBRACKET
+    (60) mat -> ID LBRACKET NUMBER . RBRACKET LBRACKET ID RBRACKET
+    (64) cub -> ID LBRACKET NUMBER . RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (65) cub -> ID LBRACKET NUMBER . RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (66) cub -> ID LBRACKET NUMBER . RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (67) cub -> ID LBRACKET NUMBER . RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET
 
-    RBRACKET        shift and go to state 146
+    RBRACKET        shift and go to state 145
 
 
 state 125
@@ -1942,13 +2102,13 @@ state 125
     (30) estatuto -> . IF expresion beg stat els stat END
     (31) estatuto -> . IF expresion beg stat END
     (34) estatuto -> . pid ASSIGN E PUNTOYCOMA
-    (62) estatuto -> . FOR expresion_for beg1 stat END
-    (70) estatuto -> . WHILE expresion BB stat END
-    (72) estatuto -> . doo stat wh expresion
-    (75) estatuto -> . OUTPUT OP PUNTOYCOMA
-    (76) estatuto -> . INPUT ID PUNTOYCOMA
+    (73) estatuto -> . FOR expresion_for beg1 stat END
+    (81) estatuto -> . WHILE expresion BB stat END
+    (83) estatuto -> . doo stat wh expresion
+    (86) estatuto -> . OUTPUT OP PUNTOYCOMA
+    (87) estatuto -> . INPUT ID PUNTOYCOMA
     (35) pid -> . ID
-    (73) doo -> . DO
+    (84) doo -> . DO
 
     END             reduce using rule 26 (stat -> .)
     MODULE          reduce using rule 26 (stat -> .)
@@ -1964,7 +2124,7 @@ state 125
     ID              shift and go to state 42
     DO              shift and go to state 50
 
-    stat                           shift and go to state 147
+    stat                           shift and go to state 146
     estatuto                       shift and go to state 40
     pid                            shift and go to state 44
     doo                            shift and go to state 47
@@ -2022,7 +2182,7 @@ state 129
     RPAR            reduce using rule 45 (EL -> EL OR TL .)
     OR              reduce using rule 45 (EL -> EL OR TL .)
     LPAR            reduce using rule 45 (EL -> EL OR TL .)
-    AND             shift and go to state 109
+    AND             shift and go to state 110
 
 
 state 130
@@ -2057,8 +2217,8 @@ state 132
     PLUS            reduce using rule 36 (E -> E PLUS T .)
     MINUS           reduce using rule 36 (E -> E PLUS T .)
     RPAR            reduce using rule 36 (E -> E PLUS T .)
-    TIMES           shift and go to state 115
-    DIVIDE          shift and go to state 116
+    TIMES           shift and go to state 116
+    DIVIDE          shift and go to state 117
 
 
 state 133
@@ -2071,8 +2231,8 @@ state 133
     PLUS            reduce using rule 37 (E -> E MINUS T .)
     MINUS           reduce using rule 37 (E -> E MINUS T .)
     RPAR            reduce using rule 37 (E -> E MINUS T .)
-    TIMES           shift and go to state 115
-    DIVIDE          shift and go to state 116
+    TIMES           shift and go to state 116
+    DIVIDE          shift and go to state 117
 
 
 state 134
@@ -2113,80 +2273,86 @@ state 136
 
 state 137
 
-    (62) estatuto -> FOR expresion_for beg1 stat END .
+    (73) estatuto -> FOR expresion_for beg1 stat END .
 
-    CALL            reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
-    IF              reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
-    FOR             reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
-    WHILE           reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
-    OUTPUT          reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
-    INPUT           reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
-    ID              reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
-    DO              reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
-    END             reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
-    MODULE          reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
-    MAIN            reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
-    ELSE            reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
-    DWHILE          reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
+    CALL            reduce using rule 73 (estatuto -> FOR expresion_for beg1 stat END .)
+    IF              reduce using rule 73 (estatuto -> FOR expresion_for beg1 stat END .)
+    FOR             reduce using rule 73 (estatuto -> FOR expresion_for beg1 stat END .)
+    WHILE           reduce using rule 73 (estatuto -> FOR expresion_for beg1 stat END .)
+    OUTPUT          reduce using rule 73 (estatuto -> FOR expresion_for beg1 stat END .)
+    INPUT           reduce using rule 73 (estatuto -> FOR expresion_for beg1 stat END .)
+    ID              reduce using rule 73 (estatuto -> FOR expresion_for beg1 stat END .)
+    DO              reduce using rule 73 (estatuto -> FOR expresion_for beg1 stat END .)
+    END             reduce using rule 73 (estatuto -> FOR expresion_for beg1 stat END .)
+    MODULE          reduce using rule 73 (estatuto -> FOR expresion_for beg1 stat END .)
+    MAIN            reduce using rule 73 (estatuto -> FOR expresion_for beg1 stat END .)
+    ELSE            reduce using rule 73 (estatuto -> FOR expresion_for beg1 stat END .)
+    DWHILE          reduce using rule 73 (estatuto -> FOR expresion_for beg1 stat END .)
 
 
 state 138
 
-    (64) expresion_for -> LPAR id1 IN numb . RPAR
+    (75) expresion_for -> LPAR id1 IN numb . RPAR
 
-    RPAR            shift and go to state 148
+    RPAR            shift and go to state 147
 
 
 state 139
 
-    (65) expresion_for -> LPAR id1 IN idx . RPAR
+    (76) expresion_for -> LPAR id1 IN idx . RPAR
 
-    RPAR            shift and go to state 149
+    RPAR            shift and go to state 148
 
 
 state 140
 
-    (66) numb -> NUMBER .
+    (77) numb -> NUMBER .
 
-    RPAR            reduce using rule 66 (numb -> NUMBER .)
+    RPAR            reduce using rule 77 (numb -> NUMBER .)
 
 
 state 141
 
-    (67) numb -> FLOATNUMBER .
+    (78) numb -> FLOATNUMBER .
 
-    RPAR            reduce using rule 67 (numb -> FLOATNUMBER .)
+    RPAR            reduce using rule 78 (numb -> FLOATNUMBER .)
 
 
 state 142
 
-    (68) idx -> ID .
+    (79) idx -> ID .
 
-    RPAR            reduce using rule 68 (idx -> ID .)
+    RPAR            reduce using rule 79 (idx -> ID .)
 
 
 state 143
 
-    (70) estatuto -> WHILE expresion BB stat END .
+    (81) estatuto -> WHILE expresion BB stat END .
 
-    CALL            reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
-    IF              reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
-    FOR             reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
-    WHILE           reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
-    OUTPUT          reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
-    INPUT           reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
-    ID              reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
-    DO              reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
-    END             reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
-    MODULE          reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
-    MAIN            reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
-    ELSE            reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
-    DWHILE          reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
+    CALL            reduce using rule 81 (estatuto -> WHILE expresion BB stat END .)
+    IF              reduce using rule 81 (estatuto -> WHILE expresion BB stat END .)
+    FOR             reduce using rule 81 (estatuto -> WHILE expresion BB stat END .)
+    WHILE           reduce using rule 81 (estatuto -> WHILE expresion BB stat END .)
+    OUTPUT          reduce using rule 81 (estatuto -> WHILE expresion BB stat END .)
+    INPUT           reduce using rule 81 (estatuto -> WHILE expresion BB stat END .)
+    ID              reduce using rule 81 (estatuto -> WHILE expresion BB stat END .)
+    DO              reduce using rule 81 (estatuto -> WHILE expresion BB stat END .)
+    END             reduce using rule 81 (estatuto -> WHILE expresion BB stat END .)
+    MODULE          reduce using rule 81 (estatuto -> WHILE expresion BB stat END .)
+    MAIN            reduce using rule 81 (estatuto -> WHILE expresion BB stat END .)
+    ELSE            reduce using rule 81 (estatuto -> WHILE expresion BB stat END .)
+    DWHILE          reduce using rule 81 (estatuto -> WHILE expresion BB stat END .)
 
 
 state 144
 
     (57) vec -> ID LBRACKET ID RBRACKET .
+    (61) mat -> ID LBRACKET ID RBRACKET . LBRACKET ID RBRACKET
+    (62) mat -> ID LBRACKET ID RBRACKET . LBRACKET NUMBER RBRACKET
+    (68) cub -> ID LBRACKET ID RBRACKET . LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (69) cub -> ID LBRACKET ID RBRACKET . LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (70) cub -> ID LBRACKET ID RBRACKET . LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (71) cub -> ID LBRACKET ID RBRACKET . LBRACKET ID RBRACKET LBRACKET ID RBRACKET
 
     PUNTOYCOMA      reduce using rule 57 (vec -> ID LBRACKET ID RBRACKET .)
     PLUS            reduce using rule 57 (vec -> ID LBRACKET ID RBRACKET .)
@@ -2198,13 +2364,19 @@ state 144
     OR              reduce using rule 57 (vec -> ID LBRACKET ID RBRACKET .)
     NOT             reduce using rule 57 (vec -> ID LBRACKET ID RBRACKET .)
     AND             reduce using rule 57 (vec -> ID LBRACKET ID RBRACKET .)
-    RBRACKET        reduce using rule 57 (vec -> ID LBRACKET ID RBRACKET .)
     LPAR            reduce using rule 57 (vec -> ID LBRACKET ID RBRACKET .)
+    LBRACKET        shift and go to state 149
 
 
 state 145
 
     (56) vec -> ID LBRACKET NUMBER RBRACKET .
+    (59) mat -> ID LBRACKET NUMBER RBRACKET . LBRACKET NUMBER RBRACKET
+    (60) mat -> ID LBRACKET NUMBER RBRACKET . LBRACKET ID RBRACKET
+    (64) cub -> ID LBRACKET NUMBER RBRACKET . LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (65) cub -> ID LBRACKET NUMBER RBRACKET . LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET
+    (66) cub -> ID LBRACKET NUMBER RBRACKET . LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET
+    (67) cub -> ID LBRACKET NUMBER RBRACKET . LBRACKET ID RBRACKET LBRACKET ID RBRACKET
 
     PUNTOYCOMA      reduce using rule 56 (vec -> ID LBRACKET NUMBER RBRACKET .)
     PLUS            reduce using rule 56 (vec -> ID LBRACKET NUMBER RBRACKET .)
@@ -2216,57 +2388,56 @@ state 145
     OR              reduce using rule 56 (vec -> ID LBRACKET NUMBER RBRACKET .)
     NOT             reduce using rule 56 (vec -> ID LBRACKET NUMBER RBRACKET .)
     AND             reduce using rule 56 (vec -> ID LBRACKET NUMBER RBRACKET .)
-    RBRACKET        reduce using rule 56 (vec -> ID LBRACKET NUMBER RBRACKET .)
     LPAR            reduce using rule 56 (vec -> ID LBRACKET NUMBER RBRACKET .)
-
-
-state 146
-
-    (60) cub -> ID LBRACKET OP RBRACKET . LBRACKET OP RBRACKET LBRACKET OP RBRACKET
-
     LBRACKET        shift and go to state 150
 
 
-state 147
+state 146
 
     (30) estatuto -> IF expresion beg stat els stat . END
 
     END             shift and go to state 151
 
 
+state 147
+
+    (75) expresion_for -> LPAR id1 IN numb RPAR .
+
+    BEGIN           reduce using rule 75 (expresion_for -> LPAR id1 IN numb RPAR .)
+
+
 state 148
 
-    (64) expresion_for -> LPAR id1 IN numb RPAR .
+    (76) expresion_for -> LPAR id1 IN idx RPAR .
 
-    BEGIN           reduce using rule 64 (expresion_for -> LPAR id1 IN numb RPAR .)
+    BEGIN           reduce using rule 76 (expresion_for -> LPAR id1 IN idx RPAR .)
 
 
 state 149
 
-    (65) expresion_for -> LPAR id1 IN idx RPAR .
+    (61) mat -> ID LBRACKET ID RBRACKET LBRACKET . ID RBRACKET
+    (62) mat -> ID LBRACKET ID RBRACKET LBRACKET . NUMBER RBRACKET
+    (68) cub -> ID LBRACKET ID RBRACKET LBRACKET . NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (69) cub -> ID LBRACKET ID RBRACKET LBRACKET . NUMBER RBRACKET LBRACKET ID RBRACKET
+    (70) cub -> ID LBRACKET ID RBRACKET LBRACKET . ID RBRACKET LBRACKET NUMBER RBRACKET
+    (71) cub -> ID LBRACKET ID RBRACKET LBRACKET . ID RBRACKET LBRACKET ID RBRACKET
 
-    BEGIN           reduce using rule 65 (expresion_for -> LPAR id1 IN idx RPAR .)
+    ID              shift and go to state 152
+    NUMBER          shift and go to state 153
 
 
 state 150
 
-    (60) cub -> ID LBRACKET OP RBRACKET LBRACKET . OP RBRACKET LBRACKET OP RBRACKET
-    (53) OP -> . NUMBER
-    (54) OP -> . FLOATNUMBER
-    (55) OP -> . vec
-    (59) OP -> . cub
-    (61) OP -> . ID
-    (56) vec -> . ID LBRACKET NUMBER RBRACKET
-    (57) vec -> . ID LBRACKET ID RBRACKET
-    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+    (59) mat -> ID LBRACKET NUMBER RBRACKET LBRACKET . NUMBER RBRACKET
+    (60) mat -> ID LBRACKET NUMBER RBRACKET LBRACKET . ID RBRACKET
+    (64) cub -> ID LBRACKET NUMBER RBRACKET LBRACKET . NUMBER RBRACKET LBRACKET NUMBER RBRACKET
+    (65) cub -> ID LBRACKET NUMBER RBRACKET LBRACKET . NUMBER RBRACKET LBRACKET ID RBRACKET
+    (66) cub -> ID LBRACKET NUMBER RBRACKET LBRACKET . ID RBRACKET LBRACKET NUMBER RBRACKET
+    (67) cub -> ID LBRACKET NUMBER RBRACKET LBRACKET . ID RBRACKET LBRACKET ID RBRACKET
 
-    NUMBER          shift and go to state 68
-    FLOATNUMBER     shift and go to state 69
-    ID              shift and go to state 72
+    NUMBER          shift and go to state 155
+    ID              shift and go to state 154
 
-    OP                             shift and go to state 152
-    vec                            shift and go to state 70
-    cub                            shift and go to state 71
 
 state 151
 
@@ -2289,64 +2460,344 @@ state 151
 
 state 152
 
-    (60) cub -> ID LBRACKET OP RBRACKET LBRACKET OP . RBRACKET LBRACKET OP RBRACKET
-
-    RBRACKET        shift and go to state 153
-
-
-state 153
-
-    (60) cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET . LBRACKET OP RBRACKET
-
-    LBRACKET        shift and go to state 154
-
-
-state 154
-
-    (60) cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET . OP RBRACKET
-    (53) OP -> . NUMBER
-    (54) OP -> . FLOATNUMBER
-    (55) OP -> . vec
-    (59) OP -> . cub
-    (61) OP -> . ID
-    (56) vec -> . ID LBRACKET NUMBER RBRACKET
-    (57) vec -> . ID LBRACKET ID RBRACKET
-    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
-
-    NUMBER          shift and go to state 68
-    FLOATNUMBER     shift and go to state 69
-    ID              shift and go to state 72
-
-    OP                             shift and go to state 155
-    vec                            shift and go to state 70
-    cub                            shift and go to state 71
-
-state 155
-
-    (60) cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP . RBRACKET
+    (61) mat -> ID LBRACKET ID RBRACKET LBRACKET ID . RBRACKET
+    (70) cub -> ID LBRACKET ID RBRACKET LBRACKET ID . RBRACKET LBRACKET NUMBER RBRACKET
+    (71) cub -> ID LBRACKET ID RBRACKET LBRACKET ID . RBRACKET LBRACKET ID RBRACKET
 
     RBRACKET        shift and go to state 156
 
 
+state 153
+
+    (62) mat -> ID LBRACKET ID RBRACKET LBRACKET NUMBER . RBRACKET
+    (68) cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER . RBRACKET LBRACKET NUMBER RBRACKET
+    (69) cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER . RBRACKET LBRACKET ID RBRACKET
+
+    RBRACKET        shift and go to state 157
+
+
+state 154
+
+    (60) mat -> ID LBRACKET NUMBER RBRACKET LBRACKET ID . RBRACKET
+    (66) cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID . RBRACKET LBRACKET NUMBER RBRACKET
+    (67) cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID . RBRACKET LBRACKET ID RBRACKET
+
+    RBRACKET        shift and go to state 158
+
+
+state 155
+
+    (59) mat -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER . RBRACKET
+    (64) cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER . RBRACKET LBRACKET NUMBER RBRACKET
+    (65) cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER . RBRACKET LBRACKET ID RBRACKET
+
+    RBRACKET        shift and go to state 159
+
+
 state 156
 
-    (60) cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .
+    (61) mat -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET .
+    (70) cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET . LBRACKET NUMBER RBRACKET
+    (71) cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET . LBRACKET ID RBRACKET
 
-    PUNTOYCOMA      reduce using rule 60 (cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .)
-    PLUS            reduce using rule 60 (cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .)
-    MINUS           reduce using rule 60 (cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .)
-    TIMES           reduce using rule 60 (cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .)
-    DIVIDE          reduce using rule 60 (cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .)
-    RELATIONAL      reduce using rule 60 (cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .)
-    RPAR            reduce using rule 60 (cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .)
-    OR              reduce using rule 60 (cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .)
-    NOT             reduce using rule 60 (cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .)
-    AND             reduce using rule 60 (cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .)
-    RBRACKET        reduce using rule 60 (cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .)
-    LPAR            reduce using rule 60 (cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .)
+    PUNTOYCOMA      reduce using rule 61 (mat -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    PLUS            reduce using rule 61 (mat -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    MINUS           reduce using rule 61 (mat -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    TIMES           reduce using rule 61 (mat -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    DIVIDE          reduce using rule 61 (mat -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    RELATIONAL      reduce using rule 61 (mat -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    RPAR            reduce using rule 61 (mat -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    OR              reduce using rule 61 (mat -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    NOT             reduce using rule 61 (mat -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    AND             reduce using rule 61 (mat -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    LPAR            reduce using rule 61 (mat -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    LBRACKET        shift and go to state 160
 
-WARNING: 
-WARNING: Conflicts:
-WARNING: 
-WARNING: shift/reduce conflict for RBRACKET in state 122 resolved as shift
-WARNING: shift/reduce conflict for RBRACKET in state 123 resolved as shift
+
+state 157
+
+    (62) mat -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .
+    (68) cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET . LBRACKET NUMBER RBRACKET
+    (69) cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET . LBRACKET ID RBRACKET
+
+    PUNTOYCOMA      reduce using rule 62 (mat -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    PLUS            reduce using rule 62 (mat -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    MINUS           reduce using rule 62 (mat -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    TIMES           reduce using rule 62 (mat -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    DIVIDE          reduce using rule 62 (mat -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    RELATIONAL      reduce using rule 62 (mat -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    RPAR            reduce using rule 62 (mat -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    OR              reduce using rule 62 (mat -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    NOT             reduce using rule 62 (mat -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    AND             reduce using rule 62 (mat -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    LPAR            reduce using rule 62 (mat -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    LBRACKET        shift and go to state 161
+
+
+state 158
+
+    (60) mat -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .
+    (66) cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET . LBRACKET NUMBER RBRACKET
+    (67) cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET . LBRACKET ID RBRACKET
+
+    PUNTOYCOMA      reduce using rule 60 (mat -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    PLUS            reduce using rule 60 (mat -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    MINUS           reduce using rule 60 (mat -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    TIMES           reduce using rule 60 (mat -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    DIVIDE          reduce using rule 60 (mat -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    RELATIONAL      reduce using rule 60 (mat -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    RPAR            reduce using rule 60 (mat -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    OR              reduce using rule 60 (mat -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    NOT             reduce using rule 60 (mat -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    AND             reduce using rule 60 (mat -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    LPAR            reduce using rule 60 (mat -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    LBRACKET        shift and go to state 162
+
+
+state 159
+
+    (59) mat -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .
+    (64) cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET . LBRACKET NUMBER RBRACKET
+    (65) cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET . LBRACKET ID RBRACKET
+
+    PUNTOYCOMA      reduce using rule 59 (mat -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    PLUS            reduce using rule 59 (mat -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    MINUS           reduce using rule 59 (mat -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    TIMES           reduce using rule 59 (mat -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    DIVIDE          reduce using rule 59 (mat -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    RELATIONAL      reduce using rule 59 (mat -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    RPAR            reduce using rule 59 (mat -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    OR              reduce using rule 59 (mat -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    NOT             reduce using rule 59 (mat -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    AND             reduce using rule 59 (mat -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    LPAR            reduce using rule 59 (mat -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    LBRACKET        shift and go to state 163
+
+
+state 160
+
+    (70) cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET . NUMBER RBRACKET
+    (71) cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET . ID RBRACKET
+
+    NUMBER          shift and go to state 165
+    ID              shift and go to state 164
+
+
+state 161
+
+    (68) cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET . NUMBER RBRACKET
+    (69) cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET . ID RBRACKET
+
+    NUMBER          shift and go to state 167
+    ID              shift and go to state 166
+
+
+state 162
+
+    (66) cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET . NUMBER RBRACKET
+    (67) cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET . ID RBRACKET
+
+    NUMBER          shift and go to state 169
+    ID              shift and go to state 168
+
+
+state 163
+
+    (64) cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET . NUMBER RBRACKET
+    (65) cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET . ID RBRACKET
+
+    NUMBER          shift and go to state 171
+    ID              shift and go to state 170
+
+
+state 164
+
+    (71) cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID . RBRACKET
+
+    RBRACKET        shift and go to state 172
+
+
+state 165
+
+    (70) cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER . RBRACKET
+
+    RBRACKET        shift and go to state 173
+
+
+state 166
+
+    (69) cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID . RBRACKET
+
+    RBRACKET        shift and go to state 174
+
+
+state 167
+
+    (68) cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER . RBRACKET
+
+    RBRACKET        shift and go to state 175
+
+
+state 168
+
+    (67) cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID . RBRACKET
+
+    RBRACKET        shift and go to state 176
+
+
+state 169
+
+    (66) cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER . RBRACKET
+
+    RBRACKET        shift and go to state 177
+
+
+state 170
+
+    (65) cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID . RBRACKET
+
+    RBRACKET        shift and go to state 178
+
+
+state 171
+
+    (64) cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER . RBRACKET
+
+    RBRACKET        shift and go to state 179
+
+
+state 172
+
+    (71) cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET .
+
+    PUNTOYCOMA      reduce using rule 71 (cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    PLUS            reduce using rule 71 (cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    MINUS           reduce using rule 71 (cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    TIMES           reduce using rule 71 (cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    DIVIDE          reduce using rule 71 (cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    RELATIONAL      reduce using rule 71 (cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    RPAR            reduce using rule 71 (cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    OR              reduce using rule 71 (cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    NOT             reduce using rule 71 (cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    AND             reduce using rule 71 (cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    LPAR            reduce using rule 71 (cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+
+
+state 173
+
+    (70) cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .
+
+    PUNTOYCOMA      reduce using rule 70 (cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    PLUS            reduce using rule 70 (cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    MINUS           reduce using rule 70 (cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    TIMES           reduce using rule 70 (cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    DIVIDE          reduce using rule 70 (cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    RELATIONAL      reduce using rule 70 (cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    RPAR            reduce using rule 70 (cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    OR              reduce using rule 70 (cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    NOT             reduce using rule 70 (cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    AND             reduce using rule 70 (cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    LPAR            reduce using rule 70 (cub -> ID LBRACKET ID RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+
+
+state 174
+
+    (69) cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .
+
+    PUNTOYCOMA      reduce using rule 69 (cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    PLUS            reduce using rule 69 (cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    MINUS           reduce using rule 69 (cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    TIMES           reduce using rule 69 (cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    DIVIDE          reduce using rule 69 (cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    RELATIONAL      reduce using rule 69 (cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    RPAR            reduce using rule 69 (cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    OR              reduce using rule 69 (cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    NOT             reduce using rule 69 (cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    AND             reduce using rule 69 (cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    LPAR            reduce using rule 69 (cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+
+
+state 175
+
+    (68) cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .
+
+    PUNTOYCOMA      reduce using rule 68 (cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    PLUS            reduce using rule 68 (cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    MINUS           reduce using rule 68 (cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    TIMES           reduce using rule 68 (cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    DIVIDE          reduce using rule 68 (cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    RELATIONAL      reduce using rule 68 (cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    RPAR            reduce using rule 68 (cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    OR              reduce using rule 68 (cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    NOT             reduce using rule 68 (cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    AND             reduce using rule 68 (cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    LPAR            reduce using rule 68 (cub -> ID LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+
+
+state 176
+
+    (67) cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET .
+
+    PUNTOYCOMA      reduce using rule 67 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    PLUS            reduce using rule 67 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    MINUS           reduce using rule 67 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    TIMES           reduce using rule 67 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    DIVIDE          reduce using rule 67 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    RELATIONAL      reduce using rule 67 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    RPAR            reduce using rule 67 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    OR              reduce using rule 67 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    NOT             reduce using rule 67 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    AND             reduce using rule 67 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+    LPAR            reduce using rule 67 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET ID RBRACKET .)
+
+
+state 177
+
+    (66) cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .
+
+    PUNTOYCOMA      reduce using rule 66 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    PLUS            reduce using rule 66 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    MINUS           reduce using rule 66 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    TIMES           reduce using rule 66 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    DIVIDE          reduce using rule 66 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    RELATIONAL      reduce using rule 66 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    RPAR            reduce using rule 66 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    OR              reduce using rule 66 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    NOT             reduce using rule 66 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    AND             reduce using rule 66 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+    LPAR            reduce using rule 66 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET LBRACKET NUMBER RBRACKET .)
+
+
+state 178
+
+    (65) cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .
+
+    PUNTOYCOMA      reduce using rule 65 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    PLUS            reduce using rule 65 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    MINUS           reduce using rule 65 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    TIMES           reduce using rule 65 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    DIVIDE          reduce using rule 65 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    RELATIONAL      reduce using rule 65 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    RPAR            reduce using rule 65 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    OR              reduce using rule 65 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    NOT             reduce using rule 65 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    AND             reduce using rule 65 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+    LPAR            reduce using rule 65 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET ID RBRACKET .)
+
+
+state 179
+
+    (64) cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .
+
+    PUNTOYCOMA      reduce using rule 64 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    PLUS            reduce using rule 64 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    MINUS           reduce using rule 64 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    TIMES           reduce using rule 64 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    DIVIDE          reduce using rule 64 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    RELATIONAL      reduce using rule 64 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    RPAR            reduce using rule 64 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    OR              reduce using rule 64 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    NOT             reduce using rule 64 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    AND             reduce using rule 64 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+    LPAR            reduce using rule 64 (cub -> ID LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET LBRACKET NUMBER RBRACKET .)
+

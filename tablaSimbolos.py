@@ -15,10 +15,9 @@ dim_values = []
 def set_ID(p):
     global ID_table
     if (p in ID_table):
-        print(f"ERROR. Variable repetida, no se realizo declaración.")
+        raise Exception("\nError, variable --"+str(p)+"-- is already declared")
     else:
         #print("Listo")
-
         ID_table.append(p)
         #print(p)
         #print(ID_table)
