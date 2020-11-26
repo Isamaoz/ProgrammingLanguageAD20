@@ -1,0 +1,12 @@
+START
+  DECLARATION
+    FLOAT num,temp,x;
+
+  ENDECLARATION
+  MAIN BEGIN
+    temp = 6;
+    x = 4.5;
+    num = temp-x;
+    OUTPUT num;
+  END
+FINISH

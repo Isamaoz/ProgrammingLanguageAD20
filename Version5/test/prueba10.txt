@@ -1,0 +1,55 @@
+program main
+
+	dim a, b, c, j, respuesta as word;
+	dim r1, r2, temp, i, x1, x2 as float;
+
+	subprocedure taylor
+		let temp = b*b - 4*a*c;
+		if temp < 0 then
+			print("Raiz cuadrada negativa");
+		else
+			while j <= temp do
+				let i = i + 0.1;
+				let j = i * i;
+			whend;
+			let x1 = i;
+			for j=0 to 100 do
+				let x2 = (((temp / x1) + x1) / 2);
+				let x1 = x2;
+			next;
+		endif;
+	endsub;
+
+	subprocedure raiz
+		gosub .taylor;
+		if temp >= 0 then
+			let r1 = (b*(0-1)+x2)/(2*a);
+			let r2 = (b*(0-1)-x2)/(2*a);
+			print("Raiz 1");
+			print(r1);
+			print("Raiz 2");
+			print(r2);
+		endif;
+	endsub;
+
+	let a = 0;
+	let b = 0;
+	let c = 0;
+	let i = 0;
+	let j = 0;
+	let r1 = 0;
+	let r2 = 0;
+	let x1 = 0;
+	let x2 = 0;
+	let temp = 0;
+
+	do
+		cls;
+		input("Ingrese el coeficiente a") >> a;
+		input("Ingrese el coeficiente b") >> b;
+		input("Ingrese el coeficiente c") >> c;
+		gosub .raiz;
+		input("Desea el calculo de otra funcion? 1:Si, 2:No") >> respuesta;
+	loopuntil respuesta == 2 endo;
+
+end;

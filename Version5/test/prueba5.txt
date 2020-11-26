@@ -1,0 +1,16 @@
+program main
+
+	dim a, b, c, d as word;
+	let a = 3;
+	let b = 0;
+	let c = 1;
+	let d = 2+7;
+
+	if a<c then
+		let a = 2;
+		print(a);
+	else
+		print(d);
+	endif;
+	cls;
+end;

@@ -1,0 +1,33 @@
+START
+  DECLARATION
+    FLOAT base,alt,hip,j,i,it,x1,x2,temp;
+    INT resp;
+  ENDECLARATION
+
+  MODULE taylor BEGIN
+    temp = (base*base) + (alt*alt);
+    WHILE (j <= temp) BEGIN
+      i = i + 0.1;
+      j = i * i;
+    END
+    x1 = i;
+    FOR (j IN 100) BEGIN
+      x2 = (((temp/x1)+x1)/2);
+      x1 = x2;
+    END
+  END
+
+  MAIN BEGIN
+  DO
+  it = 0.0;
+  j = 0.0;
+  i = 0.0;
+  temp=0.0;
+  INPUT base;
+  INPUT alt;
+  CALL taylor;
+  OUTPUT x2;
+  INPUT resp;
+  DWHILE (resp == 1)
+  END
+FINISH

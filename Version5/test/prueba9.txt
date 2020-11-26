@@ -1,0 +1,13 @@
+program main
+
+	dim a, b as word;
+
+	let a = 0;
+	let b = 3;
+
+	print("a = ");
+	print(a);
+	print("b = ");
+	print(b);
+
+end;

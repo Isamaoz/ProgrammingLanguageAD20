@@ -1,0 +1,15 @@
+START
+  DECLARATION
+    INT num,temp,x;
+  ENDECLARATION
+  MAIN BEGIN
+    temp = 0;
+    INPUT num;
+    WHILE (num != 0) BEGIN
+    temp = num / 10;
+    x = num - (temp * 10);
+    OUTPUT x;
+    num = temp;
+    END
+  END
+FINISH

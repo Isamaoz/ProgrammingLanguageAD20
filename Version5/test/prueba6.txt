@@ -1,0 +1,9 @@
+program main
+
+	dim a, b, c, d as word;
+
+	while a<c do
+		let a = a+3;
+		cls;
+	whend;
+end;

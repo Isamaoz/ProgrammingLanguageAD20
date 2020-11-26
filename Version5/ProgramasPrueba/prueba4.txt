@@ -1,0 +1,100 @@
+program prueba4
+	dim x, temp2, resp, resp2, i, j, n as word;
+	dim temp as float;
+	dim cubo1, cubo2, cubo3 as cube[2][2][2];
+
+	subprocedure parimpar
+		input("Ingresa el valor de x: ") >> x;
+		let temp = x/2;
+		let temp2 = temp;
+		let temp = temp-temp2;
+		if temp > 0 then
+			print("Numero impar");
+		else
+			print("Numero par");
+		endif;
+	endsub;
+
+	subprocedure imprimir
+		for i=0 to 1 do
+			for j=0 to 1 do
+				for n=0 to 1 do
+					print(cubo3[i][j][n]);
+				next;
+			next;
+		next;
+	endsub;
+
+	subprocedure multiplicacion
+		print("Multiplicacion de cubos");
+		for i=0 to 1 do
+			for j=0 to 1 do
+				for n=0 to 1 do
+					let cubo3[i][j][n] = cubo1[i][j][n] * cubo2[i][j][n];
+				next;
+			next;
+		next;
+		gosub .imprimir;
+	endsub;
+
+	subprocedure suma
+		print("Suma de cubos");
+		for i=0 to 1 do
+			for j=0 to 1 do
+				for n=0 to 1 do
+					let cubo3[i][j][n] = cubo1[i][j][n] + cubo2[i][j][n];
+				next;
+			next;
+		next;
+		gosub .imprimir;
+	endsub;
+
+	subprocedure menucubos
+		do
+			print("1. Suma de cubos");
+			print("2. Multiplicacion de cubos");
+			print("3. Regresar");
+			input("Ingresar una opcion: ") >> resp2;
+			if resp2==1 then
+				gosub .suma;
+			else
+				if resp2==2 then
+					gosub .multiplicacion;
+				endif;
+			endif;
+		loopuntil resp2==3 endo;
+	endsub;
+
+	subprocedure cubos
+		for i=0 to 1 do
+			for j=0 to 1 do
+				for n=0 to 1 do
+					input("Ingrese el valor del cubo 1: ") >> cubo1[i][j][n];
+				next;
+			next;
+		next;
+
+		for i=0 to 1 do
+			for j=0 to 1 do
+				for n=0 to 1 do
+					input("Ingrese el valor del cubo 2: ") >> cubo2[i][j][n];
+				next;
+			next;
+		next;
+		gosub .menucubos;
+	endsub;
+
+	do
+		print("1. Verificar si un numero es par o impar");
+		print("2. Operaciones con cubos");
+		print("3. Salir");
+		input("Ingrese una opcion: ")>>resp;
+		if resp==1 then
+			gosub .parimpar;
+		else
+			if resp==2 then
+				gosub .cubos;
+			endif;
+		endif;
+	loopuntil resp==3 endo;
+end;

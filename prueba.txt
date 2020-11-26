@@ -1,0 +1,38 @@
+START
+  DECLARATION
+    INT x,y,z,d,gh;
+    FLOAT w;
+    VECTOR vec 8;
+    MATRIX mat 2 2;
+  ENDECLARATION
+  MODULE dish BEGIN
+    x = 0;
+    z = 1;
+  END
+  MODULE mod2 BEGIN
+    FOR (x IN 5) BEGIN
+      y = 5 * (9 + 8 * 3);
+      OUTPUT y;
+    END
+    WHILE (gh < 9) BEGIN
+      y = 5;
+      gh = gh + 1;
+    END
+  END
+  MAIN BEGIN
+    w = 4;
+    vec[3] = 9;
+    OUTPUT z;
+    INPUT z;
+    OUTPUT z;
+    d = 15;
+    x = d + 8;
+    CALL dish;
+    gh = 15;
+    DO
+    gh = gh + 1;
+    z = z + 1;
+    DWHILE (z <= 10)
+    CALL mod2;
+  END
+FINISH

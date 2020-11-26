@@ -1,0 +1,49 @@
+program prueba3
+
+	dim respmenu, x, y, i, temp as word;
+	dim porcen as float;
+
+	subprocedure factorial
+		let temp = 1;
+		input ("Ingrese el valor de X: ") >> x;
+		for i=1 to x do
+			let temp = temp * i;
+		next;
+		print(temp);
+	endsub;
+
+	subprocedure elevado
+		let temp = 1;
+		input ("Ingrese el valor de X: ") >> x;
+		input ("Ingrese el valor de Y: ") >> y;
+		for i=1 to y do
+			let temp = temp * x;
+		next;
+		print(temp);
+	endsub;
+
+	subprocedure porcentaje
+		input ("Ingrese el valor de X: ") >> x;
+		input ("Ingrese el valor de Y: ") >> y;
+		let porcen = x + x*y/100;
+		print(porcen);
+	endsub;
+
+	do
+		print("1. Leer X y calcular X!");
+		print("2. Leer X,Y y calcular X^Y");
+		print("3. Leer X,Y y calcular X+Y%");
+		print("4. Salir");
+		input("Ingrese una opcion: ") >> respmenu;
+
+		if (respmenu==1) then
+			gosub .factorial;
+		endif;
+		if (respmenu==2) then
+			gosub .elevado;
+		endif;
+		if (respmenu==3) then
+			gosub .porcentaje;
+		endif;
+	loopuntil (respmenu==4) endo;
+end;

@@ -1,0 +1,36 @@
+program prueba
+
+	dim i,j,n as word;
+	dim g,h,m as cube[2][2][2];
+
+
+	for i=0 to 1 do
+		for j=0 to 1 do
+			for n=0 to 1 do
+				input("Ingrese el valor del cubo 1: ") >> g[i][j][n];
+			next;
+		next;
+	next;
+
+	for i=0 to 1 do
+		for j=0 to 1 do
+			for n=0 to 1 do
+				input("Ingrese el valor del cubo 2: ") >> h[i][j][n];
+			next;
+		next;
+	next;
+	for i=0 to 1 do
+		for j=0 to 1 do
+			for n=0 to 1 do
+				let m[i][j][n] = g[i][j][n] * h[i][j][n];
+			next;
+		next;
+	next;
+	for i=0 to 1 do
+		for j=0 to 1 do
+			for n=0 to 1 do
+				print(m[i][j][n]);
+			next;
+		next;
+	next;
+end;

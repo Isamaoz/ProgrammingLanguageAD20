@@ -1,0 +1,44 @@
+program prueba2
+	dim arr1 as array[10];
+	dim resp, respmenu, i, j, temp as word;
+
+	subprocedure valores
+		for i=0 to (resp-1) do
+			input("Ingrese el valor") >> arr1[i];
+		next;
+	endsub;
+
+	subprocedure sort
+		for i=0 to (resp-2) do
+			for j=(i+1) to (resp-1) do
+				if (arr1[i] > arr1[j]) then
+					let temp = arr1[i];
+					let arr1[i] = arr1[j];
+					let arr1[j] = temp;
+				endif;
+			next;
+		next;
+	endsub;
+
+	subprocedure imprimir
+		for i=0 to (resp-1) do
+			print(arr1[i]);
+		next;
+	endsub;
+
+	do
+		input ("Ingrese el tamaño del arreglo (hasta 10): ") >> resp;
+
+		while ((resp<0) || (resp>10)) do
+				print("El tamaño debe de ser mayor a 0 y hasta 10");
+				input ("Ingrese el tamaño del arreglo: ") >> resp;
+		whend;
+
+		gosub .valores;
+		gosub .sort;
+		gosub .imprimir;
+
+		input ("Desea ordenar otro vector? 1. SI, 2. NO: ") >> respmenu;
+
+	loopuntil respmenu==2 endo;
+end;

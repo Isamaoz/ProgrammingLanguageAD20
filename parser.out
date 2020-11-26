@@ -1,0 +1,2352 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    DIFF
+    ESIGUAL
+    IFELSE
+    MAYORIGUAL
+    MAYORQUE
+    MENORIGUAL
+    MENORQUE
+    STRING
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> st var_dec procedure main_block FINISH
+Rule 2     st -> START
+Rule 3     var_dec -> DECLARATION decl ENDECLARATION
+Rule 4     var_dec -> <empty>
+Rule 5     decl -> type variable PUNTOYCOMA
+Rule 6     decl -> decl type variable PUNTOYCOMA
+Rule 7     decl -> decl dimtype PUNTOYCOMA
+Rule 8     variable -> ID
+Rule 9     variable -> variable COMA ID
+Rule 10    type -> INT
+Rule 11    type -> FLOAT
+Rule 12    dimtype -> VECTOR DCLVECTOR
+Rule 13    dimtype -> MATRIX DCLMATRIX
+Rule 14    dimtype -> CUBE DCLCUBE
+Rule 15    DCLVECTOR -> ID NUMBER
+Rule 16    DCLMATRIX -> ID NUMBER NUMBER
+Rule 17    DCLCUBE -> ID NUMBER NUMBER NUMBER
+Rule 18    procedure -> MODULE iddd beggg stat enddd procedure
+Rule 19    procedure -> <empty>
+Rule 20    iddd -> ID
+Rule 21    beggg -> BEGIN
+Rule 22    beggg -> <empty>
+Rule 23    enddd -> END
+Rule 24    enddd -> <empty>
+Rule 25    stat -> estatuto stat
+Rule 26    stat -> <empty>
+Rule 27    main_block -> MAIN be stat END
+Rule 28    be -> BEGIN
+Rule 29    estatuto -> CALL ID PUNTOYCOMA
+Rule 30    estatuto -> IF expresion beg stat els stat END
+Rule 31    estatuto -> IF expresion beg stat END
+Rule 32    beg -> BEGIN
+Rule 33    els -> ELSE
+Rule 34    estatuto -> pid ASSIGN E PUNTOYCOMA
+Rule 35    pid -> ID
+Rule 36    E -> E PLUS T
+Rule 37    E -> E MINUS T
+Rule 38    E -> T
+Rule 39    T -> T TIMES F
+Rule 40    T -> T DIVIDE F
+Rule 41    T -> F
+Rule 42    F -> OP
+Rule 43    F -> LPAR E RPAR
+Rule 44    expresion -> LPAR EL RPAR
+Rule 45    EL -> EL OR TL
+Rule 46    EL -> TL NOT
+Rule 47    EL -> TL
+Rule 48    TL -> TL AND FL
+Rule 49    TL -> FL
+Rule 50    FL -> OP opLogico OP
+Rule 51    FL -> LPAR EL LPAR
+Rule 52    opLogico -> RELATIONAL
+Rule 53    OP -> NUMBER
+Rule 54    OP -> FLOATNUMBER
+Rule 55    OP -> vec
+Rule 56    vec -> ID LBRACKET NUMBER RBRACKET
+Rule 57    vec -> ID LBRACKET ID RBRACKET
+Rule 58    mat -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+Rule 59    OP -> cub
+Rule 60    cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+Rule 61    OP -> ID
+Rule 62    estatuto -> FOR expresion_for beg1 stat END
+Rule 63    beg1 -> BEGIN
+Rule 64    expresion_for -> LPAR id1 IN numb RPAR
+Rule 65    expresion_for -> LPAR id1 IN idx RPAR
+Rule 66    numb -> NUMBER
+Rule 67    numb -> FLOATNUMBER
+Rule 68    idx -> ID
+Rule 69    id1 -> ID
+Rule 70    estatuto -> WHILE expresion BB stat END
+Rule 71    BB -> BEGIN
+Rule 72    estatuto -> doo stat wh expresion
+Rule 73    doo -> DO
+Rule 74    wh -> DWHILE
+Rule 75    estatuto -> OUTPUT OP PUNTOYCOMA
+Rule 76    estatuto -> INPUT ID PUNTOYCOMA
+
+Terminals, with rules where they appear
+
+AND                  : 48
+ASSIGN               : 34
+BEGIN                : 21 28 32 63 71
+CALL                 : 29
+COMA                 : 9
+CUBE                 : 14
+DECLARATION          : 3
+DIFF                 : 
+DIVIDE               : 40
+DO                   : 73
+DWHILE               : 74
+ELSE                 : 33
+END                  : 23 27 30 31 62 70
+ENDECLARATION        : 3
+ESIGUAL              : 
+FINISH               : 1
+FLOAT                : 11
+FLOATNUMBER          : 54 67
+FOR                  : 62
+ID                   : 8 9 15 16 17 20 29 35 56 57 57 58 60 61 68 69 76
+IF                   : 30 31
+IFELSE               : 
+IN                   : 64 65
+INPUT                : 76
+INT                  : 10
+LBRACKET             : 56 57 58 58 60 60 60
+LPAR                 : 43 44 51 51 64 65
+MAIN                 : 27
+MATRIX               : 13
+MAYORIGUAL           : 
+MAYORQUE             : 
+MENORIGUAL           : 
+MENORQUE             : 
+MINUS                : 37
+MODULE               : 18
+NOT                  : 46
+NUMBER               : 15 16 16 17 17 17 53 56 66
+OR                   : 45
+OUTPUT               : 75
+PLUS                 : 36
+PUNTOYCOMA           : 5 6 7 29 34 75 76
+RBRACKET             : 56 57 58 58 60 60 60
+RELATIONAL           : 52
+RPAR                 : 43 44 64 65
+START                : 2
+STRING               : 
+TIMES                : 39
+VECTOR               : 12
+WHILE                : 70
+error                : 
+
+Nonterminals, with rules where they appear
+
+BB                   : 70
+DCLCUBE              : 14
+DCLMATRIX            : 13
+DCLVECTOR            : 12
+E                    : 34 36 37 43
+EL                   : 44 45 51
+F                    : 39 40 41
+FL                   : 48 49
+OP                   : 42 50 50 58 58 60 60 60 75
+T                    : 36 37 38 39 40
+TL                   : 45 46 47 48
+be                   : 27
+beg                  : 30 31
+beg1                 : 62
+beggg                : 18
+cub                  : 59
+decl                 : 3 6 7
+dimtype              : 7
+doo                  : 72
+els                  : 30
+enddd                : 18
+estatuto             : 25
+expresion            : 30 31 70 72
+expresion_for        : 62
+id1                  : 64 65
+iddd                 : 18
+idx                  : 65
+main_block           : 1
+mat                  : 
+numb                 : 64
+opLogico             : 50
+pid                  : 34
+procedure            : 1 18
+program              : 0
+st                   : 1
+stat                 : 18 25 27 30 30 31 62 70 72
+type                 : 5 6
+var_dec              : 1
+variable             : 5 6 9
+vec                  : 55
+wh                   : 72
+
+Parsing method: SLR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . st var_dec procedure main_block FINISH
+    (2) st -> . START
+
+    START           shift and go to state 3
+
+    program                        shift and go to state 1
+    st                             shift and go to state 2
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> st . var_dec procedure main_block FINISH
+    (3) var_dec -> . DECLARATION decl ENDECLARATION
+    (4) var_dec -> .
+
+    DECLARATION     shift and go to state 5
+    MODULE          reduce using rule 4 (var_dec -> .)
+    MAIN            reduce using rule 4 (var_dec -> .)
+
+    var_dec                        shift and go to state 4
+
+state 3
+
+    (2) st -> START .
+
+    DECLARATION     reduce using rule 2 (st -> START .)
+    MODULE          reduce using rule 2 (st -> START .)
+    MAIN            reduce using rule 2 (st -> START .)
+
+
+state 4
+
+    (1) program -> st var_dec . procedure main_block FINISH
+    (18) procedure -> . MODULE iddd beggg stat enddd procedure
+    (19) procedure -> .
+
+    MODULE          shift and go to state 7
+    MAIN            reduce using rule 19 (procedure -> .)
+
+    procedure                      shift and go to state 6
+
+state 5
+
+    (3) var_dec -> DECLARATION . decl ENDECLARATION
+    (5) decl -> . type variable PUNTOYCOMA
+    (6) decl -> . decl type variable PUNTOYCOMA
+    (7) decl -> . decl dimtype PUNTOYCOMA
+    (10) type -> . INT
+    (11) type -> . FLOAT
+
+    INT             shift and go to state 10
+    FLOAT           shift and go to state 11
+
+    decl                           shift and go to state 8
+    type                           shift and go to state 9
+
+state 6
+
+    (1) program -> st var_dec procedure . main_block FINISH
+    (27) main_block -> . MAIN be stat END
+
+    MAIN            shift and go to state 13
+
+    main_block                     shift and go to state 12
+
+state 7
+
+    (18) procedure -> MODULE . iddd beggg stat enddd procedure
+    (20) iddd -> . ID
+
+    ID              shift and go to state 15
+
+    iddd                           shift and go to state 14
+
+state 8
+
+    (3) var_dec -> DECLARATION decl . ENDECLARATION
+    (6) decl -> decl . type variable PUNTOYCOMA
+    (7) decl -> decl . dimtype PUNTOYCOMA
+    (10) type -> . INT
+    (11) type -> . FLOAT
+    (12) dimtype -> . VECTOR DCLVECTOR
+    (13) dimtype -> . MATRIX DCLMATRIX
+    (14) dimtype -> . CUBE DCLCUBE
+
+    ENDECLARATION   shift and go to state 16
+    INT             shift and go to state 10
+    FLOAT           shift and go to state 11
+    VECTOR          shift and go to state 19
+    MATRIX          shift and go to state 20
+    CUBE            shift and go to state 21
+
+    type                           shift and go to state 17
+    dimtype                        shift and go to state 18
+
+state 9
+
+    (5) decl -> type . variable PUNTOYCOMA
+    (8) variable -> . ID
+    (9) variable -> . variable COMA ID
+
+    ID              shift and go to state 23
+
+    variable                       shift and go to state 22
+
+state 10
+
+    (10) type -> INT .
+
+    ID              reduce using rule 10 (type -> INT .)
+
+
+state 11
+
+    (11) type -> FLOAT .
+
+    ID              reduce using rule 11 (type -> FLOAT .)
+
+
+state 12
+
+    (1) program -> st var_dec procedure main_block . FINISH
+
+    FINISH          shift and go to state 24
+
+
+state 13
+
+    (27) main_block -> MAIN . be stat END
+    (28) be -> . BEGIN
+
+    BEGIN           shift and go to state 26
+
+    be                             shift and go to state 25
+
+state 14
+
+    (18) procedure -> MODULE iddd . beggg stat enddd procedure
+    (21) beggg -> . BEGIN
+    (22) beggg -> .
+
+    BEGIN           shift and go to state 28
+    CALL            reduce using rule 22 (beggg -> .)
+    IF              reduce using rule 22 (beggg -> .)
+    FOR             reduce using rule 22 (beggg -> .)
+    WHILE           reduce using rule 22 (beggg -> .)
+    OUTPUT          reduce using rule 22 (beggg -> .)
+    INPUT           reduce using rule 22 (beggg -> .)
+    ID              reduce using rule 22 (beggg -> .)
+    DO              reduce using rule 22 (beggg -> .)
+    END             reduce using rule 22 (beggg -> .)
+    MODULE          reduce using rule 22 (beggg -> .)
+    MAIN            reduce using rule 22 (beggg -> .)
+
+    beggg                          shift and go to state 27
+
+state 15
+
+    (20) iddd -> ID .
+
+    BEGIN           reduce using rule 20 (iddd -> ID .)
+    CALL            reduce using rule 20 (iddd -> ID .)
+    IF              reduce using rule 20 (iddd -> ID .)
+    FOR             reduce using rule 20 (iddd -> ID .)
+    WHILE           reduce using rule 20 (iddd -> ID .)
+    OUTPUT          reduce using rule 20 (iddd -> ID .)
+    INPUT           reduce using rule 20 (iddd -> ID .)
+    ID              reduce using rule 20 (iddd -> ID .)
+    DO              reduce using rule 20 (iddd -> ID .)
+    END             reduce using rule 20 (iddd -> ID .)
+    MODULE          reduce using rule 20 (iddd -> ID .)
+    MAIN            reduce using rule 20 (iddd -> ID .)
+
+
+state 16
+
+    (3) var_dec -> DECLARATION decl ENDECLARATION .
+
+    MODULE          reduce using rule 3 (var_dec -> DECLARATION decl ENDECLARATION .)
+    MAIN            reduce using rule 3 (var_dec -> DECLARATION decl ENDECLARATION .)
+
+
+state 17
+
+    (6) decl -> decl type . variable PUNTOYCOMA
+    (8) variable -> . ID
+    (9) variable -> . variable COMA ID
+
+    ID              shift and go to state 23
+
+    variable                       shift and go to state 29
+
+state 18
+
+    (7) decl -> decl dimtype . PUNTOYCOMA
+
+    PUNTOYCOMA      shift and go to state 30
+
+
+state 19
+
+    (12) dimtype -> VECTOR . DCLVECTOR
+    (15) DCLVECTOR -> . ID NUMBER
+
+    ID              shift and go to state 32
+
+    DCLVECTOR                      shift and go to state 31
+
+state 20
+
+    (13) dimtype -> MATRIX . DCLMATRIX
+    (16) DCLMATRIX -> . ID NUMBER NUMBER
+
+    ID              shift and go to state 34
+
+    DCLMATRIX                      shift and go to state 33
+
+state 21
+
+    (14) dimtype -> CUBE . DCLCUBE
+    (17) DCLCUBE -> . ID NUMBER NUMBER NUMBER
+
+    ID              shift and go to state 36
+
+    DCLCUBE                        shift and go to state 35
+
+state 22
+
+    (5) decl -> type variable . PUNTOYCOMA
+    (9) variable -> variable . COMA ID
+
+    PUNTOYCOMA      shift and go to state 37
+    COMA            shift and go to state 38
+
+
+state 23
+
+    (8) variable -> ID .
+
+    PUNTOYCOMA      reduce using rule 8 (variable -> ID .)
+    COMA            reduce using rule 8 (variable -> ID .)
+
+
+state 24
+
+    (1) program -> st var_dec procedure main_block FINISH .
+
+    $end            reduce using rule 1 (program -> st var_dec procedure main_block FINISH .)
+
+
+state 25
+
+    (27) main_block -> MAIN be . stat END
+    (25) stat -> . estatuto stat
+    (26) stat -> .
+    (29) estatuto -> . CALL ID PUNTOYCOMA
+    (30) estatuto -> . IF expresion beg stat els stat END
+    (31) estatuto -> . IF expresion beg stat END
+    (34) estatuto -> . pid ASSIGN E PUNTOYCOMA
+    (62) estatuto -> . FOR expresion_for beg1 stat END
+    (70) estatuto -> . WHILE expresion BB stat END
+    (72) estatuto -> . doo stat wh expresion
+    (75) estatuto -> . OUTPUT OP PUNTOYCOMA
+    (76) estatuto -> . INPUT ID PUNTOYCOMA
+    (35) pid -> . ID
+    (73) doo -> . DO
+
+    END             reduce using rule 26 (stat -> .)
+    MODULE          reduce using rule 26 (stat -> .)
+    MAIN            reduce using rule 26 (stat -> .)
+    ELSE            reduce using rule 26 (stat -> .)
+    DWHILE          reduce using rule 26 (stat -> .)
+    CALL            shift and go to state 41
+    IF              shift and go to state 43
+    FOR             shift and go to state 45
+    WHILE           shift and go to state 46
+    OUTPUT          shift and go to state 48
+    INPUT           shift and go to state 49
+    ID              shift and go to state 42
+    DO              shift and go to state 50
+
+    stat                           shift and go to state 39
+    estatuto                       shift and go to state 40
+    pid                            shift and go to state 44
+    doo                            shift and go to state 47
+
+state 26
+
+    (28) be -> BEGIN .
+
+    CALL            reduce using rule 28 (be -> BEGIN .)
+    IF              reduce using rule 28 (be -> BEGIN .)
+    FOR             reduce using rule 28 (be -> BEGIN .)
+    WHILE           reduce using rule 28 (be -> BEGIN .)
+    OUTPUT          reduce using rule 28 (be -> BEGIN .)
+    INPUT           reduce using rule 28 (be -> BEGIN .)
+    ID              reduce using rule 28 (be -> BEGIN .)
+    DO              reduce using rule 28 (be -> BEGIN .)
+    END             reduce using rule 28 (be -> BEGIN .)
+
+
+state 27
+
+    (18) procedure -> MODULE iddd beggg . stat enddd procedure
+    (25) stat -> . estatuto stat
+    (26) stat -> .
+    (29) estatuto -> . CALL ID PUNTOYCOMA
+    (30) estatuto -> . IF expresion beg stat els stat END
+    (31) estatuto -> . IF expresion beg stat END
+    (34) estatuto -> . pid ASSIGN E PUNTOYCOMA
+    (62) estatuto -> . FOR expresion_for beg1 stat END
+    (70) estatuto -> . WHILE expresion BB stat END
+    (72) estatuto -> . doo stat wh expresion
+    (75) estatuto -> . OUTPUT OP PUNTOYCOMA
+    (76) estatuto -> . INPUT ID PUNTOYCOMA
+    (35) pid -> . ID
+    (73) doo -> . DO
+
+    END             reduce using rule 26 (stat -> .)
+    MODULE          reduce using rule 26 (stat -> .)
+    MAIN            reduce using rule 26 (stat -> .)
+    ELSE            reduce using rule 26 (stat -> .)
+    DWHILE          reduce using rule 26 (stat -> .)
+    CALL            shift and go to state 41
+    IF              shift and go to state 43
+    FOR             shift and go to state 45
+    WHILE           shift and go to state 46
+    OUTPUT          shift and go to state 48
+    INPUT           shift and go to state 49
+    ID              shift and go to state 42
+    DO              shift and go to state 50
+
+    stat                           shift and go to state 51
+    estatuto                       shift and go to state 40
+    pid                            shift and go to state 44
+    doo                            shift and go to state 47
+
+state 28
+
+    (21) beggg -> BEGIN .
+
+    CALL            reduce using rule 21 (beggg -> BEGIN .)
+    IF              reduce using rule 21 (beggg -> BEGIN .)
+    FOR             reduce using rule 21 (beggg -> BEGIN .)
+    WHILE           reduce using rule 21 (beggg -> BEGIN .)
+    OUTPUT          reduce using rule 21 (beggg -> BEGIN .)
+    INPUT           reduce using rule 21 (beggg -> BEGIN .)
+    ID              reduce using rule 21 (beggg -> BEGIN .)
+    DO              reduce using rule 21 (beggg -> BEGIN .)
+    END             reduce using rule 21 (beggg -> BEGIN .)
+    MODULE          reduce using rule 21 (beggg -> BEGIN .)
+    MAIN            reduce using rule 21 (beggg -> BEGIN .)
+
+
+state 29
+
+    (6) decl -> decl type variable . PUNTOYCOMA
+    (9) variable -> variable . COMA ID
+
+    PUNTOYCOMA      shift and go to state 52
+    COMA            shift and go to state 38
+
+
+state 30
+
+    (7) decl -> decl dimtype PUNTOYCOMA .
+
+    ENDECLARATION   reduce using rule 7 (decl -> decl dimtype PUNTOYCOMA .)
+    INT             reduce using rule 7 (decl -> decl dimtype PUNTOYCOMA .)
+    FLOAT           reduce using rule 7 (decl -> decl dimtype PUNTOYCOMA .)
+    VECTOR          reduce using rule 7 (decl -> decl dimtype PUNTOYCOMA .)
+    MATRIX          reduce using rule 7 (decl -> decl dimtype PUNTOYCOMA .)
+    CUBE            reduce using rule 7 (decl -> decl dimtype PUNTOYCOMA .)
+
+
+state 31
+
+    (12) dimtype -> VECTOR DCLVECTOR .
+
+    PUNTOYCOMA      reduce using rule 12 (dimtype -> VECTOR DCLVECTOR .)
+
+
+state 32
+
+    (15) DCLVECTOR -> ID . NUMBER
+
+    NUMBER          shift and go to state 53
+
+
+state 33
+
+    (13) dimtype -> MATRIX DCLMATRIX .
+
+    PUNTOYCOMA      reduce using rule 13 (dimtype -> MATRIX DCLMATRIX .)
+
+
+state 34
+
+    (16) DCLMATRIX -> ID . NUMBER NUMBER
+
+    NUMBER          shift and go to state 54
+
+
+state 35
+
+    (14) dimtype -> CUBE DCLCUBE .
+
+    PUNTOYCOMA      reduce using rule 14 (dimtype -> CUBE DCLCUBE .)
+
+
+state 36
+
+    (17) DCLCUBE -> ID . NUMBER NUMBER NUMBER
+
+    NUMBER          shift and go to state 55
+
+
+state 37
+
+    (5) decl -> type variable PUNTOYCOMA .
+
+    ENDECLARATION   reduce using rule 5 (decl -> type variable PUNTOYCOMA .)
+    INT             reduce using rule 5 (decl -> type variable PUNTOYCOMA .)
+    FLOAT           reduce using rule 5 (decl -> type variable PUNTOYCOMA .)
+    VECTOR          reduce using rule 5 (decl -> type variable PUNTOYCOMA .)
+    MATRIX          reduce using rule 5 (decl -> type variable PUNTOYCOMA .)
+    CUBE            reduce using rule 5 (decl -> type variable PUNTOYCOMA .)
+
+
+state 38
+
+    (9) variable -> variable COMA . ID
+
+    ID              shift and go to state 56
+
+
+state 39
+
+    (27) main_block -> MAIN be stat . END
+
+    END             shift and go to state 57
+
+
+state 40
+
+    (25) stat -> estatuto . stat
+    (25) stat -> . estatuto stat
+    (26) stat -> .
+    (29) estatuto -> . CALL ID PUNTOYCOMA
+    (30) estatuto -> . IF expresion beg stat els stat END
+    (31) estatuto -> . IF expresion beg stat END
+    (34) estatuto -> . pid ASSIGN E PUNTOYCOMA
+    (62) estatuto -> . FOR expresion_for beg1 stat END
+    (70) estatuto -> . WHILE expresion BB stat END
+    (72) estatuto -> . doo stat wh expresion
+    (75) estatuto -> . OUTPUT OP PUNTOYCOMA
+    (76) estatuto -> . INPUT ID PUNTOYCOMA
+    (35) pid -> . ID
+    (73) doo -> . DO
+
+    END             reduce using rule 26 (stat -> .)
+    MODULE          reduce using rule 26 (stat -> .)
+    MAIN            reduce using rule 26 (stat -> .)
+    ELSE            reduce using rule 26 (stat -> .)
+    DWHILE          reduce using rule 26 (stat -> .)
+    CALL            shift and go to state 41
+    IF              shift and go to state 43
+    FOR             shift and go to state 45
+    WHILE           shift and go to state 46
+    OUTPUT          shift and go to state 48
+    INPUT           shift and go to state 49
+    ID              shift and go to state 42
+    DO              shift and go to state 50
+
+    estatuto                       shift and go to state 40
+    stat                           shift and go to state 58
+    pid                            shift and go to state 44
+    doo                            shift and go to state 47
+
+state 41
+
+    (29) estatuto -> CALL . ID PUNTOYCOMA
+
+    ID              shift and go to state 59
+
+
+state 42
+
+    (35) pid -> ID .
+
+    ASSIGN          reduce using rule 35 (pid -> ID .)
+
+
+state 43
+
+    (30) estatuto -> IF . expresion beg stat els stat END
+    (31) estatuto -> IF . expresion beg stat END
+    (44) expresion -> . LPAR EL RPAR
+
+    LPAR            shift and go to state 61
+
+    expresion                      shift and go to state 60
+
+state 44
+
+    (34) estatuto -> pid . ASSIGN E PUNTOYCOMA
+
+    ASSIGN          shift and go to state 62
+
+
+state 45
+
+    (62) estatuto -> FOR . expresion_for beg1 stat END
+    (64) expresion_for -> . LPAR id1 IN numb RPAR
+    (65) expresion_for -> . LPAR id1 IN idx RPAR
+
+    LPAR            shift and go to state 64
+
+    expresion_for                  shift and go to state 63
+
+state 46
+
+    (70) estatuto -> WHILE . expresion BB stat END
+    (44) expresion -> . LPAR EL RPAR
+
+    LPAR            shift and go to state 61
+
+    expresion                      shift and go to state 65
+
+state 47
+
+    (72) estatuto -> doo . stat wh expresion
+    (25) stat -> . estatuto stat
+    (26) stat -> .
+    (29) estatuto -> . CALL ID PUNTOYCOMA
+    (30) estatuto -> . IF expresion beg stat els stat END
+    (31) estatuto -> . IF expresion beg stat END
+    (34) estatuto -> . pid ASSIGN E PUNTOYCOMA
+    (62) estatuto -> . FOR expresion_for beg1 stat END
+    (70) estatuto -> . WHILE expresion BB stat END
+    (72) estatuto -> . doo stat wh expresion
+    (75) estatuto -> . OUTPUT OP PUNTOYCOMA
+    (76) estatuto -> . INPUT ID PUNTOYCOMA
+    (35) pid -> . ID
+    (73) doo -> . DO
+
+    END             reduce using rule 26 (stat -> .)
+    MODULE          reduce using rule 26 (stat -> .)
+    MAIN            reduce using rule 26 (stat -> .)
+    ELSE            reduce using rule 26 (stat -> .)
+    DWHILE          reduce using rule 26 (stat -> .)
+    CALL            shift and go to state 41
+    IF              shift and go to state 43
+    FOR             shift and go to state 45
+    WHILE           shift and go to state 46
+    OUTPUT          shift and go to state 48
+    INPUT           shift and go to state 49
+    ID              shift and go to state 42
+    DO              shift and go to state 50
+
+    doo                            shift and go to state 47
+    stat                           shift and go to state 66
+    estatuto                       shift and go to state 40
+    pid                            shift and go to state 44
+
+state 48
+
+    (75) estatuto -> OUTPUT . OP PUNTOYCOMA
+    (53) OP -> . NUMBER
+    (54) OP -> . FLOATNUMBER
+    (55) OP -> . vec
+    (59) OP -> . cub
+    (61) OP -> . ID
+    (56) vec -> . ID LBRACKET NUMBER RBRACKET
+    (57) vec -> . ID LBRACKET ID RBRACKET
+    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+
+    NUMBER          shift and go to state 68
+    FLOATNUMBER     shift and go to state 69
+    ID              shift and go to state 72
+
+    OP                             shift and go to state 67
+    vec                            shift and go to state 70
+    cub                            shift and go to state 71
+
+state 49
+
+    (76) estatuto -> INPUT . ID PUNTOYCOMA
+
+    ID              shift and go to state 73
+
+
+state 50
+
+    (73) doo -> DO .
+
+    CALL            reduce using rule 73 (doo -> DO .)
+    IF              reduce using rule 73 (doo -> DO .)
+    FOR             reduce using rule 73 (doo -> DO .)
+    WHILE           reduce using rule 73 (doo -> DO .)
+    OUTPUT          reduce using rule 73 (doo -> DO .)
+    INPUT           reduce using rule 73 (doo -> DO .)
+    ID              reduce using rule 73 (doo -> DO .)
+    DO              reduce using rule 73 (doo -> DO .)
+    DWHILE          reduce using rule 73 (doo -> DO .)
+
+
+state 51
+
+    (18) procedure -> MODULE iddd beggg stat . enddd procedure
+    (23) enddd -> . END
+    (24) enddd -> .
+
+    END             shift and go to state 75
+    MODULE          reduce using rule 24 (enddd -> .)
+    MAIN            reduce using rule 24 (enddd -> .)
+
+    enddd                          shift and go to state 74
+
+state 52
+
+    (6) decl -> decl type variable PUNTOYCOMA .
+
+    ENDECLARATION   reduce using rule 6 (decl -> decl type variable PUNTOYCOMA .)
+    INT             reduce using rule 6 (decl -> decl type variable PUNTOYCOMA .)
+    FLOAT           reduce using rule 6 (decl -> decl type variable PUNTOYCOMA .)
+    VECTOR          reduce using rule 6 (decl -> decl type variable PUNTOYCOMA .)
+    MATRIX          reduce using rule 6 (decl -> decl type variable PUNTOYCOMA .)
+    CUBE            reduce using rule 6 (decl -> decl type variable PUNTOYCOMA .)
+
+
+state 53
+
+    (15) DCLVECTOR -> ID NUMBER .
+
+    PUNTOYCOMA      reduce using rule 15 (DCLVECTOR -> ID NUMBER .)
+
+
+state 54
+
+    (16) DCLMATRIX -> ID NUMBER . NUMBER
+
+    NUMBER          shift and go to state 76
+
+
+state 55
+
+    (17) DCLCUBE -> ID NUMBER . NUMBER NUMBER
+
+    NUMBER          shift and go to state 77
+
+
+state 56
+
+    (9) variable -> variable COMA ID .
+
+    PUNTOYCOMA      reduce using rule 9 (variable -> variable COMA ID .)
+    COMA            reduce using rule 9 (variable -> variable COMA ID .)
+
+
+state 57
+
+    (27) main_block -> MAIN be stat END .
+
+    FINISH          reduce using rule 27 (main_block -> MAIN be stat END .)
+
+
+state 58
+
+    (25) stat -> estatuto stat .
+
+    END             reduce using rule 25 (stat -> estatuto stat .)
+    MODULE          reduce using rule 25 (stat -> estatuto stat .)
+    MAIN            reduce using rule 25 (stat -> estatuto stat .)
+    ELSE            reduce using rule 25 (stat -> estatuto stat .)
+    DWHILE          reduce using rule 25 (stat -> estatuto stat .)
+
+
+state 59
+
+    (29) estatuto -> CALL ID . PUNTOYCOMA
+
+    PUNTOYCOMA      shift and go to state 78
+
+
+state 60
+
+    (30) estatuto -> IF expresion . beg stat els stat END
+    (31) estatuto -> IF expresion . beg stat END
+    (32) beg -> . BEGIN
+
+    BEGIN           shift and go to state 80
+
+    beg                            shift and go to state 79
+
+state 61
+
+    (44) expresion -> LPAR . EL RPAR
+    (45) EL -> . EL OR TL
+    (46) EL -> . TL NOT
+    (47) EL -> . TL
+    (48) TL -> . TL AND FL
+    (49) TL -> . FL
+    (50) FL -> . OP opLogico OP
+    (51) FL -> . LPAR EL LPAR
+    (53) OP -> . NUMBER
+    (54) OP -> . FLOATNUMBER
+    (55) OP -> . vec
+    (59) OP -> . cub
+    (61) OP -> . ID
+    (56) vec -> . ID LBRACKET NUMBER RBRACKET
+    (57) vec -> . ID LBRACKET ID RBRACKET
+    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+
+    LPAR            shift and go to state 81
+    NUMBER          shift and go to state 68
+    FLOATNUMBER     shift and go to state 69
+    ID              shift and go to state 72
+
+    EL                             shift and go to state 82
+    TL                             shift and go to state 83
+    FL                             shift and go to state 84
+    OP                             shift and go to state 85
+    vec                            shift and go to state 70
+    cub                            shift and go to state 71
+
+state 62
+
+    (34) estatuto -> pid ASSIGN . E PUNTOYCOMA
+    (36) E -> . E PLUS T
+    (37) E -> . E MINUS T
+    (38) E -> . T
+    (39) T -> . T TIMES F
+    (40) T -> . T DIVIDE F
+    (41) T -> . F
+    (42) F -> . OP
+    (43) F -> . LPAR E RPAR
+    (53) OP -> . NUMBER
+    (54) OP -> . FLOATNUMBER
+    (55) OP -> . vec
+    (59) OP -> . cub
+    (61) OP -> . ID
+    (56) vec -> . ID LBRACKET NUMBER RBRACKET
+    (57) vec -> . ID LBRACKET ID RBRACKET
+    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+
+    LPAR            shift and go to state 90
+    NUMBER          shift and go to state 68
+    FLOATNUMBER     shift and go to state 69
+    ID              shift and go to state 72
+
+    E                              shift and go to state 86
+    T                              shift and go to state 87
+    F                              shift and go to state 88
+    OP                             shift and go to state 89
+    vec                            shift and go to state 70
+    cub                            shift and go to state 71
+
+state 63
+
+    (62) estatuto -> FOR expresion_for . beg1 stat END
+    (63) beg1 -> . BEGIN
+
+    BEGIN           shift and go to state 92
+
+    beg1                           shift and go to state 91
+
+state 64
+
+    (64) expresion_for -> LPAR . id1 IN numb RPAR
+    (65) expresion_for -> LPAR . id1 IN idx RPAR
+    (69) id1 -> . ID
+
+    ID              shift and go to state 94
+
+    id1                            shift and go to state 93
+
+state 65
+
+    (70) estatuto -> WHILE expresion . BB stat END
+    (71) BB -> . BEGIN
+
+    BEGIN           shift and go to state 96
+
+    BB                             shift and go to state 95
+
+state 66
+
+    (72) estatuto -> doo stat . wh expresion
+    (74) wh -> . DWHILE
+
+    DWHILE          shift and go to state 98
+
+    wh                             shift and go to state 97
+
+state 67
+
+    (75) estatuto -> OUTPUT OP . PUNTOYCOMA
+
+    PUNTOYCOMA      shift and go to state 99
+
+
+state 68
+
+    (53) OP -> NUMBER .
+
+    PUNTOYCOMA      reduce using rule 53 (OP -> NUMBER .)
+    PLUS            reduce using rule 53 (OP -> NUMBER .)
+    MINUS           reduce using rule 53 (OP -> NUMBER .)
+    TIMES           reduce using rule 53 (OP -> NUMBER .)
+    DIVIDE          reduce using rule 53 (OP -> NUMBER .)
+    RELATIONAL      reduce using rule 53 (OP -> NUMBER .)
+    RPAR            reduce using rule 53 (OP -> NUMBER .)
+    OR              reduce using rule 53 (OP -> NUMBER .)
+    NOT             reduce using rule 53 (OP -> NUMBER .)
+    AND             reduce using rule 53 (OP -> NUMBER .)
+    RBRACKET        reduce using rule 53 (OP -> NUMBER .)
+    LPAR            reduce using rule 53 (OP -> NUMBER .)
+
+
+state 69
+
+    (54) OP -> FLOATNUMBER .
+
+    PUNTOYCOMA      reduce using rule 54 (OP -> FLOATNUMBER .)
+    PLUS            reduce using rule 54 (OP -> FLOATNUMBER .)
+    MINUS           reduce using rule 54 (OP -> FLOATNUMBER .)
+    TIMES           reduce using rule 54 (OP -> FLOATNUMBER .)
+    DIVIDE          reduce using rule 54 (OP -> FLOATNUMBER .)
+    RELATIONAL      reduce using rule 54 (OP -> FLOATNUMBER .)
+    RPAR            reduce using rule 54 (OP -> FLOATNUMBER .)
+    OR              reduce using rule 54 (OP -> FLOATNUMBER .)
+    NOT             reduce using rule 54 (OP -> FLOATNUMBER .)
+    AND             reduce using rule 54 (OP -> FLOATNUMBER .)
+    RBRACKET        reduce using rule 54 (OP -> FLOATNUMBER .)
+    LPAR            reduce using rule 54 (OP -> FLOATNUMBER .)
+
+
+state 70
+
+    (55) OP -> vec .
+
+    PUNTOYCOMA      reduce using rule 55 (OP -> vec .)
+    PLUS            reduce using rule 55 (OP -> vec .)
+    MINUS           reduce using rule 55 (OP -> vec .)
+    TIMES           reduce using rule 55 (OP -> vec .)
+    DIVIDE          reduce using rule 55 (OP -> vec .)
+    RELATIONAL      reduce using rule 55 (OP -> vec .)
+    RPAR            reduce using rule 55 (OP -> vec .)
+    OR              reduce using rule 55 (OP -> vec .)
+    NOT             reduce using rule 55 (OP -> vec .)
+    AND             reduce using rule 55 (OP -> vec .)
+    RBRACKET        reduce using rule 55 (OP -> vec .)
+    LPAR            reduce using rule 55 (OP -> vec .)
+
+
+state 71
+
+    (59) OP -> cub .
+
+    PUNTOYCOMA      reduce using rule 59 (OP -> cub .)
+    PLUS            reduce using rule 59 (OP -> cub .)
+    MINUS           reduce using rule 59 (OP -> cub .)
+    TIMES           reduce using rule 59 (OP -> cub .)
+    DIVIDE          reduce using rule 59 (OP -> cub .)
+    RELATIONAL      reduce using rule 59 (OP -> cub .)
+    RPAR            reduce using rule 59 (OP -> cub .)
+    OR              reduce using rule 59 (OP -> cub .)
+    NOT             reduce using rule 59 (OP -> cub .)
+    AND             reduce using rule 59 (OP -> cub .)
+    RBRACKET        reduce using rule 59 (OP -> cub .)
+    LPAR            reduce using rule 59 (OP -> cub .)
+
+
+state 72
+
+    (61) OP -> ID .
+    (56) vec -> ID . LBRACKET NUMBER RBRACKET
+    (57) vec -> ID . LBRACKET ID RBRACKET
+    (60) cub -> ID . LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+
+    PUNTOYCOMA      reduce using rule 61 (OP -> ID .)
+    PLUS            reduce using rule 61 (OP -> ID .)
+    MINUS           reduce using rule 61 (OP -> ID .)
+    TIMES           reduce using rule 61 (OP -> ID .)
+    DIVIDE          reduce using rule 61 (OP -> ID .)
+    RELATIONAL      reduce using rule 61 (OP -> ID .)
+    RPAR            reduce using rule 61 (OP -> ID .)
+    OR              reduce using rule 61 (OP -> ID .)
+    NOT             reduce using rule 61 (OP -> ID .)
+    AND             reduce using rule 61 (OP -> ID .)
+    RBRACKET        reduce using rule 61 (OP -> ID .)
+    LPAR            reduce using rule 61 (OP -> ID .)
+    LBRACKET        shift and go to state 100
+
+
+state 73
+
+    (76) estatuto -> INPUT ID . PUNTOYCOMA
+
+    PUNTOYCOMA      shift and go to state 101
+
+
+state 74
+
+    (18) procedure -> MODULE iddd beggg stat enddd . procedure
+    (18) procedure -> . MODULE iddd beggg stat enddd procedure
+    (19) procedure -> .
+
+    MODULE          shift and go to state 7
+    MAIN            reduce using rule 19 (procedure -> .)
+
+    procedure                      shift and go to state 102
+
+state 75
+
+    (23) enddd -> END .
+
+    MODULE          reduce using rule 23 (enddd -> END .)
+    MAIN            reduce using rule 23 (enddd -> END .)
+
+
+state 76
+
+    (16) DCLMATRIX -> ID NUMBER NUMBER .
+
+    PUNTOYCOMA      reduce using rule 16 (DCLMATRIX -> ID NUMBER NUMBER .)
+
+
+state 77
+
+    (17) DCLCUBE -> ID NUMBER NUMBER . NUMBER
+
+    NUMBER          shift and go to state 103
+
+
+state 78
+
+    (29) estatuto -> CALL ID PUNTOYCOMA .
+
+    CALL            reduce using rule 29 (estatuto -> CALL ID PUNTOYCOMA .)
+    IF              reduce using rule 29 (estatuto -> CALL ID PUNTOYCOMA .)
+    FOR             reduce using rule 29 (estatuto -> CALL ID PUNTOYCOMA .)
+    WHILE           reduce using rule 29 (estatuto -> CALL ID PUNTOYCOMA .)
+    OUTPUT          reduce using rule 29 (estatuto -> CALL ID PUNTOYCOMA .)
+    INPUT           reduce using rule 29 (estatuto -> CALL ID PUNTOYCOMA .)
+    ID              reduce using rule 29 (estatuto -> CALL ID PUNTOYCOMA .)
+    DO              reduce using rule 29 (estatuto -> CALL ID PUNTOYCOMA .)
+    END             reduce using rule 29 (estatuto -> CALL ID PUNTOYCOMA .)
+    MODULE          reduce using rule 29 (estatuto -> CALL ID PUNTOYCOMA .)
+    MAIN            reduce using rule 29 (estatuto -> CALL ID PUNTOYCOMA .)
+    ELSE            reduce using rule 29 (estatuto -> CALL ID PUNTOYCOMA .)
+    DWHILE          reduce using rule 29 (estatuto -> CALL ID PUNTOYCOMA .)
+
+
+state 79
+
+    (30) estatuto -> IF expresion beg . stat els stat END
+    (31) estatuto -> IF expresion beg . stat END
+    (25) stat -> . estatuto stat
+    (26) stat -> .
+    (29) estatuto -> . CALL ID PUNTOYCOMA
+    (30) estatuto -> . IF expresion beg stat els stat END
+    (31) estatuto -> . IF expresion beg stat END
+    (34) estatuto -> . pid ASSIGN E PUNTOYCOMA
+    (62) estatuto -> . FOR expresion_for beg1 stat END
+    (70) estatuto -> . WHILE expresion BB stat END
+    (72) estatuto -> . doo stat wh expresion
+    (75) estatuto -> . OUTPUT OP PUNTOYCOMA
+    (76) estatuto -> . INPUT ID PUNTOYCOMA
+    (35) pid -> . ID
+    (73) doo -> . DO
+
+    END             reduce using rule 26 (stat -> .)
+    MODULE          reduce using rule 26 (stat -> .)
+    MAIN            reduce using rule 26 (stat -> .)
+    ELSE            reduce using rule 26 (stat -> .)
+    DWHILE          reduce using rule 26 (stat -> .)
+    CALL            shift and go to state 41
+    IF              shift and go to state 43
+    FOR             shift and go to state 45
+    WHILE           shift and go to state 46
+    OUTPUT          shift and go to state 48
+    INPUT           shift and go to state 49
+    ID              shift and go to state 42
+    DO              shift and go to state 50
+
+    stat                           shift and go to state 104
+    estatuto                       shift and go to state 40
+    pid                            shift and go to state 44
+    doo                            shift and go to state 47
+
+state 80
+
+    (32) beg -> BEGIN .
+
+    CALL            reduce using rule 32 (beg -> BEGIN .)
+    IF              reduce using rule 32 (beg -> BEGIN .)
+    FOR             reduce using rule 32 (beg -> BEGIN .)
+    WHILE           reduce using rule 32 (beg -> BEGIN .)
+    OUTPUT          reduce using rule 32 (beg -> BEGIN .)
+    INPUT           reduce using rule 32 (beg -> BEGIN .)
+    ID              reduce using rule 32 (beg -> BEGIN .)
+    DO              reduce using rule 32 (beg -> BEGIN .)
+    ELSE            reduce using rule 32 (beg -> BEGIN .)
+    END             reduce using rule 32 (beg -> BEGIN .)
+
+
+state 81
+
+    (51) FL -> LPAR . EL LPAR
+    (45) EL -> . EL OR TL
+    (46) EL -> . TL NOT
+    (47) EL -> . TL
+    (48) TL -> . TL AND FL
+    (49) TL -> . FL
+    (50) FL -> . OP opLogico OP
+    (51) FL -> . LPAR EL LPAR
+    (53) OP -> . NUMBER
+    (54) OP -> . FLOATNUMBER
+    (55) OP -> . vec
+    (59) OP -> . cub
+    (61) OP -> . ID
+    (56) vec -> . ID LBRACKET NUMBER RBRACKET
+    (57) vec -> . ID LBRACKET ID RBRACKET
+    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+
+    LPAR            shift and go to state 81
+    NUMBER          shift and go to state 68
+    FLOATNUMBER     shift and go to state 69
+    ID              shift and go to state 72
+
+    EL                             shift and go to state 105
+    TL                             shift and go to state 83
+    FL                             shift and go to state 84
+    OP                             shift and go to state 85
+    vec                            shift and go to state 70
+    cub                            shift and go to state 71
+
+state 82
+
+    (44) expresion -> LPAR EL . RPAR
+    (45) EL -> EL . OR TL
+
+    RPAR            shift and go to state 106
+    OR              shift and go to state 107
+
+
+state 83
+
+    (46) EL -> TL . NOT
+    (47) EL -> TL .
+    (48) TL -> TL . AND FL
+
+    NOT             shift and go to state 108
+    RPAR            reduce using rule 47 (EL -> TL .)
+    OR              reduce using rule 47 (EL -> TL .)
+    LPAR            reduce using rule 47 (EL -> TL .)
+    AND             shift and go to state 109
+
+
+state 84
+
+    (49) TL -> FL .
+
+    RPAR            reduce using rule 49 (TL -> FL .)
+    OR              reduce using rule 49 (TL -> FL .)
+    NOT             reduce using rule 49 (TL -> FL .)
+    AND             reduce using rule 49 (TL -> FL .)
+    LPAR            reduce using rule 49 (TL -> FL .)
+
+
+state 85
+
+    (50) FL -> OP . opLogico OP
+    (52) opLogico -> . RELATIONAL
+
+    RELATIONAL      shift and go to state 111
+
+    opLogico                       shift and go to state 110
+
+state 86
+
+    (34) estatuto -> pid ASSIGN E . PUNTOYCOMA
+    (36) E -> E . PLUS T
+    (37) E -> E . MINUS T
+
+    PUNTOYCOMA      shift and go to state 112
+    PLUS            shift and go to state 113
+    MINUS           shift and go to state 114
+
+
+state 87
+
+    (38) E -> T .
+    (39) T -> T . TIMES F
+    (40) T -> T . DIVIDE F
+
+    PUNTOYCOMA      reduce using rule 38 (E -> T .)
+    PLUS            reduce using rule 38 (E -> T .)
+    MINUS           reduce using rule 38 (E -> T .)
+    RPAR            reduce using rule 38 (E -> T .)
+    TIMES           shift and go to state 115
+    DIVIDE          shift and go to state 116
+
+
+state 88
+
+    (41) T -> F .
+
+    PUNTOYCOMA      reduce using rule 41 (T -> F .)
+    PLUS            reduce using rule 41 (T -> F .)
+    MINUS           reduce using rule 41 (T -> F .)
+    TIMES           reduce using rule 41 (T -> F .)
+    DIVIDE          reduce using rule 41 (T -> F .)
+    RPAR            reduce using rule 41 (T -> F .)
+
+
+state 89
+
+    (42) F -> OP .
+
+    PUNTOYCOMA      reduce using rule 42 (F -> OP .)
+    PLUS            reduce using rule 42 (F -> OP .)
+    MINUS           reduce using rule 42 (F -> OP .)
+    TIMES           reduce using rule 42 (F -> OP .)
+    DIVIDE          reduce using rule 42 (F -> OP .)
+    RPAR            reduce using rule 42 (F -> OP .)
+
+
+state 90
+
+    (43) F -> LPAR . E RPAR
+    (36) E -> . E PLUS T
+    (37) E -> . E MINUS T
+    (38) E -> . T
+    (39) T -> . T TIMES F
+    (40) T -> . T DIVIDE F
+    (41) T -> . F
+    (42) F -> . OP
+    (43) F -> . LPAR E RPAR
+    (53) OP -> . NUMBER
+    (54) OP -> . FLOATNUMBER
+    (55) OP -> . vec
+    (59) OP -> . cub
+    (61) OP -> . ID
+    (56) vec -> . ID LBRACKET NUMBER RBRACKET
+    (57) vec -> . ID LBRACKET ID RBRACKET
+    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+
+    LPAR            shift and go to state 90
+    NUMBER          shift and go to state 68
+    FLOATNUMBER     shift and go to state 69
+    ID              shift and go to state 72
+
+    E                              shift and go to state 117
+    T                              shift and go to state 87
+    F                              shift and go to state 88
+    OP                             shift and go to state 89
+    vec                            shift and go to state 70
+    cub                            shift and go to state 71
+
+state 91
+
+    (62) estatuto -> FOR expresion_for beg1 . stat END
+    (25) stat -> . estatuto stat
+    (26) stat -> .
+    (29) estatuto -> . CALL ID PUNTOYCOMA
+    (30) estatuto -> . IF expresion beg stat els stat END
+    (31) estatuto -> . IF expresion beg stat END
+    (34) estatuto -> . pid ASSIGN E PUNTOYCOMA
+    (62) estatuto -> . FOR expresion_for beg1 stat END
+    (70) estatuto -> . WHILE expresion BB stat END
+    (72) estatuto -> . doo stat wh expresion
+    (75) estatuto -> . OUTPUT OP PUNTOYCOMA
+    (76) estatuto -> . INPUT ID PUNTOYCOMA
+    (35) pid -> . ID
+    (73) doo -> . DO
+
+    END             reduce using rule 26 (stat -> .)
+    MODULE          reduce using rule 26 (stat -> .)
+    MAIN            reduce using rule 26 (stat -> .)
+    ELSE            reduce using rule 26 (stat -> .)
+    DWHILE          reduce using rule 26 (stat -> .)
+    CALL            shift and go to state 41
+    IF              shift and go to state 43
+    FOR             shift and go to state 45
+    WHILE           shift and go to state 46
+    OUTPUT          shift and go to state 48
+    INPUT           shift and go to state 49
+    ID              shift and go to state 42
+    DO              shift and go to state 50
+
+    stat                           shift and go to state 118
+    estatuto                       shift and go to state 40
+    pid                            shift and go to state 44
+    doo                            shift and go to state 47
+
+state 92
+
+    (63) beg1 -> BEGIN .
+
+    CALL            reduce using rule 63 (beg1 -> BEGIN .)
+    IF              reduce using rule 63 (beg1 -> BEGIN .)
+    FOR             reduce using rule 63 (beg1 -> BEGIN .)
+    WHILE           reduce using rule 63 (beg1 -> BEGIN .)
+    OUTPUT          reduce using rule 63 (beg1 -> BEGIN .)
+    INPUT           reduce using rule 63 (beg1 -> BEGIN .)
+    ID              reduce using rule 63 (beg1 -> BEGIN .)
+    DO              reduce using rule 63 (beg1 -> BEGIN .)
+    END             reduce using rule 63 (beg1 -> BEGIN .)
+
+
+state 93
+
+    (64) expresion_for -> LPAR id1 . IN numb RPAR
+    (65) expresion_for -> LPAR id1 . IN idx RPAR
+
+    IN              shift and go to state 119
+
+
+state 94
+
+    (69) id1 -> ID .
+
+    IN              reduce using rule 69 (id1 -> ID .)
+
+
+state 95
+
+    (70) estatuto -> WHILE expresion BB . stat END
+    (25) stat -> . estatuto stat
+    (26) stat -> .
+    (29) estatuto -> . CALL ID PUNTOYCOMA
+    (30) estatuto -> . IF expresion beg stat els stat END
+    (31) estatuto -> . IF expresion beg stat END
+    (34) estatuto -> . pid ASSIGN E PUNTOYCOMA
+    (62) estatuto -> . FOR expresion_for beg1 stat END
+    (70) estatuto -> . WHILE expresion BB stat END
+    (72) estatuto -> . doo stat wh expresion
+    (75) estatuto -> . OUTPUT OP PUNTOYCOMA
+    (76) estatuto -> . INPUT ID PUNTOYCOMA
+    (35) pid -> . ID
+    (73) doo -> . DO
+
+    END             reduce using rule 26 (stat -> .)
+    MODULE          reduce using rule 26 (stat -> .)
+    MAIN            reduce using rule 26 (stat -> .)
+    ELSE            reduce using rule 26 (stat -> .)
+    DWHILE          reduce using rule 26 (stat -> .)
+    CALL            shift and go to state 41
+    IF              shift and go to state 43
+    FOR             shift and go to state 45
+    WHILE           shift and go to state 46
+    OUTPUT          shift and go to state 48
+    INPUT           shift and go to state 49
+    ID              shift and go to state 42
+    DO              shift and go to state 50
+
+    stat                           shift and go to state 120
+    estatuto                       shift and go to state 40
+    pid                            shift and go to state 44
+    doo                            shift and go to state 47
+
+state 96
+
+    (71) BB -> BEGIN .
+
+    CALL            reduce using rule 71 (BB -> BEGIN .)
+    IF              reduce using rule 71 (BB -> BEGIN .)
+    FOR             reduce using rule 71 (BB -> BEGIN .)
+    WHILE           reduce using rule 71 (BB -> BEGIN .)
+    OUTPUT          reduce using rule 71 (BB -> BEGIN .)
+    INPUT           reduce using rule 71 (BB -> BEGIN .)
+    ID              reduce using rule 71 (BB -> BEGIN .)
+    DO              reduce using rule 71 (BB -> BEGIN .)
+    END             reduce using rule 71 (BB -> BEGIN .)
+
+
+state 97
+
+    (72) estatuto -> doo stat wh . expresion
+    (44) expresion -> . LPAR EL RPAR
+
+    LPAR            shift and go to state 61
+
+    expresion                      shift and go to state 121
+
+state 98
+
+    (74) wh -> DWHILE .
+
+    LPAR            reduce using rule 74 (wh -> DWHILE .)
+
+
+state 99
+
+    (75) estatuto -> OUTPUT OP PUNTOYCOMA .
+
+    CALL            reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+    IF              reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+    FOR             reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+    WHILE           reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+    OUTPUT          reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+    INPUT           reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+    ID              reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+    DO              reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+    END             reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+    MODULE          reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+    MAIN            reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+    ELSE            reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+    DWHILE          reduce using rule 75 (estatuto -> OUTPUT OP PUNTOYCOMA .)
+
+
+state 100
+
+    (56) vec -> ID LBRACKET . NUMBER RBRACKET
+    (57) vec -> ID LBRACKET . ID RBRACKET
+    (60) cub -> ID LBRACKET . OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+    (53) OP -> . NUMBER
+    (54) OP -> . FLOATNUMBER
+    (55) OP -> . vec
+    (59) OP -> . cub
+    (61) OP -> . ID
+    (56) vec -> . ID LBRACKET NUMBER RBRACKET
+    (57) vec -> . ID LBRACKET ID RBRACKET
+    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+
+    NUMBER          shift and go to state 123
+    ID              shift and go to state 122
+    FLOATNUMBER     shift and go to state 69
+
+    OP                             shift and go to state 124
+    vec                            shift and go to state 70
+    cub                            shift and go to state 71
+
+state 101
+
+    (76) estatuto -> INPUT ID PUNTOYCOMA .
+
+    CALL            reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
+    IF              reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
+    FOR             reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
+    WHILE           reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
+    OUTPUT          reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
+    INPUT           reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
+    ID              reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
+    DO              reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
+    END             reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
+    MODULE          reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
+    MAIN            reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
+    ELSE            reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
+    DWHILE          reduce using rule 76 (estatuto -> INPUT ID PUNTOYCOMA .)
+
+
+state 102
+
+    (18) procedure -> MODULE iddd beggg stat enddd procedure .
+
+    MAIN            reduce using rule 18 (procedure -> MODULE iddd beggg stat enddd procedure .)
+
+
+state 103
+
+    (17) DCLCUBE -> ID NUMBER NUMBER NUMBER .
+
+    PUNTOYCOMA      reduce using rule 17 (DCLCUBE -> ID NUMBER NUMBER NUMBER .)
+
+
+state 104
+
+    (30) estatuto -> IF expresion beg stat . els stat END
+    (31) estatuto -> IF expresion beg stat . END
+    (33) els -> . ELSE
+
+    END             shift and go to state 126
+    ELSE            shift and go to state 127
+
+    els                            shift and go to state 125
+
+state 105
+
+    (51) FL -> LPAR EL . LPAR
+    (45) EL -> EL . OR TL
+
+    LPAR            shift and go to state 128
+    OR              shift and go to state 107
+
+
+state 106
+
+    (44) expresion -> LPAR EL RPAR .
+
+    BEGIN           reduce using rule 44 (expresion -> LPAR EL RPAR .)
+    CALL            reduce using rule 44 (expresion -> LPAR EL RPAR .)
+    IF              reduce using rule 44 (expresion -> LPAR EL RPAR .)
+    FOR             reduce using rule 44 (expresion -> LPAR EL RPAR .)
+    WHILE           reduce using rule 44 (expresion -> LPAR EL RPAR .)
+    OUTPUT          reduce using rule 44 (expresion -> LPAR EL RPAR .)
+    INPUT           reduce using rule 44 (expresion -> LPAR EL RPAR .)
+    ID              reduce using rule 44 (expresion -> LPAR EL RPAR .)
+    DO              reduce using rule 44 (expresion -> LPAR EL RPAR .)
+    END             reduce using rule 44 (expresion -> LPAR EL RPAR .)
+    MODULE          reduce using rule 44 (expresion -> LPAR EL RPAR .)
+    MAIN            reduce using rule 44 (expresion -> LPAR EL RPAR .)
+    ELSE            reduce using rule 44 (expresion -> LPAR EL RPAR .)
+    DWHILE          reduce using rule 44 (expresion -> LPAR EL RPAR .)
+
+
+state 107
+
+    (45) EL -> EL OR . TL
+    (48) TL -> . TL AND FL
+    (49) TL -> . FL
+    (50) FL -> . OP opLogico OP
+    (51) FL -> . LPAR EL LPAR
+    (53) OP -> . NUMBER
+    (54) OP -> . FLOATNUMBER
+    (55) OP -> . vec
+    (59) OP -> . cub
+    (61) OP -> . ID
+    (56) vec -> . ID LBRACKET NUMBER RBRACKET
+    (57) vec -> . ID LBRACKET ID RBRACKET
+    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+
+    LPAR            shift and go to state 81
+    NUMBER          shift and go to state 68
+    FLOATNUMBER     shift and go to state 69
+    ID              shift and go to state 72
+
+    TL                             shift and go to state 129
+    FL                             shift and go to state 84
+    OP                             shift and go to state 85
+    vec                            shift and go to state 70
+    cub                            shift and go to state 71
+
+state 108
+
+    (46) EL -> TL NOT .
+
+    RPAR            reduce using rule 46 (EL -> TL NOT .)
+    OR              reduce using rule 46 (EL -> TL NOT .)
+    LPAR            reduce using rule 46 (EL -> TL NOT .)
+
+
+state 109
+
+    (48) TL -> TL AND . FL
+    (50) FL -> . OP opLogico OP
+    (51) FL -> . LPAR EL LPAR
+    (53) OP -> . NUMBER
+    (54) OP -> . FLOATNUMBER
+    (55) OP -> . vec
+    (59) OP -> . cub
+    (61) OP -> . ID
+    (56) vec -> . ID LBRACKET NUMBER RBRACKET
+    (57) vec -> . ID LBRACKET ID RBRACKET
+    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+
+    LPAR            shift and go to state 81
+    NUMBER          shift and go to state 68
+    FLOATNUMBER     shift and go to state 69
+    ID              shift and go to state 72
+
+    FL                             shift and go to state 130
+    OP                             shift and go to state 85
+    vec                            shift and go to state 70
+    cub                            shift and go to state 71
+
+state 110
+
+    (50) FL -> OP opLogico . OP
+    (53) OP -> . NUMBER
+    (54) OP -> . FLOATNUMBER
+    (55) OP -> . vec
+    (59) OP -> . cub
+    (61) OP -> . ID
+    (56) vec -> . ID LBRACKET NUMBER RBRACKET
+    (57) vec -> . ID LBRACKET ID RBRACKET
+    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+
+    NUMBER          shift and go to state 68
+    FLOATNUMBER     shift and go to state 69
+    ID              shift and go to state 72
+
+    OP                             shift and go to state 131
+    vec                            shift and go to state 70
+    cub                            shift and go to state 71
+
+state 111
+
+    (52) opLogico -> RELATIONAL .
+
+    NUMBER          reduce using rule 52 (opLogico -> RELATIONAL .)
+    FLOATNUMBER     reduce using rule 52 (opLogico -> RELATIONAL .)
+    ID              reduce using rule 52 (opLogico -> RELATIONAL .)
+
+
+state 112
+
+    (34) estatuto -> pid ASSIGN E PUNTOYCOMA .
+
+    CALL            reduce using rule 34 (estatuto -> pid ASSIGN E PUNTOYCOMA .)
+    IF              reduce using rule 34 (estatuto -> pid ASSIGN E PUNTOYCOMA .)
+    FOR             reduce using rule 34 (estatuto -> pid ASSIGN E PUNTOYCOMA .)
+    WHILE           reduce using rule 34 (estatuto -> pid ASSIGN E PUNTOYCOMA .)
+    OUTPUT          reduce using rule 34 (estatuto -> pid ASSIGN E PUNTOYCOMA .)
+    INPUT           reduce using rule 34 (estatuto -> pid ASSIGN E PUNTOYCOMA .)
+    ID              reduce using rule 34 (estatuto -> pid ASSIGN E PUNTOYCOMA .)
+    DO              reduce using rule 34 (estatuto -> pid ASSIGN E PUNTOYCOMA .)
+    END             reduce using rule 34 (estatuto -> pid ASSIGN E PUNTOYCOMA .)
+    MODULE          reduce using rule 34 (estatuto -> pid ASSIGN E PUNTOYCOMA .)
+    MAIN            reduce using rule 34 (estatuto -> pid ASSIGN E PUNTOYCOMA .)
+    ELSE            reduce using rule 34 (estatuto -> pid ASSIGN E PUNTOYCOMA .)
+    DWHILE          reduce using rule 34 (estatuto -> pid ASSIGN E PUNTOYCOMA .)
+
+
+state 113
+
+    (36) E -> E PLUS . T
+    (39) T -> . T TIMES F
+    (40) T -> . T DIVIDE F
+    (41) T -> . F
+    (42) F -> . OP
+    (43) F -> . LPAR E RPAR
+    (53) OP -> . NUMBER
+    (54) OP -> . FLOATNUMBER
+    (55) OP -> . vec
+    (59) OP -> . cub
+    (61) OP -> . ID
+    (56) vec -> . ID LBRACKET NUMBER RBRACKET
+    (57) vec -> . ID LBRACKET ID RBRACKET
+    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+
+    LPAR            shift and go to state 90
+    NUMBER          shift and go to state 68
+    FLOATNUMBER     shift and go to state 69
+    ID              shift and go to state 72
+
+    T                              shift and go to state 132
+    F                              shift and go to state 88
+    OP                             shift and go to state 89
+    vec                            shift and go to state 70
+    cub                            shift and go to state 71
+
+state 114
+
+    (37) E -> E MINUS . T
+    (39) T -> . T TIMES F
+    (40) T -> . T DIVIDE F
+    (41) T -> . F
+    (42) F -> . OP
+    (43) F -> . LPAR E RPAR
+    (53) OP -> . NUMBER
+    (54) OP -> . FLOATNUMBER
+    (55) OP -> . vec
+    (59) OP -> . cub
+    (61) OP -> . ID
+    (56) vec -> . ID LBRACKET NUMBER RBRACKET
+    (57) vec -> . ID LBRACKET ID RBRACKET
+    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+
+    LPAR            shift and go to state 90
+    NUMBER          shift and go to state 68
+    FLOATNUMBER     shift and go to state 69
+    ID              shift and go to state 72
+
+    T                              shift and go to state 133
+    F                              shift and go to state 88
+    OP                             shift and go to state 89
+    vec                            shift and go to state 70
+    cub                            shift and go to state 71
+
+state 115
+
+    (39) T -> T TIMES . F
+    (42) F -> . OP
+    (43) F -> . LPAR E RPAR
+    (53) OP -> . NUMBER
+    (54) OP -> . FLOATNUMBER
+    (55) OP -> . vec
+    (59) OP -> . cub
+    (61) OP -> . ID
+    (56) vec -> . ID LBRACKET NUMBER RBRACKET
+    (57) vec -> . ID LBRACKET ID RBRACKET
+    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+
+    LPAR            shift and go to state 90
+    NUMBER          shift and go to state 68
+    FLOATNUMBER     shift and go to state 69
+    ID              shift and go to state 72
+
+    F                              shift and go to state 134
+    OP                             shift and go to state 89
+    vec                            shift and go to state 70
+    cub                            shift and go to state 71
+
+state 116
+
+    (40) T -> T DIVIDE . F
+    (42) F -> . OP
+    (43) F -> . LPAR E RPAR
+    (53) OP -> . NUMBER
+    (54) OP -> . FLOATNUMBER
+    (55) OP -> . vec
+    (59) OP -> . cub
+    (61) OP -> . ID
+    (56) vec -> . ID LBRACKET NUMBER RBRACKET
+    (57) vec -> . ID LBRACKET ID RBRACKET
+    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+
+    LPAR            shift and go to state 90
+    NUMBER          shift and go to state 68
+    FLOATNUMBER     shift and go to state 69
+    ID              shift and go to state 72
+
+    F                              shift and go to state 135
+    OP                             shift and go to state 89
+    vec                            shift and go to state 70
+    cub                            shift and go to state 71
+
+state 117
+
+    (43) F -> LPAR E . RPAR
+    (36) E -> E . PLUS T
+    (37) E -> E . MINUS T
+
+    RPAR            shift and go to state 136
+    PLUS            shift and go to state 113
+    MINUS           shift and go to state 114
+
+
+state 118
+
+    (62) estatuto -> FOR expresion_for beg1 stat . END
+
+    END             shift and go to state 137
+
+
+state 119
+
+    (64) expresion_for -> LPAR id1 IN . numb RPAR
+    (65) expresion_for -> LPAR id1 IN . idx RPAR
+    (66) numb -> . NUMBER
+    (67) numb -> . FLOATNUMBER
+    (68) idx -> . ID
+
+    NUMBER          shift and go to state 140
+    FLOATNUMBER     shift and go to state 141
+    ID              shift and go to state 142
+
+    numb                           shift and go to state 138
+    idx                            shift and go to state 139
+
+state 120
+
+    (70) estatuto -> WHILE expresion BB stat . END
+
+    END             shift and go to state 143
+
+
+state 121
+
+    (72) estatuto -> doo stat wh expresion .
+
+    CALL            reduce using rule 72 (estatuto -> doo stat wh expresion .)
+    IF              reduce using rule 72 (estatuto -> doo stat wh expresion .)
+    FOR             reduce using rule 72 (estatuto -> doo stat wh expresion .)
+    WHILE           reduce using rule 72 (estatuto -> doo stat wh expresion .)
+    OUTPUT          reduce using rule 72 (estatuto -> doo stat wh expresion .)
+    INPUT           reduce using rule 72 (estatuto -> doo stat wh expresion .)
+    ID              reduce using rule 72 (estatuto -> doo stat wh expresion .)
+    DO              reduce using rule 72 (estatuto -> doo stat wh expresion .)
+    END             reduce using rule 72 (estatuto -> doo stat wh expresion .)
+    MODULE          reduce using rule 72 (estatuto -> doo stat wh expresion .)
+    MAIN            reduce using rule 72 (estatuto -> doo stat wh expresion .)
+    ELSE            reduce using rule 72 (estatuto -> doo stat wh expresion .)
+    DWHILE          reduce using rule 72 (estatuto -> doo stat wh expresion .)
+
+
+state 122
+
+    (57) vec -> ID LBRACKET ID . RBRACKET
+    (61) OP -> ID .
+    (56) vec -> ID . LBRACKET NUMBER RBRACKET
+    (57) vec -> ID . LBRACKET ID RBRACKET
+    (60) cub -> ID . LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+
+  ! shift/reduce conflict for RBRACKET resolved as shift
+    RBRACKET        shift and go to state 144
+    PUNTOYCOMA      reduce using rule 61 (OP -> ID .)
+    PLUS            reduce using rule 61 (OP -> ID .)
+    MINUS           reduce using rule 61 (OP -> ID .)
+    TIMES           reduce using rule 61 (OP -> ID .)
+    DIVIDE          reduce using rule 61 (OP -> ID .)
+    RELATIONAL      reduce using rule 61 (OP -> ID .)
+    RPAR            reduce using rule 61 (OP -> ID .)
+    OR              reduce using rule 61 (OP -> ID .)
+    NOT             reduce using rule 61 (OP -> ID .)
+    AND             reduce using rule 61 (OP -> ID .)
+    LPAR            reduce using rule 61 (OP -> ID .)
+    LBRACKET        shift and go to state 100
+
+  ! RBRACKET        [ reduce using rule 61 (OP -> ID .) ]
+
+
+state 123
+
+    (56) vec -> ID LBRACKET NUMBER . RBRACKET
+    (53) OP -> NUMBER .
+
+  ! shift/reduce conflict for RBRACKET resolved as shift
+    RBRACKET        shift and go to state 145
+    PUNTOYCOMA      reduce using rule 53 (OP -> NUMBER .)
+    PLUS            reduce using rule 53 (OP -> NUMBER .)
+    MINUS           reduce using rule 53 (OP -> NUMBER .)
+    TIMES           reduce using rule 53 (OP -> NUMBER .)
+    DIVIDE          reduce using rule 53 (OP -> NUMBER .)
+    RELATIONAL      reduce using rule 53 (OP -> NUMBER .)
+    RPAR            reduce using rule 53 (OP -> NUMBER .)
+    OR              reduce using rule 53 (OP -> NUMBER .)
+    NOT             reduce using rule 53 (OP -> NUMBER .)
+    AND             reduce using rule 53 (OP -> NUMBER .)
+    LPAR            reduce using rule 53 (OP -> NUMBER .)
+
+  ! RBRACKET        [ reduce using rule 53 (OP -> NUMBER .) ]
+
+
+state 124
+
+    (60) cub -> ID LBRACKET OP . RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+
+    RBRACKET        shift and go to state 146
+
+
+state 125
+
+    (30) estatuto -> IF expresion beg stat els . stat END
+    (25) stat -> . estatuto stat
+    (26) stat -> .
+    (29) estatuto -> . CALL ID PUNTOYCOMA
+    (30) estatuto -> . IF expresion beg stat els stat END
+    (31) estatuto -> . IF expresion beg stat END
+    (34) estatuto -> . pid ASSIGN E PUNTOYCOMA
+    (62) estatuto -> . FOR expresion_for beg1 stat END
+    (70) estatuto -> . WHILE expresion BB stat END
+    (72) estatuto -> . doo stat wh expresion
+    (75) estatuto -> . OUTPUT OP PUNTOYCOMA
+    (76) estatuto -> . INPUT ID PUNTOYCOMA
+    (35) pid -> . ID
+    (73) doo -> . DO
+
+    END             reduce using rule 26 (stat -> .)
+    MODULE          reduce using rule 26 (stat -> .)
+    MAIN            reduce using rule 26 (stat -> .)
+    ELSE            reduce using rule 26 (stat -> .)
+    DWHILE          reduce using rule 26 (stat -> .)
+    CALL            shift and go to state 41
+    IF              shift and go to state 43
+    FOR             shift and go to state 45
+    WHILE           shift and go to state 46
+    OUTPUT          shift and go to state 48
+    INPUT           shift and go to state 49
+    ID              shift and go to state 42
+    DO              shift and go to state 50
+
+    stat                           shift and go to state 147
+    estatuto                       shift and go to state 40
+    pid                            shift and go to state 44
+    doo                            shift and go to state 47
+
+state 126
+
+    (31) estatuto -> IF expresion beg stat END .
+
+    CALL            reduce using rule 31 (estatuto -> IF expresion beg stat END .)
+    IF              reduce using rule 31 (estatuto -> IF expresion beg stat END .)
+    FOR             reduce using rule 31 (estatuto -> IF expresion beg stat END .)
+    WHILE           reduce using rule 31 (estatuto -> IF expresion beg stat END .)
+    OUTPUT          reduce using rule 31 (estatuto -> IF expresion beg stat END .)
+    INPUT           reduce using rule 31 (estatuto -> IF expresion beg stat END .)
+    ID              reduce using rule 31 (estatuto -> IF expresion beg stat END .)
+    DO              reduce using rule 31 (estatuto -> IF expresion beg stat END .)
+    END             reduce using rule 31 (estatuto -> IF expresion beg stat END .)
+    MODULE          reduce using rule 31 (estatuto -> IF expresion beg stat END .)
+    MAIN            reduce using rule 31 (estatuto -> IF expresion beg stat END .)
+    ELSE            reduce using rule 31 (estatuto -> IF expresion beg stat END .)
+    DWHILE          reduce using rule 31 (estatuto -> IF expresion beg stat END .)
+
+
+state 127
+
+    (33) els -> ELSE .
+
+    CALL            reduce using rule 33 (els -> ELSE .)
+    IF              reduce using rule 33 (els -> ELSE .)
+    FOR             reduce using rule 33 (els -> ELSE .)
+    WHILE           reduce using rule 33 (els -> ELSE .)
+    OUTPUT          reduce using rule 33 (els -> ELSE .)
+    INPUT           reduce using rule 33 (els -> ELSE .)
+    ID              reduce using rule 33 (els -> ELSE .)
+    DO              reduce using rule 33 (els -> ELSE .)
+    END             reduce using rule 33 (els -> ELSE .)
+
+
+state 128
+
+    (51) FL -> LPAR EL LPAR .
+
+    RPAR            reduce using rule 51 (FL -> LPAR EL LPAR .)
+    OR              reduce using rule 51 (FL -> LPAR EL LPAR .)
+    NOT             reduce using rule 51 (FL -> LPAR EL LPAR .)
+    AND             reduce using rule 51 (FL -> LPAR EL LPAR .)
+    LPAR            reduce using rule 51 (FL -> LPAR EL LPAR .)
+
+
+state 129
+
+    (45) EL -> EL OR TL .
+    (48) TL -> TL . AND FL
+
+    RPAR            reduce using rule 45 (EL -> EL OR TL .)
+    OR              reduce using rule 45 (EL -> EL OR TL .)
+    LPAR            reduce using rule 45 (EL -> EL OR TL .)
+    AND             shift and go to state 109
+
+
+state 130
+
+    (48) TL -> TL AND FL .
+
+    RPAR            reduce using rule 48 (TL -> TL AND FL .)
+    OR              reduce using rule 48 (TL -> TL AND FL .)
+    NOT             reduce using rule 48 (TL -> TL AND FL .)
+    AND             reduce using rule 48 (TL -> TL AND FL .)
+    LPAR            reduce using rule 48 (TL -> TL AND FL .)
+
+
+state 131
+
+    (50) FL -> OP opLogico OP .
+
+    RPAR            reduce using rule 50 (FL -> OP opLogico OP .)
+    OR              reduce using rule 50 (FL -> OP opLogico OP .)
+    NOT             reduce using rule 50 (FL -> OP opLogico OP .)
+    AND             reduce using rule 50 (FL -> OP opLogico OP .)
+    LPAR            reduce using rule 50 (FL -> OP opLogico OP .)
+
+
+state 132
+
+    (36) E -> E PLUS T .
+    (39) T -> T . TIMES F
+    (40) T -> T . DIVIDE F
+
+    PUNTOYCOMA      reduce using rule 36 (E -> E PLUS T .)
+    PLUS            reduce using rule 36 (E -> E PLUS T .)
+    MINUS           reduce using rule 36 (E -> E PLUS T .)
+    RPAR            reduce using rule 36 (E -> E PLUS T .)
+    TIMES           shift and go to state 115
+    DIVIDE          shift and go to state 116
+
+
+state 133
+
+    (37) E -> E MINUS T .
+    (39) T -> T . TIMES F
+    (40) T -> T . DIVIDE F
+
+    PUNTOYCOMA      reduce using rule 37 (E -> E MINUS T .)
+    PLUS            reduce using rule 37 (E -> E MINUS T .)
+    MINUS           reduce using rule 37 (E -> E MINUS T .)
+    RPAR            reduce using rule 37 (E -> E MINUS T .)
+    TIMES           shift and go to state 115
+    DIVIDE          shift and go to state 116
+
+
+state 134
+
+    (39) T -> T TIMES F .
+
+    PUNTOYCOMA      reduce using rule 39 (T -> T TIMES F .)
+    PLUS            reduce using rule 39 (T -> T TIMES F .)
+    MINUS           reduce using rule 39 (T -> T TIMES F .)
+    TIMES           reduce using rule 39 (T -> T TIMES F .)
+    DIVIDE          reduce using rule 39 (T -> T TIMES F .)
+    RPAR            reduce using rule 39 (T -> T TIMES F .)
+
+
+state 135
+
+    (40) T -> T DIVIDE F .
+
+    PUNTOYCOMA      reduce using rule 40 (T -> T DIVIDE F .)
+    PLUS            reduce using rule 40 (T -> T DIVIDE F .)
+    MINUS           reduce using rule 40 (T -> T DIVIDE F .)
+    TIMES           reduce using rule 40 (T -> T DIVIDE F .)
+    DIVIDE          reduce using rule 40 (T -> T DIVIDE F .)
+    RPAR            reduce using rule 40 (T -> T DIVIDE F .)
+
+
+state 136
+
+    (43) F -> LPAR E RPAR .
+
+    PUNTOYCOMA      reduce using rule 43 (F -> LPAR E RPAR .)
+    PLUS            reduce using rule 43 (F -> LPAR E RPAR .)
+    MINUS           reduce using rule 43 (F -> LPAR E RPAR .)
+    TIMES           reduce using rule 43 (F -> LPAR E RPAR .)
+    DIVIDE          reduce using rule 43 (F -> LPAR E RPAR .)
+    RPAR            reduce using rule 43 (F -> LPAR E RPAR .)
+
+
+state 137
+
+    (62) estatuto -> FOR expresion_for beg1 stat END .
+
+    CALL            reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
+    IF              reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
+    FOR             reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
+    WHILE           reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
+    OUTPUT          reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
+    INPUT           reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
+    ID              reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
+    DO              reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
+    END             reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
+    MODULE          reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
+    MAIN            reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
+    ELSE            reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
+    DWHILE          reduce using rule 62 (estatuto -> FOR expresion_for beg1 stat END .)
+
+
+state 138
+
+    (64) expresion_for -> LPAR id1 IN numb . RPAR
+
+    RPAR            shift and go to state 148
+
+
+state 139
+
+    (65) expresion_for -> LPAR id1 IN idx . RPAR
+
+    RPAR            shift and go to state 149
+
+
+state 140
+
+    (66) numb -> NUMBER .
+
+    RPAR            reduce using rule 66 (numb -> NUMBER .)
+
+
+state 141
+
+    (67) numb -> FLOATNUMBER .
+
+    RPAR            reduce using rule 67 (numb -> FLOATNUMBER .)
+
+
+state 142
+
+    (68) idx -> ID .
+
+    RPAR            reduce using rule 68 (idx -> ID .)
+
+
+state 143
+
+    (70) estatuto -> WHILE expresion BB stat END .
+
+    CALL            reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
+    IF              reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
+    FOR             reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
+    WHILE           reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
+    OUTPUT          reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
+    INPUT           reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
+    ID              reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
+    DO              reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
+    END             reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
+    MODULE          reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
+    MAIN            reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
+    ELSE            reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
+    DWHILE          reduce using rule 70 (estatuto -> WHILE expresion BB stat END .)
+
+
+state 144
+
+    (57) vec -> ID LBRACKET ID RBRACKET .
+
+    PUNTOYCOMA      reduce using rule 57 (vec -> ID LBRACKET ID RBRACKET .)
+    PLUS            reduce using rule 57 (vec -> ID LBRACKET ID RBRACKET .)
+    MINUS           reduce using rule 57 (vec -> ID LBRACKET ID RBRACKET .)
+    TIMES           reduce using rule 57 (vec -> ID LBRACKET ID RBRACKET .)
+    DIVIDE          reduce using rule 57 (vec -> ID LBRACKET ID RBRACKET .)
+    RELATIONAL      reduce using rule 57 (vec -> ID LBRACKET ID RBRACKET .)
+    RPAR            reduce using rule 57 (vec -> ID LBRACKET ID RBRACKET .)
+    OR              reduce using rule 57 (vec -> ID LBRACKET ID RBRACKET .)
+    NOT             reduce using rule 57 (vec -> ID LBRACKET ID RBRACKET .)
+    AND             reduce using rule 57 (vec -> ID LBRACKET ID RBRACKET .)
+    RBRACKET        reduce using rule 57 (vec -> ID LBRACKET ID RBRACKET .)
+    LPAR            reduce using rule 57 (vec -> ID LBRACKET ID RBRACKET .)
+
+
+state 145
+
+    (56) vec -> ID LBRACKET NUMBER RBRACKET .
+
+    PUNTOYCOMA      reduce using rule 56 (vec -> ID LBRACKET NUMBER RBRACKET .)
+    PLUS            reduce using rule 56 (vec -> ID LBRACKET NUMBER RBRACKET .)
+    MINUS           reduce using rule 56 (vec -> ID LBRACKET NUMBER RBRACKET .)
+    TIMES           reduce using rule 56 (vec -> ID LBRACKET NUMBER RBRACKET .)
+    DIVIDE          reduce using rule 56 (vec -> ID LBRACKET NUMBER RBRACKET .)
+    RELATIONAL      reduce using rule 56 (vec -> ID LBRACKET NUMBER RBRACKET .)
+    RPAR            reduce using rule 56 (vec -> ID LBRACKET NUMBER RBRACKET .)
+    OR              reduce using rule 56 (vec -> ID LBRACKET NUMBER RBRACKET .)
+    NOT             reduce using rule 56 (vec -> ID LBRACKET NUMBER RBRACKET .)
+    AND             reduce using rule 56 (vec -> ID LBRACKET NUMBER RBRACKET .)
+    RBRACKET        reduce using rule 56 (vec -> ID LBRACKET NUMBER RBRACKET .)
+    LPAR            reduce using rule 56 (vec -> ID LBRACKET NUMBER RBRACKET .)
+
+
+state 146
+
+    (60) cub -> ID LBRACKET OP RBRACKET . LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+
+    LBRACKET        shift and go to state 150
+
+
+state 147
+
+    (30) estatuto -> IF expresion beg stat els stat . END
+
+    END             shift and go to state 151
+
+
+state 148
+
+    (64) expresion_for -> LPAR id1 IN numb RPAR .
+
+    BEGIN           reduce using rule 64 (expresion_for -> LPAR id1 IN numb RPAR .)
+
+
+state 149
+
+    (65) expresion_for -> LPAR id1 IN idx RPAR .
+
+    BEGIN           reduce using rule 65 (expresion_for -> LPAR id1 IN idx RPAR .)
+
+
+state 150
+
+    (60) cub -> ID LBRACKET OP RBRACKET LBRACKET . OP RBRACKET LBRACKET OP RBRACKET
+    (53) OP -> . NUMBER
+    (54) OP -> . FLOATNUMBER
+    (55) OP -> . vec
+    (59) OP -> . cub
+    (61) OP -> . ID
+    (56) vec -> . ID LBRACKET NUMBER RBRACKET
+    (57) vec -> . ID LBRACKET ID RBRACKET
+    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+
+    NUMBER          shift and go to state 68
+    FLOATNUMBER     shift and go to state 69
+    ID              shift and go to state 72
+
+    OP                             shift and go to state 152
+    vec                            shift and go to state 70
+    cub                            shift and go to state 71
+
+state 151
+
+    (30) estatuto -> IF expresion beg stat els stat END .
+
+    CALL            reduce using rule 30 (estatuto -> IF expresion beg stat els stat END .)
+    IF              reduce using rule 30 (estatuto -> IF expresion beg stat els stat END .)
+    FOR             reduce using rule 30 (estatuto -> IF expresion beg stat els stat END .)
+    WHILE           reduce using rule 30 (estatuto -> IF expresion beg stat els stat END .)
+    OUTPUT          reduce using rule 30 (estatuto -> IF expresion beg stat els stat END .)
+    INPUT           reduce using rule 30 (estatuto -> IF expresion beg stat els stat END .)
+    ID              reduce using rule 30 (estatuto -> IF expresion beg stat els stat END .)
+    DO              reduce using rule 30 (estatuto -> IF expresion beg stat els stat END .)
+    END             reduce using rule 30 (estatuto -> IF expresion beg stat els stat END .)
+    MODULE          reduce using rule 30 (estatuto -> IF expresion beg stat els stat END .)
+    MAIN            reduce using rule 30 (estatuto -> IF expresion beg stat els stat END .)
+    ELSE            reduce using rule 30 (estatuto -> IF expresion beg stat els stat END .)
+    DWHILE          reduce using rule 30 (estatuto -> IF expresion beg stat els stat END .)
+
+
+state 152
+
+    (60) cub -> ID LBRACKET OP RBRACKET LBRACKET OP . RBRACKET LBRACKET OP RBRACKET
+
+    RBRACKET        shift and go to state 153
+
+
+state 153
+
+    (60) cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET . LBRACKET OP RBRACKET
+
+    LBRACKET        shift and go to state 154
+
+
+state 154
+
+    (60) cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET . OP RBRACKET
+    (53) OP -> . NUMBER
+    (54) OP -> . FLOATNUMBER
+    (55) OP -> . vec
+    (59) OP -> . cub
+    (61) OP -> . ID
+    (56) vec -> . ID LBRACKET NUMBER RBRACKET
+    (57) vec -> . ID LBRACKET ID RBRACKET
+    (60) cub -> . ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET
+
+    NUMBER          shift and go to state 68
+    FLOATNUMBER     shift and go to state 69
+    ID              shift and go to state 72
+
+    OP                             shift and go to state 155
+    vec                            shift and go to state 70
+    cub                            shift and go to state 71
+
+state 155
+
+    (60) cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP . RBRACKET
+
+    RBRACKET        shift and go to state 156
+
+
+state 156
+
+    (60) cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .
+
+    PUNTOYCOMA      reduce using rule 60 (cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .)
+    PLUS            reduce using rule 60 (cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .)
+    MINUS           reduce using rule 60 (cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .)
+    TIMES           reduce using rule 60 (cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .)
+    DIVIDE          reduce using rule 60 (cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .)
+    RELATIONAL      reduce using rule 60 (cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .)
+    RPAR            reduce using rule 60 (cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .)
+    OR              reduce using rule 60 (cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .)
+    NOT             reduce using rule 60 (cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .)
+    AND             reduce using rule 60 (cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .)
+    RBRACKET        reduce using rule 60 (cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .)
+    LPAR            reduce using rule 60 (cub -> ID LBRACKET OP RBRACKET LBRACKET OP RBRACKET LBRACKET OP RBRACKET .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for RBRACKET in state 122 resolved as shift
+WARNING: shift/reduce conflict for RBRACKET in state 123 resolved as shift

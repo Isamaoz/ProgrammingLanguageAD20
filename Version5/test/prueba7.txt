@@ -1,0 +1,10 @@
+program main
+
+	dim i as word;
+	dim a as float;
+	let a = 2*5;
+	print(a);
+	for i=0 to 5 do
+		print (i);
+	next;
+end;

@@ -1,0 +1,47 @@
+program main
+
+	dim a, num as word;
+	dim temp as float;
+	let a = 0;
+	let temp = 0;
+
+	input("Ingrese el numero") >> a;
+
+	while a <> 0 do
+		let temp = a / 10;
+		let a = a / 10;
+		let temp = (temp - a) * 10 + 0.005; #Error en decimales
+		print(temp);
+		let num = temp;
+		if num == 0 then
+			print("cero");
+		endif;
+		if num == 1 then
+			print("uno");
+		endif;
+		if num == 2 then
+			print("dos");
+		endif;
+		if num == 3 then
+			print("tres");
+		endif;
+		if num == 4 then
+			print("cuatro");
+		endif;
+		if num == 5 then
+			print("cinco");
+		endif;
+		if num == 6 then
+			print("seis");
+		endif;
+		if num == 7 then
+			print("siete");
+		endif;
+		if num == 8 then
+			print("ocho");
+		endif;
+		if num == 9 then
+			print("nueve");
+		endif;
+	whend;
+end;

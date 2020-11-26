@@ -1,0 +1,73 @@
+program prueba1
+
+	dim dim1, dim2, i, j, resp as word;
+	dim mat1, mat2, res as matrix[5][5];
+
+
+	subprocedure dimensiones
+		input ("Ingrese la dimension 1 (hasta 5): ") >> dim1;
+		input ("Ingrese la dimension 2 (hasta 5): ") >> dim2;
+
+		while dim1<>dim2 do
+			print("Las dimensiones deben de ser iguales");
+			input ("Ingrese la dimension 1: ") >> dim1;
+			input ("Ingrese la dimension 2: ") >> dim2;
+		whend;
+	endsub;
+
+	subprocedure valores
+		for i=0 to (dim1-1) do
+			for j=0 to (dim2-1) do
+				input ("Ingrese valor de la matriz 1: ") >> mat1[i][j];
+			next;
+		next;
+		for i=0 to (dim1-1) do
+			for j=0 to (dim2-1) do
+				input ("Ingrese valor de la matriz 2: ") >> mat2[i][j];
+			next;
+		next;
+	endsub;
+
+	subprocedure imprimir
+		for i=0 to (dim1-1) do
+			for j=0 to (dim2-1) do
+				print(res[i][j]);
+			next;
+		next;
+	endsub;
+
+	subprocedure multiplicar
+		for i=0 to (dim1-1) do
+			for j=0 to (dim2-1) do
+				let res[i][j] = mat1[i][j] * mat2[i][j];
+			next;
+		next;
+		gosub .imprimir;
+	endsub;
+
+	subprocedure suma
+		for i=0 to (dim1-1) do
+			for j=0 to (dim2-1) do
+				let res[i][j] = mat1[i][j] + mat2[i][j];
+			next;
+		next;
+		gosub .imprimir;
+	endsub;
+
+	gosub .dimensiones;
+	gosub .valores;
+
+	do
+		print("1. Multiplicar las matrices e imprimir resultado");
+		print("2. Sumar las matrices e imprimir resultado");
+		print("3. Salir");
+		input("Elige una opcion: ") >> resp;
+		if (resp == 1) then
+			gosub .multiplicar;
+		endif;
+		if (resp == 2) then
+			gosub .suma;
+		endif;
+	loopuntil resp==3 endo;
+
+end;

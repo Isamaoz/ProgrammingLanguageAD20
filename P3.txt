@@ -1,0 +1,14 @@
+START
+  DECLARATION
+    INT numero,x,acum;
+  ENDECLARATION
+  MAIN BEGIN
+    INPUT numero;
+    acum = 1;
+    x =1;
+    FOR (x IN numero) BEGIN
+      acum = acum * (x+1);
+    END
+    OUTPUT acum;
+  END
+FINISH
