@@ -493,5 +493,5 @@ print_cuadruplo()
 #print(temp)
 execution()
 print_table()
-#print(temp_exe)
-#No estoy segura si tengo que actualizar estas variables en la tabla
+#NOTAAAA, LOS CUADRUPLOS SE ESTAN PARANDO EN LA ASIGNACION,
+#DESPUES NO SE ESTAN GENERANDO LOS SIGUIENTES, CHECAR GRAMATICA

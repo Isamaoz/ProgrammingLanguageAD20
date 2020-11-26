@@ -465,5 +465,6 @@ def execution():
         #else:
             #print('entra aqui')
         print('pcfin', PC)
+        print(operadorList[PC])
         #print(temp_exe)
         #print_table()
