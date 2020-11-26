@@ -76,7 +76,7 @@ def dimensionadas_VECTOR():
     #Sumar con la base
     operadorList.append('+')
     opA_list.append(operandosList.pop())
-    opB_list.append(values_table[obtainIndex(x)-1][4]*(-1))
+    opB_list.append(values_table[obtainIndex(x)-1][1]*(-1))
     tempList.append(temp.pop(0))
     operandosList.append(tempList[len(tempList)-1]+200)
     temp.append(tempList[len(tempList)-1])
@@ -254,7 +254,10 @@ def execution():
             else:
                 a =  values_table[int(opA_list[PC])-1]
         elif (int(opA_list[PC]) >= 300):
+            print('value',dim_values[temp_exe[int(opA_list[PC])-300]])
+            print(len(dim_values))
             a = dim_values[temp_exe[int(opA_list[PC])-300]]
+            print(a)
 
         if (opB_list[PC] == '-'):
             pass
@@ -401,6 +404,7 @@ def execution():
             temp_exe[int(tempList[PC])-100] = a!=b
             PC += 1
         elif (operadorList[PC] == '='):
+            print('entro')
             if (int(opA_list[PC]) >= 300): # si es dim
                 #checar el valor del temp en temp_pexe y eso poner en el resultado
                 if (int(opB_list[PC]) >= 100 and int(opB_list[PC]) < 300 ):
@@ -421,6 +425,7 @@ def execution():
                 else:
                     values_table[int(opA_list[PC])-1] = values_table[int(opB_list[PC])-1]#checar el valor del operador b en la lista de valores
             PC += 1
+            print(PC)
         elif (operadorList[PC] == 'goto'):
             PC = opB_list[PC]
         elif (operadorList[PC] == 'gotoF'):
@@ -442,7 +447,7 @@ def execution():
             #print('end of program')
             break;
         elif (operadorList[PC] == 'verify'):
-            if (opA_list[PC]*(-1) < opB_list[PC] and opA_list[PC]*(-1) > tempList[PC]):
+            if (opA_list[PC]*(-1) < opB_list[PC] or opA_list[PC]*(-1) > tempList[PC]):
                 raise Exception('Index out of range.')
             PC += 1
         elif (operadorList[PC] == 'endProcedure'):
@@ -459,6 +464,6 @@ def execution():
             PC += 1
         #else:
             #print('entra aqui')
-
+        print('pcfin', PC)
         #print(temp_exe)
         #print_table()

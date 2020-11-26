@@ -8,8 +8,8 @@ START
   ENDECLARATION
   MAIN BEGIN
     f = 1;
-    x[5] = 9*10;
-    temp = x[5];
+    x[3] = 9*10;
+    temp = x[3];
     OUTPUT temp;
   END
 FINISH
