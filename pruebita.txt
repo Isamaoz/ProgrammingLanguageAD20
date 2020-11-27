@@ -1,23 +1,11 @@
 START
   DECLARATION
     INT x,y,z,val;
-    CUBE mat 3 3 3;
   ENDECLARATION
   MAIN BEGIN
-  x = 0;
-  FOR (x IN 2) BEGIN
-    y = 0;
-    FOR (y IN 2) BEGIN
-      z = 0;
-      FOR (z IN 2) BEGIN
+    INPUT x;
+    IF (x <10) BEGIN
       OUTPUT x;
-      OUTPUT y;
-      OUTPUT z;
-      END
-      y = y + 1;
     END
-    x = x + 1;
-  END
-
   END
 FINISH

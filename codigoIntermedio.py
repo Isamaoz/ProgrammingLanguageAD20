@@ -58,7 +58,7 @@ def generaCuadruploFOR(x):
     #Guarda var en un temporal
     tempList.append(temp.pop(0))
     operandosList.append(tempList[len(tempList)-1])
-    print('operandosTermina',operandosList)
+    #print('operandosTermina',operandosList)
 
 #Funcion que obtiene el index de una variable
 def obtainIndex(x):
@@ -212,7 +212,7 @@ def endFor():
     global tempID
     #Actualizar variable controladora
     #Cuadruplo: + variable temp-global 1 temp
-    print('operandosFor',operandosList)
+    #print('operandosFor',operandosList)
     operadorList.append('+')
     indentifier = operandosList.pop()
     opA_list.append(indentifier) #cambiar estoooo
@@ -241,7 +241,7 @@ def endFor():
 def execution():
     global save_PC
     PC = 0
-    print(operadorList[PC],opA_list[PC],opB_list[PC],tempList[PC])
+    #print(operadorList[PC],opA_list[PC],opB_list[PC],tempList[PC])
     while (operadorList[PC] != 'end'):
         #print('PC: ', PC)
         #print(dim_values)
@@ -276,7 +276,7 @@ def execution():
             else:
                 b = opB_list[PC]
         elif (int(opB_list[PC]) >= 300):
-            a = dim_values[temp_exe[int(opB_list[PC])-300]]
+            b = dim_values[temp_exe[int(opB_list[PC])-300]]
 
         #if (opA_list[PC] != '-'):
             #print('a: ',a)
@@ -300,7 +300,7 @@ def execution():
             elif (int(opB_list[PC]) >= 1 and opB_list[PC] <= 100 ):
                 b = values_table[int(opB_list[PC]-1)]
             elif (int(opB_list[PC]) >= 300):
-                a = dim_values[temp_exe[int(opB_list[PC])-300]]
+                b = dim_values[temp_exe[int(opB_list[PC])-300]]
             temp_exe[int(tempList[PC])-100] = int(a+b) if (isinstance(a, int) and isinstance(b, int)) else float(a+b)
             #print('suma: ', a, '+', b, '=', a+b)
             PC += 1
@@ -322,7 +322,7 @@ def execution():
             elif (int(opB_list[PC]) >= 1 and opB_list[PC] <= 100 ):
                 b = values_table[int(opB_list[PC]-1)]
             elif (int(opB_list[PC]) >= 300):
-                a = dim_values[temp_exe[int(opB_list[PC])-300]]
+                b = dim_values[temp_exe[int(opB_list[PC])-300]]
             temp_exe[int(tempList[PC])-100] = int(a-b) if (isinstance(a, int) and isinstance(b, int)) else float(a-b)
             PC += 1
 
@@ -343,7 +343,7 @@ def execution():
             elif (int(opB_list[PC]) >= 1 and opB_list[PC] <= 100 ):
                 b = values_table[int(opB_list[PC]-1)]
             elif (int(opB_list[PC]) >= 300):
-                a = dim_values[temp_exe[int(opB_list[PC])-300]]
+                b = dim_values[temp_exe[int(opB_list[PC])-300]]
             temp_exe[int(tempList[PC])-100] = int(a*b) if (isinstance(a, int) and isinstance(b, int)) else float(a*b)
             #print('mul: ', a, '*', b, '=', a*b)
             PC += 1
@@ -356,7 +356,6 @@ def execution():
                 a = temp_exe[int(opA_list[PC])-100]
             elif (int(opA_list[PC]) >= 1 and opA_list[PC] <= 100 ):
                 a = values_table[int(opA_list[PC])-1]
-                #a = int(values_table[int(opA_list[PC])-1]) if type_table[opA_list[PC]-1] == 'int' else float(values_table[int(opA_list[PC])-1])
             elif (int(opA_list[PC]) >= 300):
                 a = dim_values[temp_exe[int(opA_list[PC])-300]]
             if (int(opB_list[PC]) < 1): #es una constante
@@ -365,38 +364,95 @@ def execution():
                 b = temp_exe[int(opB_list[PC])-100]
             elif (int(opB_list[PC]) >= 1 and opB_list[PC] <= 100 ):
                 b = values_table[int(opB_list[PC]-1)]
-                #b = int(values_table[int(opB_list[PC]-1)]) if type_table[opB_list[PC]-1] == 'int' else float(values_table[int(opB_list[PC]-1)])
             elif (int(opB_list[PC]) >= 300):
-                a = dim_values[temp_exe[int(opB_list[PC])-300]] #checa si las variables dimensionadas
+                b = dim_values[temp_exe[int(opB_list[PC])-300]] #checa si las variables dimensionadas
             #print(a,b)
             temp_exe[int(tempList[PC])-100] = int(a/b) if (isinstance(a, int) and isinstance(b, int)) else float(a/b)
             PC += 1
 
         elif (operadorList[PC] == '>='):
+
+            if (int(opA_list[PC]) < 1): #es una constante
+                a = opA_list[PC]*(-1)
+            elif (int(opA_list[PC]) >= 100 and int(opA_list[PC]) < 300): #es un temporal
+                a = temp_exe[int(opA_list[PC])-100]
+            elif (int(opA_list[PC]) >= 1 and opA_list[PC] <= 100 ):
+                a = values_table[int(opA_list[PC])-1]
+            elif (int(opA_list[PC]) >= 300):
+                a = dim_values[temp_exe[int(opA_list[PC])-300]]
+            if (int(opB_list[PC]) < 1): #es una constante
+                b = opB_list[PC]*(-1)
+            elif (int(opB_list[PC]) >= 100 and int(opA_list[PC]) < 300): #es un temporal
+                b = temp_exe[int(opB_list[PC])-100]
+            elif (int(opB_list[PC]) >= 1 and opB_list[PC] <= 100 ):
+                b = values_table[int(opB_list[PC]-1)]
+            elif (int(opB_list[PC]) >= 300):
+                b = dim_values[temp_exe[int(opB_list[PC])-300]] #checa si las variables dimensionadas
+
             temp_exe[int(tempList[PC])-100] = a>=b
             PC += 1
         elif (operadorList[PC] == '<='):
+
+            if (int(opA_list[PC]) < 1): #es una constante
+                a = opA_list[PC]*(-1)
+            elif (int(opA_list[PC]) >= 100 and int(opA_list[PC]) < 300): #es un temporal
+                a = temp_exe[int(opA_list[PC])-100]
+            elif (int(opA_list[PC]) >= 1 and opA_list[PC] <= 100 ):
+                a = values_table[int(opA_list[PC])-1]
+            elif (int(opA_list[PC]) >= 300):
+                a = dim_values[temp_exe[int(opA_list[PC])-300]]
+            if (int(opB_list[PC]) < 1): #es una constante
+                b = opB_list[PC]*(-1)
+            elif (int(opB_list[PC]) >= 100 and int(opA_list[PC]) < 300): #es un temporal
+                b = temp_exe[int(opB_list[PC])-100]
+            elif (int(opB_list[PC]) >= 1 and opB_list[PC] <= 100 ):
+                b = values_table[int(opB_list[PC]-1)]
+            elif (int(opB_list[PC]) >= 300):
+                b = dim_values[temp_exe[int(opB_list[PC])-300]] #checa si las variables dimensionadas
+
             #print('menor o igual AQUI')
             temp_exe[int(tempList[PC])-100] = a<=b
             #print(temp_exe[int(tempList[PC])-100])
             PC += 1
         elif (operadorList[PC] == '>'):
+
+            if (int(opA_list[PC]) < 1): #es una constante
+                a = opA_list[PC]*(-1)
+            elif (int(opA_list[PC]) >= 100 and int(opA_list[PC]) < 300): #es un temporal
+                a = temp_exe[int(opA_list[PC])-100]
+            elif (int(opA_list[PC]) >= 1 and opA_list[PC] <= 100 ):
+                a = values_table[int(opA_list[PC])-1]
+            elif (int(opA_list[PC]) >= 300):
+                a = dim_values[temp_exe[int(opA_list[PC])-300]]
+            if (int(opB_list[PC]) < 1): #es una constante
+                b = opB_list[PC]*(-1)
+            elif (int(opB_list[PC]) >= 100 and int(opA_list[PC]) < 300): #es un temporal
+                b = temp_exe[int(opB_list[PC])-100]
+            elif (int(opB_list[PC]) >= 1 and opB_list[PC] <= 100 ):
+                b = values_table[int(opB_list[PC]-1)]
+            elif (int(opB_list[PC]) >= 300):
+                b = dim_values[temp_exe[int(opB_list[PC])-300]] #checa si las variables dimensionadas
+            #print('a',a,'b',b)
             temp_exe[int(tempList[PC])-100] = a>b
             PC += 1
         elif (operadorList[PC] == '<'):
 
             if (int(opA_list[PC]) < 1): #es una constante
-                a = int(opA_list[PC])*(-1)
+                a = opA_list[PC]*(-1)
             elif (int(opA_list[PC]) >= 100 and int(opA_list[PC]) < 300): #es un temporal
-                a = int(temp_exe[int(opA_list[PC])-100])
+                a = temp_exe[int(opA_list[PC])-100]
             elif (int(opA_list[PC]) >= 1 and opA_list[PC] <= 100 ):
-                a = int(values_table[int(opA_list[PC])-1])
+                a = values_table[int(opA_list[PC])-1]
+            elif (int(opA_list[PC]) >= 300):
+                a = dim_values[temp_exe[int(opA_list[PC])-300]]
             if (int(opB_list[PC]) < 1): #es una constante
-                b = int(opB_list[PC])*(-1)
+                b = opB_list[PC]*(-1)
             elif (int(opB_list[PC]) >= 100 and int(opA_list[PC]) < 300): #es un temporal
-                b = int(temp_exe[int(opB_list[PC])-100])
+                b = temp_exe[int(opB_list[PC])-100]
             elif (int(opB_list[PC]) >= 1 and opB_list[PC] <= 100 ):
-                b = int(values_table[int(opB_list[PC]-1)])
+                b = values_table[int(opB_list[PC]-1)]
+            elif (int(opB_list[PC]) >= 300):
+                a = dim_values[temp_exe[int(opB_list[PC])-300]] #checa si las variables dimensionadas
             #print(type(a),type(b))
             temp_exe[int(tempList[PC])-100] = a<b
             PC += 1
@@ -416,8 +472,10 @@ def execution():
                     #print("aquiiii",temp_exe[b])
                 elif (int(opB_list[PC]) <= 0): # es una constante
                     dim_values[temp_exe[opA_list[PC]-300]] = opB_list[PC]*(-1)
-                else:
-                    dim_values[temp_exe[opA_list[PC]-300]] = values_table[int(opB_list[PC])-1]#checar el valor del operador b en la lista de valores
+                elif (int(opB_list[PC]) > 0 and int(opB_list[PC]) < 100):
+                    dim_values[temp_exe[opA_list[PC]-300]] = values_table[int(opB_list[PC])-1]
+                else: #Es una variable dimensionada
+                    dim_values[temp_exe[opA_list[PC]-300]] = dim_values[temp_exe[opB_list[PC]-300]]#checar el valor del operador b en la lista de valores
             else: # si es una variable
                 if (int(opB_list[PC]) >= 100 and int(opB_list[PC]) < 300 ):
                     values_table[int(opA_list[PC])-1] = temp_exe[b]

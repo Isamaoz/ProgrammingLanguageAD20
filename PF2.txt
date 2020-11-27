@@ -1,34 +1,52 @@
 START
   DECLARATION
+    INT dim,it,llenado,it2,temp,x,y,resp;
     VECTOR vec 10;
-    INT dim,it;
+
   ENDECLARATION
 
   MODULE imprimir BEGIN
+    it = 0;
     FOR (it IN dim) BEGIN
       OUTPUT vec[it];
     END
   END
 
-  MODULE sort BEGIN
-
-  END
-
   MODULE llenar BEGIN
-    FOR (x IN dim) BEGIN
+    FOR (it IN dim) BEGIN
       INPUT llenado;
-      vec[x] = llenado;
+      vec[it] = llenado;
     END
   END
 
+  MODULE sort BEGIN
+    it = dim - 1;
+    it2 = dim;
+    x = 0;
+    y = 0;
+    FOR (x IN it) BEGIN
+        y = x + 1;
+      FOR (y IN it2) BEGIN
+        IF (vec[x] > vec[y]) BEGIN
+          temp = vec[x];
+          vec[x] = vec[y];
+          vec[y] = temp;
+        END
+      END
+    END
+  END
 
   MAIN BEGIN
+    DO
     it = 0;
     INPUT dim;
-    IF (dim <= 10) BEGIN
-      CALL llenar;
-      CALL sort;
+    WHILE (dim >10) BEGIN
+      INPUT dim;
     END
+    CALL llenar;
+    CALL sort;
     CALL imprimir;
+    INPUT resp;
+    DWHILE (resp == 1)
   END
 FINISH

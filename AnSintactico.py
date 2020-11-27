@@ -486,7 +486,7 @@ def p_error(p):
 
 #incluir test
 
-test = os.getcwd()+"\\PF4.txt"
+test = os.getcwd()+"\\PF2.txt"
 fp = codecs.open(test,"r","utf-8")
 cadena = fp.read() #codigo fuente
 fp.close()
