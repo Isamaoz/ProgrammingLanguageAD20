@@ -3,27 +3,125 @@ START
     MATRIX mat1 5 5;
     MATRIX mat2 5 5;
     MATRIX res 5 5;
-    INT selec;
+    INT selec,x1,y1,x2,y2,i,j,acum,k;
   ENDECLARATION
 
-  MODULE imprimir BEGIN
-
+  MODULE imprimirRes BEGIN
+    i = 0;
+    FOR (i IN x1) BEGIN
+      j = 0;
+      FOR (j IN y1) BEGIN
+        OUTPUT res[i][j];
+      END
+    END
   END
 
-  MODULE llenar BEGIN
-
+  MODULE imprimir2 BEGIN
+    i = 0;
+    FOR (i IN x1) BEGIN
+      j = 0;
+      FOR (j IN y1) BEGIN
+        OUTPUT mat2[i][j];
+      END
+    END
   END
 
+  MODULE llenar1 BEGIN
+    i = 0;
+    acum = 0;
+    FOR (i IN x1) BEGIN
+      j = 0;
+      FOR (j IN y1) BEGIN
+        acum = acum + 1;
+        mat1[i][j] = acum;
+      END
+    END
+  END
+
+
+  MODULE llenar2 BEGIN
+      i = 0;
+      acum = 0;
+      FOR (i IN x2) BEGIN
+        j = 0;
+        FOR (j IN y2) BEGIN
+          acum = acum + 1;
+          mat2[i][j] = acum;
+        END
+      END
+  END
+
+  MODULE sumarMat BEGIN
+    i = 0;
+    FOR (i IN x1) BEGIN
+      j = 0;
+      FOR (j IN y1) BEGIN
+        res[i][j] = mat1[i][j] + mat2[i][j];
+      END
+    END
+  END
+
+  MODULE multiply2 BEGIN
+    i = 0;
+    FOR (i IN x1) BEGIN
+      j = 0;
+      FOR (j IN y2) BEGIN
+        k = 0;
+        FOR (k IN x2) BEGIN
+          res[i][j] = res[i][j] + (mat1[i][k] * mat2[k][j]);
+          OUTPUT res[i][j];
+        END
+      END
+    END
+  END
+
+
+  MODULE multiply BEGIN
+    i = 0;
+    FOR (i IN x1) BEGIN
+      j = 0;
+      FOR (j IN y2) BEGIN
+        k = 0;
+        FOR (k IN y1) BEGIN
+          res[i][j] = (mat1[i][j] * mat2[i][j]);
+        END
+      END
+    END
+  END
 
   MAIN BEGIN
-    CALL llenar;
-    CALL imprimir;
+    #Recibe dimensiones de la primera matriz
+    DO
+      INPUT x1;
+    DWHILE (x1 > 5)
+    DO
+      INPUT y1;
+    DWHILE (y1 > 5)
+    CALL llenar1;
+    #Recibe dimensiones de la segunda matriz
+    DO
+      INPUT x2;
+    DWHILE (x2 > 5)
+    DO
+      INPUT y2;
+    DWHILE (y2 > 5)
+    CALL llenar2;
     INPUT selec;
     IF (selec == 1) BEGIN
-    //multiplicar las 2 matrices y dejar el resultado en una tercera matrix
+      #Solo se pueden sumar matrices con las mismas dimensiones
+      IF (x1 == x2) BEGIN
+        IF (y1 == y2) BEGIN
+          CALL sumarMat;
+        END
+      END
+      CALL imprimirRes;
     END
     IF (selec == 2) BEGIN
-    // sumar las dos matrices y dejar el resultado en una tercera matrix
+      #Sumar matrices, checar que y1 = x2
+      IF (y1 == x2) BEGIN
+        CALL multiply;
+      END
+      CALL imprimirRes;
     END
   END
 FINISH

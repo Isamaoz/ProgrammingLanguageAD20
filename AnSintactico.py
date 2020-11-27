@@ -31,6 +31,7 @@ def p_variable_dec(p):
 def p_decl(p):
     '''
     decl : type variable PUNTOYCOMA
+         | dimtype PUNTOYCOMA
          |  decl type variable PUNTOYCOMA
          |  decl dimtype PUNTOYCOMA
 
@@ -493,8 +494,8 @@ fp.close()
 parser = yacc.yacc('SLR') #
 result = parser.parse(cadena)
 #print_table()
-print_cuadruplo()
+#print_cuadruplo()
 execution()
-print_table()
+#print_table()
 #NOTAAAA, LOS CUADRUPLOS SE ESTAN PARANDO EN LA ASIGNACION,
 #DESPUES NO SE ESTAN GENERANDO LOS SIGUIENTES, CHECAR GRAMATICA

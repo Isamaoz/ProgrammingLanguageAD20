@@ -450,9 +450,45 @@ def execution():
             PC += 1
 
         elif (operadorList[PC] == '=='):
+
+            if (int(opA_list[PC]) < 1): #es una constante
+                a = opA_list[PC]*(-1)
+            elif (int(opA_list[PC]) >= 100 and int(opA_list[PC]) < 300): #es un temporal
+                a = temp_exe[int(opA_list[PC])-100]
+            elif (int(opA_list[PC]) >= 1 and opA_list[PC] <= 100 ):
+                a = values_table[int(opA_list[PC])-1]
+            elif (int(opA_list[PC]) >= 300):
+                a = dim_values[temp_exe[int(opA_list[PC])-300]]
+            if (int(opB_list[PC]) < 1): #es una constante
+                b = opB_list[PC]*(-1)
+            elif (int(opB_list[PC]) >= 100 and int(opA_list[PC]) < 300): #es un temporal
+                b = temp_exe[int(opB_list[PC])-100]
+            elif (int(opB_list[PC]) >= 1 and opB_list[PC] <= 100 ):
+                b = values_table[int(opB_list[PC]-1)]
+            elif (int(opB_list[PC]) >= 300):
+                a = dim_values[temp_exe[int(opB_list[PC])-300]] #checa si las variables dimensionadas
+
             temp_exe[int(tempList[PC])-100] = a==b
             PC += 1
         elif (operadorList[PC] == '!='):
+
+            if (int(opA_list[PC]) < 1): #es una constante
+                a = opA_list[PC]*(-1)
+            elif (int(opA_list[PC]) >= 100 and int(opA_list[PC]) < 300): #es un temporal
+                a = temp_exe[int(opA_list[PC])-100]
+            elif (int(opA_list[PC]) >= 1 and opA_list[PC] <= 100 ):
+                a = values_table[int(opA_list[PC])-1]
+            elif (int(opA_list[PC]) >= 300):
+                a = dim_values[temp_exe[int(opA_list[PC])-300]]
+            if (int(opB_list[PC]) < 1): #es una constante
+                b = opB_list[PC]*(-1)
+            elif (int(opB_list[PC]) >= 100 and int(opA_list[PC]) < 300): #es un temporal
+                b = temp_exe[int(opB_list[PC])-100]
+            elif (int(opB_list[PC]) >= 1 and opB_list[PC] <= 100 ):
+                b = values_table[int(opB_list[PC]-1)]
+            elif (int(opB_list[PC]) >= 300):
+                a = dim_values[temp_exe[int(opB_list[PC])-300]] #checa si las variables dimensionadas
+
             temp_exe[int(tempList[PC])-100] = a!=b
             PC += 1
         elif (operadorList[PC] == '='):

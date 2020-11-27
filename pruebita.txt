@@ -1,12 +1,11 @@
 START
   DECLARATION
-    INT x,y,z,val;
+    VECTOR vec 5;
+    INT x;
   ENDECLARATION
   MAIN BEGIN
     INPUT x;
-    #holi
-    IF (x <10) BEGIN
-      OUTPUT x;
-    END
+    vec[x] = 7;
+    OUTPUT vec[x];
   END
 FINISH
