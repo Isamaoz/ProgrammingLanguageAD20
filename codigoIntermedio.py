@@ -58,6 +58,7 @@ def generaCuadruploFOR(x):
     #Guarda var en un temporal
     tempList.append(temp.pop(0))
     operandosList.append(tempList[len(tempList)-1])
+    print('operandosTermina',operandosList)
 
 #Funcion que obtiene el index de una variable
 def obtainIndex(x):
@@ -65,32 +66,32 @@ def obtainIndex(x):
 
 def dimensionadas_VECTOR():
     x = operandosList.pop(len(operandosList)-2)
+    #print('GENERACION DE CUADRUPLOS:',operandosList) #Queda el index en la lista de cuadruplos
+    # operadorList.append('+')
+    # opA_list.append(operandosList.pop())
+    # opB_list.append(tempList[len(tempList)-1])
+    # tempList.append(temp.pop(0))
+    # operandosList.append(tempList[len(tempList)-1])
+    # temp.append(tempList[len(tempList)-1])
 
-    operadorList.append('+')
-    opA_list.append(operandosList.pop())
-    opB_list.append(tempList[len(tempList)-1])
-    tempList.append(temp.pop(0))
-    operandosList.append(tempList[len(tempList)-1])
-    temp.append(tempList[len(tempList)-1])
-
-    #Sumar con la base
+    #Sumar index con la base
     operadorList.append('+')
     opA_list.append(operandosList.pop())
     opB_list.append(values_table[obtainIndex(x)-1][1]*(-1))
     tempList.append(temp.pop(0))
     operandosList.append(tempList[len(tempList)-1]+200)
     temp.append(tempList[len(tempList)-1])
-    print(operandosList)
+    #print('sale',operandosList)
 
 def dimensionadas_MATRIX():
     x = operandosList.pop(len(operandosList)-3)
-    print('llega:',operandosList)
+    #print('llega:',operandosList)
     operadorList.append('*')
     opA_list.append(operandosList.pop())
     opB_list.append(values_table[obtainIndex(x)-1][3]*(-1))
     tempList.append(temp.pop(0))
     temp.append(tempList[len(tempList)-1])
-    print('1:',operandosList)
+    #print('1:',operandosList)
 
     operadorList.append('+')
     opA_list.append(operandosList.pop())
@@ -106,7 +107,7 @@ def dimensionadas_MATRIX():
     tempList.append(temp.pop(0))
     operandosList.append(tempList[len(tempList)-1]+200)
     temp.append(tempList[len(tempList)-1])
-    print(operandosList)
+    #print(operandosList)
 
 def dimensionadas_CUBE():
     x = operandosList.pop(len(operandosList)-4)
@@ -115,7 +116,7 @@ def dimensionadas_CUBE():
     opB_list.append(values_table[obtainIndex(x)-1][4]*(-1))
     tempList.append(temp.pop(0))
     temp.append(tempList[len(tempList)-1])
-    print('1:',operandosList)
+    #print('1:',operandosList)
     #b * m2
     operadorList.append('*')
     opA_list.append(operandosList.pop())
@@ -147,7 +148,7 @@ def dimensionadas_CUBE():
     tempList.append(temp.pop(0))
     operandosList.append(tempList[len(tempList)-1]+200)
     temp.append(tempList[len(tempList)-1])
-    print(operandosList)
+    #print(operandosList)
 
 #Codigo intermedio de ifs
 def gotoFalse(x):
@@ -211,8 +212,10 @@ def endFor():
     global tempID
     #Actualizar variable controladora
     #Cuadruplo: + variable temp-global 1 temp
+    print('operandosFor',operandosList)
     operadorList.append('+')
-    opA_list.append(tempID)
+    indentifier = operandosList.pop()
+    opA_list.append(indentifier) #cambiar estoooo
     opB_list.append(-1)
     tempList.append(temp.pop(0))
     #Agrega ultimo operando a la lista para usarse en el siguiente cuadruplo
@@ -220,7 +223,7 @@ def endFor():
     #Igualar valor a variable controladora
     #Cuadruplo: = ID valor(temp)
     operadorList.append('=')
-    opA_list.append(tempID)
+    opA_list.append(indentifier)
     opB_list.append(operandosList.pop())
     tempList.append('-')
     temp.append(opB_list[len(opB_list)-1]) #Regresa temp a la lista
@@ -238,9 +241,10 @@ def endFor():
 def execution():
     global save_PC
     PC = 0
+    print(operadorList[PC],opA_list[PC],opB_list[PC],tempList[PC])
     while (operadorList[PC] != 'end'):
-        print('PC: ', PC)
-        print(dim_values)
+        #print('PC: ', PC)
+        #print(dim_values)
         if (opA_list[PC] == '-'):
             pass
         elif (int(opA_list[PC]) < 1): #es una constante
@@ -254,16 +258,16 @@ def execution():
             else:
                 a =  values_table[int(opA_list[PC])-1]
         elif (int(opA_list[PC]) >= 300):
-            print('value',dim_values[temp_exe[int(opA_list[PC])-300]])
-            print(len(dim_values))
+            #print('value',dim_values[temp_exe[int(opA_list[PC])-300]])
+            #print(len(dim_values))
             a = dim_values[temp_exe[int(opA_list[PC])-300]]
-            print(a)
+            #print(a)
 
         if (opB_list[PC] == '-'):
             pass
         elif (int(opB_list[PC]) < 1): #es una constante
             b = opB_list[PC]*(-1)
-        elif (int(opB_list[PC]) >= 100 and int(opA_list[PC]) < 300): #es un temporal
+        elif (int(opB_list[PC]) >= 100 and int(opB_list[PC]) < 300): #es un temporal
             b = int(opB_list[PC])-100
         elif (int(opB_list[PC]) >= 1 and int(opB_list[PC]) <= 100 ): # es
             #print(int(opB_list[PC]))
@@ -404,7 +408,7 @@ def execution():
             temp_exe[int(tempList[PC])-100] = a!=b
             PC += 1
         elif (operadorList[PC] == '='):
-            print('entro')
+            #print('entro')
             if (int(opA_list[PC]) >= 300): # si es dim
                 #checar el valor del temp en temp_pexe y eso poner en el resultado
                 if (int(opB_list[PC]) >= 100 and int(opB_list[PC]) < 300 ):
@@ -425,7 +429,7 @@ def execution():
                 else:
                     values_table[int(opA_list[PC])-1] = values_table[int(opB_list[PC])-1]#checar el valor del operador b en la lista de valores
             PC += 1
-            print(PC)
+            #print(PC)
         elif (operadorList[PC] == 'goto'):
             PC = opB_list[PC]
         elif (operadorList[PC] == 'gotoF'):
@@ -447,14 +451,23 @@ def execution():
             #print('end of program')
             break;
         elif (operadorList[PC] == 'verify'):
-            if (opA_list[PC]*(-1) < opB_list[PC] or opA_list[PC]*(-1) > tempList[PC]):
+            if (opA_list[PC] < 1):
+                var = opA_list[PC]*(-1)
+            elif (int(opA_list[PC]) >= 1 and int(opA_list[PC]) < 100): # es una variable
+                var = values_table[opA_list[PC]-1]
+            if (var < opB_list[PC] or var > tempList[PC]):
                 raise Exception('Index out of range.')
             PC += 1
         elif (operadorList[PC] == 'endProcedure'):
             #Regresar a donde se quedamo
             PC = save_PC
         elif (operadorList[PC] == 'output'):
-            print(opA_list[PC]*(-1)) if opA_list[PC] < 1 else print(values_table[opA_list[PC]-1])
+            if (opA_list[PC] < 1):
+                print(opA_list[PC]*(-1))
+            elif (int(opA_list[PC]) >= 1 and int(opA_list[PC]) < 100): # es una variable
+                print(values_table[opA_list[PC]-1])
+            else: #es dimensionada
+                print(dim_values[temp_exe[int(opA_list[PC])-300]])
             PC += 1
         elif (operadorList[PC] == 'input'):
             #op A es el index de la variable
@@ -464,7 +477,6 @@ def execution():
             PC += 1
         #else:
             #print('entra aqui')
-        print('pcfin', PC)
-        print(operadorList[PC])
+        #print('PC', PC)
         #print(temp_exe)
         #print_table()

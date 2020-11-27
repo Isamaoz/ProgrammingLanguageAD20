@@ -1,0 +1,34 @@
+START
+  DECLARATION
+    VECTOR vec 10;
+    INT dim,it;
+  ENDECLARATION
+
+  MODULE imprimir BEGIN
+    FOR (it IN dim) BEGIN
+      OUTPUT vec[it];
+    END
+  END
+
+  MODULE sort BEGIN
+
+  END
+
+  MODULE llenar BEGIN
+    FOR (x IN dim) BEGIN
+      INPUT llenado;
+      vec[x] = llenado;
+    END
+  END
+
+
+  MAIN BEGIN
+    it = 0;
+    INPUT dim;
+    IF (dim <= 10) BEGIN
+      CALL llenar;
+      CALL sort;
+    END
+    CALL imprimir;
+  END
+FINISH

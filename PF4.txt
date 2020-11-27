@@ -1,0 +1,53 @@
+START
+  DECLARATION
+    INT it,val,x,y,z, acum;
+    CUBE mat 2 2 2;
+  ENDECLARATION
+
+  MODULE llenar BEGIN
+    x = 0;
+    FOR (x IN 2) BEGIN
+      y = 0;
+      FOR (y IN 2) BEGIN
+        z = 0;
+        FOR (z IN 2) BEGIN
+          INPUT val;
+          mat[x][y][z] = val;
+        END
+      END
+    END
+  END
+
+  MODULE modificar BEGIN
+    x = 0;
+    FOR (x IN 2) BEGIN
+      y = 0;
+      FOR (y IN 2) BEGIN
+        z = 0;
+        FOR (z IN 2) BEGIN
+          mat[x][y][z] = mat[x][y][z] * 2;
+        END
+      END
+    END
+  END
+
+  MODULE imprimir BEGIN
+    x = 0;
+    FOR (x IN 2) BEGIN
+      y = 0;
+      FOR (y IN 2) BEGIN
+        z = 0;
+        FOR (z IN 2) BEGIN
+          OUTPUT mat[x][y][z];
+        END
+      END
+    END
+  END
+
+  MAIN BEGIN
+    acum = 0;
+    CALL llenar;
+    CALL modificar;
+    CALL imprimir;
+  END
+FINISH

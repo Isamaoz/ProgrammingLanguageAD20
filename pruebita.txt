@@ -1,15 +1,23 @@
 START
   DECLARATION
-    FLOAT num,temp;
-    INT f,yas;
-    CUBE damn 3 4 5;
-    MATRIX y 8 7;
-    VECTOR x 5;
+    INT x,y,z,val;
+    CUBE mat 3 3 3;
   ENDECLARATION
   MAIN BEGIN
-    f = 1;
-    x[3] = 9*10;
-    temp = x[3];
-    OUTPUT temp;
+  x = 0;
+  FOR (x IN 2) BEGIN
+    y = 0;
+    FOR (y IN 2) BEGIN
+      z = 0;
+      FOR (z IN 2) BEGIN
+      OUTPUT x;
+      OUTPUT y;
+      OUTPUT z;
+      END
+      y = y + 1;
+    END
+    x = x + 1;
+  END
+
   END
 FINISH

@@ -5,6 +5,7 @@ import re
 from AnLexico import tokens
 from sys import stdin
 from codigoIntermedio import *
+from inspect import currentframe, getframeinfo
 #dim de variables dimensionadas
 #base
 
@@ -186,7 +187,6 @@ def p_Saritmetico(p):
      estatuto : pid ASSIGN E PUNTOYCOMA
      '''
      generaCuadruplo(p[2])
-     print(p[2])
 def p_id(p):
     '''
     pid : ID
@@ -280,44 +280,46 @@ def p_OP3(p):
      OP : FLOATNUMBER
      '''
      operandosList.append(float(p[1])*(-1))
-     print("aqui un float")
-     print(operandosList[len(operandosList)-1])
+     # print("aqui un float")
+     # print(operandosList[len(operandosList)-1])
 #Funciones que generan los cuadruplos
-def p_OPVector(p):
+def p_OPDim(p):
      '''
      OP : vec1
+        | mat1
+        | cub1
      '''
      #genera cuadruplo vector
-def p_OPVector(p):
+def p_OPVector1(p):
      '''
      vec1 : vec
      '''
+     #Genera cuadruplo verify
      operadorList.append('verify')
-     opA_list.append(operandosList[len(operandosList)-1])
-     idxid = obtainIndex(operandosList[len(operandosList)-2]) - 1
-     opB_list.append(0)
-     tempList.append(values_table[idxid][0]-1)
+     opA_list.append(operandosList[len(operandosList)-1]) #Agrega index a verificar
+     idxid = obtainIndex(operandosList[len(operandosList)-2]) - 1 #Obtiene el index para buscar en la tabla de simbolos
+     opB_list.append(0) # Entre 0 y -
+     tempList.append(values_table[idxid][0]-1) #Agrega el valor en la lista de valores
      dimensionadas_VECTOR()
-def p_OPVector1(p):
+def p_OPVector2(p):
      '''
      vec : ID LBRACKET NUMBER RBRACKET
         | ID LBRACKET ID RBRACKET
      '''
-     print_table()
+     #print_table()
      if (type_table[obtainIndex(p[1])-1] == 'VECTOR'):
          operandosList.append(p[1])
      else:
          raise Exception('This variable is not a vector')
      operandosList.append(p[3]*(-1)) if isinstance(p[3], int) else operandosList.append(obtainIndex(p[3]))
-def p_OPMatrix(p):
-     '''
-     OP : mat1
-     '''
+# def p_OPMatrix(p):
+#      '''
+#      OP : mat1
+#      '''
 def p_OPMatrix2(p):
      '''
      mat1 : mat
      '''
-     print('Llegan1', operandosList)
      operadorList.append('verify')
      operadorList.append('verify')
      opA_list.append(operandosList[len(operandosList)-1]) # Se agregan los dos numeros a revisar a la lista de operadores
@@ -327,7 +329,6 @@ def p_OPMatrix2(p):
      opB_list.append(0)
      tempList.append(values_table[idxid][0]-1)
      tempList.append(values_table[idxid][1]-1)
-     print('Salen', operandosList)
      dimensionadas_MATRIX()
 def p_OPMatrix1(p):
      '''
@@ -342,10 +343,10 @@ def p_OPMatrix1(p):
          raise Exception('This variable is not a matrix')
      operandosList.append(p[6]*(-1)) if isinstance(p[6], int) else operandosList.append(obtainIndex(p[6]))
      operandosList.append(p[3]*(-1)) if isinstance(p[3], int) else operandosList.append(obtainIndex(p[3]))
-def p_OPCube(p):
-     '''
-     OP : cub1
-     '''
+# def p_OPCube(p):
+#      '''
+#      OP : cub1
+#      '''
 def p_OPCube2(p):
      '''
      cub1 : cub
@@ -363,8 +364,8 @@ def p_OPCube2(p):
      tempList.append(values_table[idxid][0]-1)
      tempList.append(values_table[idxid][1]-1)
      tempList.append(values_table[idxid][2]-1)
-     print_cuadruplo()
-     print('Salen', operandosList)
+     #print_cuadruplo()
+     #print('Salen', operandosList)
      dimensionadas_CUBE()
 def p_OPCube1(p):
      '''
@@ -384,7 +385,7 @@ def p_OPCube1(p):
      operandosList.append(p[9]*(-1)) if isinstance(p[9], int) else operandosList.append(obtainIndex(p[9]))
      operandosList.append(p[6]*(-1)) if isinstance(p[6], int) else operandosList.append(obtainIndex(p[6]))
      operandosList.append(p[3]*(-1)) if isinstance(p[3], int) else operandosList.append(obtainIndex(p[3]))
-     print('antes de sacar el id222', operandosList)
+     #print('antes de sacar el id222', operandosList)
 def p_OP1(p):
      '''
      OP : ID
@@ -430,6 +431,7 @@ def p_expresion_for3(p):
      #meter ID en la lista de operandos
      #operador < index del id numero temp
      operandosList.append(obtainIndex(p[1]))
+     operandosList.append(obtainIndex(p[1]))
 def p_Swhile(p):
     '''
     estatuto : WHILE expresion BB stat END
@@ -469,7 +471,11 @@ def p_Sinput(p):
     '''
     generaCuadruploInput(obtainIndex(p[2]))
 def p_error(p):
-    print(p.lineno)
+    #print(p)
+    frameinfo = getframeinfo(currentframe())
+
+    #print("Nombre del archivo: {} - linea {}",(frameinfo.filename, frameinfo.lineno))
+    #print(p.lineno)
     if p == None:
         token = "end of file"
     else:
@@ -480,17 +486,14 @@ def p_error(p):
 
 #incluir test
 
-test = os.getcwd()+"\\pruebita.txt"
+test = os.getcwd()+"\\PF4.txt"
 fp = codecs.open(test,"r","utf-8")
 cadena = fp.read() #codigo fuente
 fp.close()
 parser = yacc.yacc('SLR') #
 result = parser.parse(cadena)
-print_table()
-#print(dim_values)
+#print_table()
 print_cuadruplo()
-#print(operandosList)
-#print(temp)
 execution()
 print_table()
 #NOTAAAA, LOS CUADRUPLOS SE ESTAN PARANDO EN LA ASIGNACION,

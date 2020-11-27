@@ -1,0 +1,29 @@
+START
+  DECLARATION
+    MATRIX mat1 5 5;
+    MATRIX mat2 5 5;
+    MATRIX res 5 5;
+    INT selec;
+  ENDECLARATION
+
+  MODULE imprimir BEGIN
+
+  END
+
+  MODULE llenar BEGIN
+
+  END
+
+
+  MAIN BEGIN
+    CALL llenar;
+    CALL imprimir;
+    INPUT selec;
+    IF (selec == 1) BEGIN
+    //multiplicar las 2 matrices y dejar el resultado en una tercera matrix
+    END
+    IF (selec == 2) BEGIN
+    // sumar las dos matrices y dejar el resultado en una tercera matrix
+    END
+  END
+FINISH
