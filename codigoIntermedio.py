@@ -66,14 +66,6 @@ def obtainIndex(x):
 
 def dimensionadas_VECTOR():
     x = operandosList.pop(len(operandosList)-2)
-    #print('GENERACION DE CUADRUPLOS:',operandosList) #Queda el index en la lista de cuadruplos
-    # operadorList.append('+')
-    # opA_list.append(operandosList.pop())
-    # opB_list.append(tempList[len(tempList)-1])
-    # tempList.append(temp.pop(0))
-    # operandosList.append(tempList[len(tempList)-1])
-    # temp.append(tempList[len(tempList)-1])
-
     #Sumar index con la base
     operadorList.append('+')
     opA_list.append(operandosList.pop())

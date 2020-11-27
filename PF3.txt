@@ -1,0 +1,68 @@
+START
+  DECLARATION
+    INT it,loop,select,x,y;
+    FLOAT temp1,temp2,acum;
+  ENDECLARATION
+
+  MODULE factorial BEGIN
+    INPUT x;
+    acum = 1;
+    it =1;
+    FOR (it IN x) BEGIN
+      acum = acum * (it+1);
+    END
+    OUTPUT acum;
+  END
+
+  MODULE power BEGIN
+    INPUT x;
+    INPUT y;
+    it = 1;
+    acum = x;
+    FOR (it IN y) BEGIN
+      acum = acum * x;
+    END
+    OUTPUT acum;
+  END
+
+  MODULE taylor BEGIN
+    #Sumatoria de taylor va desde 0 hasta 10
+    y = 1;
+    INPUT x;
+    acum = 0.0;
+    FOR (y IN 11) BEGIN
+      temp1=1.0;
+      temp2=0.0;
+      it = 0;
+      #Obtener x^y, si y=0 el resultado es 1
+      FOR (it IN y) BEGIN
+        temp1 = temp1 * x;
+      END
+      #Obtener factorial
+      temp2 = 1;
+      it = 0;
+      FOR (it IN y) BEGIN
+         temp2 = temp2 * (it+1);
+      END
+      acum = acum + (temp1/temp2);
+    END
+    OUTPUT acum;
+  END
+
+  MAIN BEGIN
+    DO
+      #Ingresar seleccion
+      INPUT select;
+      IF (select == 1) BEGIN
+        CALL factorial;
+      END
+      IF (select == 2) BEGIN
+        CALL power;
+      END
+      IF (select == 3) BEGIN
+        CALL taylor;
+      END
+      INPUT loop;
+    DWHILE(loop == 1)
+  END
+FINISH

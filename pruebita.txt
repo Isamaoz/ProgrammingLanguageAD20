@@ -4,6 +4,7 @@ START
   ENDECLARATION
   MAIN BEGIN
     INPUT x;
+    #holi
     IF (x <10) BEGIN
       OUTPUT x;
     END

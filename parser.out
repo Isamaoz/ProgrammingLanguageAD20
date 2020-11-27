@@ -1,16 +1,5 @@
 Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 
-Unused terminals:
-
-    DIFF
-    ESIGUAL
-    IFELSE
-    MAYORIGUAL
-    MAYORQUE
-    MENORIGUAL
-    MENORQUE
-    STRING
-
 Grammar
 
 Rule 0     S' -> program
@@ -117,21 +106,18 @@ CALL                 : 29
 COMA                 : 9
 CUBE                 : 14
 DECLARATION          : 3
-DIFF                 : 
 DIVIDE               : 43
 DO                   : 90
 DWHILE               : 91
 ELSE                 : 33
 END                  : 23 27 30 31 79 87
 ENDECLARATION        : 3
-ESIGUAL              : 
 FINISH               : 1
 FLOAT                : 11
 FLOATNUMBER          : 57 84
 FOR                  : 79
 ID                   : 8 9 15 16 17 20 29 35 62 63 63 65 66 66 67 67 67 68 68 70 71 71 72 72 73 73 73 74 74 75 75 75 76 76 76 77 77 77 77 78 85 86 93
 IF                   : 30 31
-IFELSE               : 
 IN                   : 81 82
 INPUT                : 93
 INT                  : 10
@@ -139,10 +125,6 @@ LBRACKET             : 62 63 65 65 66 66 67 67 68 68 70 70 70 71 71 71 72 72 72 
 LPAR                 : 46 47 54 54 81 82
 MAIN                 : 27
 MATRIX               : 13
-MAYORIGUAL           : 
-MAYORQUE             : 
-MENORIGUAL           : 
-MENORQUE             : 
 MINUS                : 40
 MODULE               : 18
 NOT                  : 49
@@ -155,7 +137,6 @@ RBRACKET             : 62 63 65 65 66 66 67 67 68 68 70 70 70 71 71 71 72 72 72 
 RELATIONAL           : 55
 RPAR                 : 46 47 81 82
 START                : 2
-STRING               : 
 TIMES                : 42
 VECTOR               : 12
 WHILE                : 87

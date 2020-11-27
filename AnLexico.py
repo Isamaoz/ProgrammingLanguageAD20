@@ -3,14 +3,13 @@ import ply.yacc as yacc
 import sys
 
 tokens = ['ID','NUMBER','FLOATNUMBER','PLUS','MINUS','DIVIDE','TIMES',
-        'PUNTOYCOMA','COMA','ASSIGN','MAYORQUE','MENORQUE',
-        'DIFF','ESIGUAL','MAYORIGUAL','MENORIGUAL','AND','NOT','OR',
+        'PUNTOYCOMA','COMA','ASSIGN','AND','NOT','OR',
         'LPAR','RPAR','RELATIONAL','LBRACKET','RBRACKET']
 
 reservadas = ['START','FINISH','DECLARATION','ENDECLARATION','MODULE',
-            'BEGIN','END','IF','IFELSE','FOR','DO','WHILE','DWHILE','ELSE',
-            'INT','VECTOR','MATRIX','CUBE','FLOAT',
-            'STRING','INPUT','OUTPUT','IN','MAIN','CALL']
+            'BEGIN','END','IF','FOR','DO','WHILE','DWHILE','ELSE',
+            'INT','VECTOR','MATRIX','CUBE','FLOAT','INPUT','OUTPUT',
+            'IN','MAIN','CALL']
 
 tokens = tokens+reservadas
 
